@@ -4,7 +4,9 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
+#include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Game.hpp>
+#include <CubbyTower/Components/Gold.hpp>
 
 namespace CubbyTower
 {
@@ -12,10 +14,12 @@ namespace Game
 {
 void Initialize(entt::registry& registry)
 {
-	// Player
-	{
-	    // ...
-	}
+    // Player
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::Player>(entity);
+        registry.emplace<Gold>(entity, 500);
+    }
 }
 }  // namespace Game
 }  // namespace CubbyTower
