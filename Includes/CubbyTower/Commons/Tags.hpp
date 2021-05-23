@@ -16,6 +16,7 @@ namespace Tag
 using namespace entt::literals;
 
 using Player = entt::tag<"player"_hs>;
+using Tower = entt::tag<"tower"_hs>;
 }  // namespace Tag
 }  // namespace CubbyTower
 
