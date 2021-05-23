@@ -22,6 +22,7 @@ void BuyArrowTower(entt::registry& registry)
     }
 
     auto entity = registry.create();
+    registry.emplace<Tag::Tower>(entity);
     registry.emplace<Name>(entity, "Arrow Tower Lv 1");
 }
 }  // namespace CubbyTower
