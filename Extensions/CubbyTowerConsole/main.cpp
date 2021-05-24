@@ -4,7 +4,7 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#include <CubbyTower/Game.hpp>
+#include <CubbyTower/Systems/Game.hpp>
 
 #include <entt/entt.hpp>
 

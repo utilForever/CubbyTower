@@ -5,8 +5,8 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Game.hpp>
 #include <CubbyTower/Components/Gold.hpp>
+#include <CubbyTower/Systems/Game.hpp>
 
 namespace CubbyTower
 {
