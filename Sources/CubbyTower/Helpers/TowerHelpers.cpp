@@ -7,6 +7,7 @@
 #include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Name.hpp>
+#include <CubbyTower/Components/Upgradable.hpp>
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 
@@ -24,5 +25,11 @@ void BuyArrowTower(entt::registry& registry)
     auto entity = registry.create();
     registry.emplace<Tag::Tower>(entity);
     registry.emplace<Name>(entity, "Arrow Tower Lv 1");
+}
+
+void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
+{
+    registry.replace<Name>(entity, "Arrow Tower Lv 2");
+    registry.remove<Upgradable>(entity);
 }
 }  // namespace CubbyTower
