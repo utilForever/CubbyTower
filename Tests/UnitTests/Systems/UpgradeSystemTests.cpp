@@ -14,6 +14,8 @@
 
 #include <entt/entt.hpp>
 
+#include <iostream>
+
 using namespace CubbyTower;
 
 TEST_CASE("[UpgradeSystem] - UpdateUpgradeSystem")
