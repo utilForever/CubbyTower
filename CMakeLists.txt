@@ -20,6 +20,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include_directories(Includes)
 include_directories(Libraries)
 include_directories(Libraries/doctest/doctest)
+include_directories(Libraries/entt/single_include)
 
 # Compile options
 include(CMake/CompileOptions.cmake)
@@ -36,6 +37,7 @@ set(CMAKE_MACOSX_RPATH ON)
 add_subdirectory(Libraries/doctest)
 add_subdirectory(Sources/CubbyTower)
 add_subdirectory(Tests/UnitTests)
+add_subdirectory(Extensions/CubbyTowerConsole)
 
 # Code coverage - Debug only
 # NOTE: Code coverage results with an optimized (non-Debug) build may be misleading
