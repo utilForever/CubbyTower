@@ -1,4 +1,4 @@
-﻿#
+#
 # 2012-01-31, Lars Bilke
 # - Enable Code Coverage
 #
