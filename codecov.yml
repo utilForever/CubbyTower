@@ -27,6 +27,7 @@ ignore:
 - "Medias/**/*"
 - "Resources/*"
 - "Scripts/*"
+- "Sources/CubbyTower/main.cpp"
 
 comment:
   layout: "header, diff, changes, uncovered"
