@@ -37,7 +37,6 @@ set(CMAKE_MACOSX_RPATH ON)
 add_subdirectory(Libraries/doctest)
 add_subdirectory(Sources/CubbyTower)
 add_subdirectory(Tests/UnitTests)
-add_subdirectory(Extensions/CubbyTowerConsole)
 
 # Code coverage - Debug only
 # NOTE: Code coverage results with an optimized (non-Debug) build may be misleading
