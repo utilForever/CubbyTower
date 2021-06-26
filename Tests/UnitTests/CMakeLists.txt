@@ -6,7 +6,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Sources
 file(GLOB_RECURSE sources
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../Sources/CubbyTower/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Sources/CubbyTower/Helpers/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../Sources/CubbyTower/Systems/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
 # Build executable
@@ -38,5 +39,4 @@ target_compile_definitions(${target}
 target_link_libraries(${target}
     PRIVATE
     ${DEFAULT_LINKER_OPTIONS}
-    CubbyTower
     doctest)
