@@ -24,8 +24,12 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
-    - name: Install packages
-      run: sudo apt-get install -yq lcov
+    - name: Install Packages
+      run: |
+        sudo apt-get install -yq lcov
+        sudo apt-get install -yq xorg-dev libglu1-mesa-dev
+        sudo apt-get install -yq libxrandr-dev libxi-dev libxxf86vm-dev libxinerama-dev libxcursor-dev
+        sudo apt-get install -yq libopenal-dev libvorbis-dev libflac-dev libudev-dev
     - name: Configure Compiler
       run: |
         if [ "${{ matrix.compiler }}" = "gcc" ]; then
