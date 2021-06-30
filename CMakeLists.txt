@@ -21,6 +21,7 @@ include_directories(Includes)
 include_directories(Libraries)
 include_directories(Libraries/doctest/doctest)
 include_directories(Libraries/entt/single_include)
+include_directories(Libraries/SFML/include)
 
 # Compile options
 include(CMake/CompileOptions.cmake)
@@ -35,6 +36,7 @@ set(CMAKE_MACOSX_RPATH ON)
 
 # Project modules
 add_subdirectory(Libraries/doctest)
+add_subdirectory(Libraries/SFML)
 add_subdirectory(Sources/CubbyTower)
 add_subdirectory(Tests/UnitTests)
 

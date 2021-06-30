@@ -54,6 +54,13 @@ jobs:
         # Prefix the list here with "+" to use these queries and those in the config file.
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
 
+    # Install packages.
+    - name: Install packages
+      run: |
+        sudo apt-get install -yq xorg-dev libglu1-mesa-dev
+        sudo apt-get install -yq libxrandr-dev libxi-dev libxxf86vm-dev libxinerama-dev libxcursor-dev
+        sudo apt-get install -yq libopenal-dev libvorbis-dev libflac-dev libudev-dev
+
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
     - name: Autobuild

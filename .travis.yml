@@ -10,6 +10,9 @@ addons:
 
 script:
   # Install packages
+  - sudo apt-get install -yq xorg-dev libglu1-mesa-dev
+  - sudo apt-get install -yq libxrandr-dev libxi-dev libxxf86vm-dev libxinerama-dev libxcursor-dev
+  - sudo apt-get install -yq libopenal-dev libvorbis-dev libflac-dev libudev-dev
   - sudo apt-get install -yq gcovr ggcov lcov curl
   # Configure build
   - mkdir build

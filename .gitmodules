@@ -4,3 +4,6 @@
 [submodule "Libraries/entt"]
 	path = Libraries/entt
 	url = https://github.com/skypjack/entt
+[submodule "Libraries/SFML"]
+	path = Libraries/SFML
+	url = https://github.com/SFML/SFML

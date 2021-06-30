@@ -4,6 +4,9 @@ set(target CubbyTower)
 # Define
 set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 
+link_directories(${SFML_LIBRARIES_PATH})
+set(SFML_LIBRARY_DEPENDENCIES sfml-audio sfml-graphics sfml-network sfml-system sfml-window)
+
 # Includes
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -41,6 +44,8 @@ target_compile_options(${target}
 
 target_link_libraries(${target}
     PRIVATE
+    ${SFML_LIBRARY_DEPENDENCIES}
+    ${SFML_OPENAL_DEPENDENCIES}
 
     PUBLIC
     ${DEFAULT_LINKER_OPTIONS}

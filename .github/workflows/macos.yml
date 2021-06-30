@@ -21,16 +21,6 @@ jobs:
             os: macos-10.15
             compiler: xcode
             version: "12.2"
-          # macOS 10.15 + gcc-9
-          - name: "macOS 10.15 + gcc-9"
-            os: macos-10.15
-            compiler: gcc
-            version: "9"
-          # macOS 10.15 + gcc-10
-          - name: "macOS 10.15 + gcc-10"
-            os: macos-10.15
-            compiler: gcc
-            version: "10"
 
     runs-on: ${{ matrix.os }}
     name: ${{ matrix.name }}
@@ -39,6 +29,9 @@ jobs:
     - uses: actions/checkout@v1
       with:
         submodules: true
+    - name: Install Packages
+      run: |
+        brew install openal-soft
     - name: Configure Compiler
       run: |
         if [ "${{ matrix.compiler }}" = "gcc" ]; then
