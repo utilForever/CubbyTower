@@ -9,6 +9,17 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-venv \
     python3-setuptools \
+    xorg-dev \
+    libglu1-mesa-dev \
+    libxrandr-dev \
+    libxi-dev \
+    libxxf86vm-dev \
+    libxinerama-dev \
+    libxcursor-dev \
+    libopenal-dev \
+    libvorbis-dev \
+    libflac-dev \
+    libudev-dev \
     cmake \
     --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
