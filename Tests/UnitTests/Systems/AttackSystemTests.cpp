@@ -20,9 +20,9 @@
 
 using namespace CubbyTower;
 
-TEST_CASE("[AttackSystem] - Attackable")
+TEST_CASE("[AttackSystem] - Attack")
 {
-    //Testing only Attack functions return right way
+    //Testing only Attack functions running right way
     //Todo : Real attack
 
     entt::registry registry;
