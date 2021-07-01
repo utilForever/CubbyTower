@@ -8,6 +8,7 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Name.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
+#include <CubbyTower/Components/Targeter.hpp>
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 
@@ -27,6 +28,7 @@ void BuyArrowTower(entt::registry& registry)
     registry.emplace<Name>(entity, "Arrow Tower Lv 1");
     registry.emplace<Upgradable>(entity, ARROW_TOWER_LV2_PRICE,
                                  UpgradeArrowTowerLv2);
+    registry.emplace<Targeter>(entity, 0b110);
 }
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
