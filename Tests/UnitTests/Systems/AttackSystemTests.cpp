@@ -33,7 +33,6 @@ TEST_CASE("[AttackSystem] - Attackable")
 
     BuyArrowTower(registry);
 
-    
     auto enemy1 = registry.create();
     registry.emplace<Tag::Enemy>(enemy1);
     registry.emplace<Type>(enemy1, 0b010); //type : ground
@@ -41,7 +40,6 @@ TEST_CASE("[AttackSystem] - Attackable")
     auto enemy2 = registry.create();
     registry.emplace<Tag::Enemy>(enemy2);
     registry.emplace<Type>(enemy2, 0b011); //type : ground & stealth
-
 
     auto enemyView = registry.view<Tag::Enemy, Type>();
     for (auto [enemyEntity, type] : enemyView.each())
@@ -52,8 +50,6 @@ TEST_CASE("[AttackSystem] - Attackable")
         if(type.type == 0b011)
             CHECK_EQ(Attack(registry, registry.view<Tag::Tower>()[0], enemyEntity), false);
     }
-
     
     CHECK_EQ(Attack(registry, registry.view<Tag::Tower>()[0], registry.view<Tag::Tower>()[0]), false);
-    
 }
