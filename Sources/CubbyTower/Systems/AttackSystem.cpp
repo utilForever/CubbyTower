@@ -5,27 +5,28 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/Targeter.hpp>
-#include <CubbyTower/Components/Type.hpp>
+#include <CubbyTower/Components/TargetMask.hpp>
+#include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
+#include<iostream>
 
 namespace CubbyTower
 {
-bool Attack(entt::registry& registry, entt::entity tower, entt::entity enemy)
+void Attack(entt::registry& registry)
 {
-    if (registry.all_of<Targeter>(tower) && registry.all_of<Type>(enemy))
+    for (auto tower : registry.view<TargetMask>())
     {
-        const auto targeter = registry.get<Targeter>(tower).targeter;
-        const auto type = registry.get<Type>(enemy).type;
-
-        if((targeter&type) == type)
+        for (auto enemy : registry.view<TypeMask>())
         {
-            // Attack!!
-            // Todo...
-            return true;
+            const auto targetMask = registry.get<TargetMask>(tower).targetMask;
+            const auto typeMask = registry.get<TypeMask>(enemy).typeMask;
+
+            if ((targetMask & typeMask) == typeMask)
+            {
+                // Attack!!
+                // Todo...
+            }
         }
-        return false;
     }
-    return false;
 }
 }  // namespace CubbyTower

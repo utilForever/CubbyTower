@@ -11,12 +11,10 @@
 
 namespace CubbyTower
 {
-//! \p tower attacks the \p enemy if enemy is attakable
-//! return true if attackable, otherwise return false
+
+//! This function called every frame and handles all attacks in game.
 //! \param registry A registry that handles entities.
-//! \param tower The tower entity.
-//! \param enemy The enemy entity.
-bool Attack(entt::registry& registry, entt::entity tower, entt::entity enemy);
+void Attack(entt::registry& registry);
     
 }  // namespace CubbyTower
 

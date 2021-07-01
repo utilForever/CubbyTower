@@ -4,21 +4,22 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TYPE_HPP
-#define CUBBYTOWER_TYPE_HPP
+#ifndef CUBBYTOWER_TARGETMASK_HPP
+#define CUBBYTOWER_TARGETMASK_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief STATE struct.
+//! \brief TargetMask struct.
 //!
-//! This struct stores whether the enemy's type is air/ground/stealth.
-//! 100 : Air, 010 : ground, 001 : stealth
+//! This struct stores whether the tower/bullet can attack the target.
+//! 1 bit means attakable
+//! 1<<2 : Air, 1<<1 : ground, 1 : stealth
 //!
-struct Type
+struct TargetMask
 {
-    int type;
+    int targetMask;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TYPE_HPP
+#endif  // CUBBYTOWER_TARGETMASK_HPP
