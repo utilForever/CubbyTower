@@ -4,21 +4,18 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TAGS_HPP
-#define CUBBYTOWER_TAGS_HPP
+#ifndef CUBBYTOWER_ATTACK_SYSTEM_HPP
+#define CUBBYTOWER_ATTACK_SYSTEM_HPP
 
 #include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-namespace Tag
-{
-using namespace entt::literals;
 
-using Player = entt::tag<"player"_hs>;
-using Tower = entt::tag<"tower"_hs>;
-using Enemy = entt::tag<"enemy"_hs>;
-}  // namespace Tag
+//! This function called every frame and handles all attacks in game.
+//! \param registry A registry that handles entities.
+void Attack(entt::registry& registry);
+    
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TAGS_HPP
+#endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP

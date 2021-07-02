@@ -4,21 +4,21 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TAGS_HPP
-#define CUBBYTOWER_TAGS_HPP
-
-#include <entt/entt.hpp>
+#ifndef CUBBYTOWER_TYPEMASK_HPP
+#define CUBBYTOWER_TYPEMASK_HPP
 
 namespace CubbyTower
 {
-namespace Tag
+//!
+//! \brief TypeMask struct.
+//!
+//! This struct stores whether the entity's type is air/ground/stealth.
+//! 1<<2 : Air, 1<<1 : ground, 1 : stealth
+//!
+struct TypeMask
 {
-using namespace entt::literals;
-
-using Player = entt::tag<"player"_hs>;
-using Tower = entt::tag<"tower"_hs>;
-using Enemy = entt::tag<"enemy"_hs>;
-}  // namespace Tag
+    int typeMask;
+};
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TAGS_HPP
+#endif  // CUBBYTOWER_TYPEMASK_HPP
