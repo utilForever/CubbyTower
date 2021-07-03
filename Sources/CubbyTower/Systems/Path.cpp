@@ -18,8 +18,8 @@ void Path(entt::registry& registry)
     {
         auto &pos = view.get<Position>(enemy);
         auto &dis = view.get<Distance>(enemy);
-        pos.x = dis.s 
-        pos.y = 300.0 //Simple line in the middle
+        pos.x = dis.s;
+        pos.y = 300.0; //Simple line in the middle
     }
 }
 }  // namespace CubbyTower
