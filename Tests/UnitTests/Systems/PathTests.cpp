@@ -26,10 +26,10 @@ TEST_CASE("[Path] - Path")
     registry.emplace<Position>(enemy , 0.0, 0.0);
     registry.emplace<Distance>(enemy , 5.0);
     Path(registry);
-    for (auto [enemy, Positon] : view.each())
+    for (auto [enemy, pos] : view.each())
     {
-        CHECK_EQ(Position.x, 5.0);
-        CHECK_EQ(Position.y, 300.0);
+        CHECK_EQ(pos.x, 5.0);
+        CHECK_EQ(pos.y, 300.0);
     }
 
 
