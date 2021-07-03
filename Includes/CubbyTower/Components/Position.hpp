@@ -7,8 +7,6 @@
 #ifndef CUBBYTOWER_POSITION_HPP
 #define CUBBYTOWER_POSITION_HPP
 
-#include <string>
-
 namespace CubbyTower
 {
 //!
@@ -18,8 +16,8 @@ namespace CubbyTower
 //!
 struct Position 
 {
-    int x;
-    int y;
+    float x;
+    float y;
 };
 }  // namespace CubbyTower
 

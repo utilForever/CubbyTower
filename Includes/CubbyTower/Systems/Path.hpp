@@ -4,20 +4,18 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_DISTANCE_HPP
-#define CUBBYTOWER_DISTANCE_HPP
+#ifndef CUBBYTOWER_PATH_HPP
+#define CUBBYTOWER_PATH_HPP
+
+#include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-//!
-//! \brief Distance struct.
-//!
-//! This struct stores the distance a monster has traveled.
-//!
-struct Distance
-{
-    float s;
-};
+
+//! This function called every frame and gives enemies' position using distance
+//! \param registry A registry that handles entities.
+void Path(entt::registry& registry);
+    
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_DISTANCE_HPP
+#endif  // CUBBYTOWER_PATH_HPP
