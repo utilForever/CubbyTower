@@ -24,7 +24,7 @@ TEST_CASE("[Path] - Path")
     auto enemy = registry.create();
     registry.emplace<Tag::Enemy>(enemy);
     registry.emplace<Position>(enemy , 0.0, 0.0);
-    registry.empalce<Distance>(enemy , 5.0);
+    registry.emplace<Distance>(enemy , 5.0);
     Path(registry);
     for (auto [enemy, Positon] : view.each())
     {
