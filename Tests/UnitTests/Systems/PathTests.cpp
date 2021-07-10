@@ -21,10 +21,10 @@ TEST_CASE("[PathSystem] - UpdatePathSystem")
 
     auto enemy1 = registry.create();
     registry.emplace<Tag::Enemy>(enemy1);
-    registry.emplace<Position>(enemy1 , 0.0, 0.0);
-    registry.emplace<Distance>(enemy1 , 5.0);
+    registry.emplace<Position>(enemy1, 0.0, 0.0);
+    registry.emplace<Distance>(enemy1, 5.0);
     Path::UpdatePathSystem(registry);
-    for (auto [enemy, pos] : registry.view<Tag::Enemy , Position>().each())
+    for (auto [enemy, pos] : registry.view<Tag::Enemy, Position>().each())
     {
         CHECK_EQ(pos.x, 5.0);
         CHECK_EQ(pos.y, 300.0);

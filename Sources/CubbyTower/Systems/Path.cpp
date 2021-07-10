@@ -13,11 +13,11 @@ namespace CubbyTower::Path
 {
 void UpdatePathSystem(entt::registry& registry)
 {
-    auto view = registry.view<Distance,Position>(); 
+    auto view = registry.view<Distance, Position>(); 
     for (auto enemy : view)
     {
-        auto &pos = view.get<Position>(enemy);
-        auto &dis = view.get<Distance>(enemy);
+        auto& pos = view.get<Position>(enemy);
+        auto& dist = view.get<Distance>(enemy);
         pos.x = dist.distance;
         pos.y = 300.0; //Simple line in the middle
     }
