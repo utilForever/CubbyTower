@@ -31,9 +31,4 @@ TEST_CASE("[Path] - Path")
         CHECK_EQ(pos.x, 5.0);
         CHECK_EQ(pos.y, 300.0);
     }
-
-
-
-
-
 }
