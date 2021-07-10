@@ -9,12 +9,12 @@
 
 #include <entt/entt.hpp>
 
-namespace CubbyTower
+namespace CubbyTower::Path
 {
 
 //! This function called every frame and gives enemies' position using distance
 //! \param registry A registry that handles entities.
-void Path(entt::registry& registry);
+void UpdatePathSystem(entt::registry& registry);
     
 }  // namespace CubbyTower
 

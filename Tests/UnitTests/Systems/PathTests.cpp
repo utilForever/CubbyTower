@@ -9,13 +9,13 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/Distance.hpp>
-#include <CubbyTower/Systems/Path.hpp>
+#include <CubbyTower/Systems/PathSystem.hpp>
 
 #include <entt/entt.hpp>
 
 using namespace CubbyTower;
 
-TEST_CASE("[Path] - Path")
+TEST_CASE("[PathSystem] - UpdatePathSystem")
 {
     //Testing if position is changing as distance changes
 
@@ -25,7 +25,7 @@ TEST_CASE("[Path] - Path")
     registry.emplace<Tag::Enemy>(enemy1);
     registry.emplace<Position>(enemy1 , 0.0, 0.0);
     registry.emplace<Distance>(enemy1 , 5.0);
-    Path(registry);
+    Path::UpdatePathSystem(registry);
     for (auto [enemy, pos] : registry.view<Tag::Enemy , Position>().each())
     {
         CHECK_EQ(pos.x, 5.0);

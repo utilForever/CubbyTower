@@ -7,11 +7,11 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/Distance.hpp>
-#include <CubbyTower/Systems/Path.hpp>
+#include <CubbyTower/Systems/PathSystem.hpp>
 
-namespace CubbyTower
+namespace CubbyTower::Path
 {
-void Path(entt::registry& registry)
+void UpdatePathSystem(entt::registry& registry)
 {
     auto view = registry.view<Distance,Position>(); 
     for (auto enemy : view)
