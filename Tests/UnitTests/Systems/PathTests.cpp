@@ -17,8 +17,6 @@ using namespace CubbyTower;
 
 TEST_CASE("[PathSystem] - UpdatePathSystem")
 {
-    //Testing if position is changing as distance changes
-
     entt::registry registry;
 
     auto enemy1 = registry.create();
