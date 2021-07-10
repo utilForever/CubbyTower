@@ -21,10 +21,10 @@ TEST_CASE("[Path] - Path")
 
     entt::registry registry;
 
-    auto enemy = registry.create();
-    registry.emplace<Tag::Enemy>(enemy);
-    registry.emplace<Position>(enemy , 0.0, 0.0);
-    registry.emplace<Distance>(enemy , 5.0);
+    auto enemy1 = registry.create();
+    registry.emplace<Tag::Enemy>(enemy1);
+    registry.emplace<Position>(enemy1 , 0.0, 0.0);
+    registry.emplace<Distance>(enemy1 , 5.0);
     Path(registry);
     for (auto [enemy, pos] : registry.view<Tag::Enemy , Position>().each())
     {
