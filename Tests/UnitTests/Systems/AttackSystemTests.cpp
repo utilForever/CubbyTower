@@ -65,15 +65,15 @@ TEST_CASE("[AttackSystem] - Attack")
     {
         if (mask.typeMask == 0b011)
         {
-            CHECK_EQ(hp.healthPoint, 2);
+            CHECK_EQ(hp.hp, 2);
         }
         else if (dist.distance == 250)
         {
-            CHECK_EQ(hp.healthPoint, 1);
+            CHECK_EQ(hp.hp, 1);
         }
         else if (dist.distance == 100)
         {
-            CHECK_EQ(hp.healthPoint, 2);
+            CHECK_EQ(hp.hp, 2);
         }
     }
 }

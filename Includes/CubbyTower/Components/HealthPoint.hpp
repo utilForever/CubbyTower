@@ -16,7 +16,7 @@ namespace CubbyTower
 //!
 struct HealthPoint
 {
-    int healthPoint;
+    int hp;
 };
 }  // namespace CubbyTower
 

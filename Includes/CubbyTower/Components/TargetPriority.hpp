@@ -22,7 +22,7 @@ namespace CubbyTower
 struct TargetPriority
 {
     string priority = 2;
-    std::function<void(entt::registry&, entt::entity)> Upgrade;
+    std::function<void(std::vector<entt::entity>)> Targeter;
 };
 }  // namespace CubbyTower
 

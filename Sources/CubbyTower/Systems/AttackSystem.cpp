@@ -40,8 +40,8 @@ void Attack(entt::registry& registry)
             {
                 // Todo : Consider the target priority, make a projectile
                 //simple attack test
-                auto& hp = registry.get<HealthPoint>(enemy);
-                hp.healthPoint -= damage;
+                auto& healthPoint = registry.get<HealthPoint>(enemy);
+                healthPoint.hp -= damage;
             }
         }
     }
