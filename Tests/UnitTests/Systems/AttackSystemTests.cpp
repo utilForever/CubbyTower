@@ -39,7 +39,7 @@ TEST_CASE("[AttackSystem] - Attack")
     auto enemy1 = registry.create();
     registry.emplace<Tag::Enemy>(enemy1);
     registry.emplace<HealthPoint>(enemy1, 2);
-    registry.emplace<TypeMask>(enemy1, 0b010); //type : ground
+    registry.emplace<TypeMask>(enemy1, 0b010); // Type: ground
     registry.emplace<Position>(enemy1, 0.0, 0.0);
     registry.emplace<Distance>(enemy1, 250.0);
 
