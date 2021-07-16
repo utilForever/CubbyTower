@@ -23,7 +23,7 @@ namespace CubbyTower
 //!
 struct TargetPriority
 {
-    string priority = 2;
+    int priority = 2;
     std::function<void(std::vector<entt::entity>)> Targeter;
 };
 }  // namespace CubbyTower
