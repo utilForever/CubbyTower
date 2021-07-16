@@ -8,8 +8,9 @@
 #define CUBBYTOWER_TARGET_PRIORITY_HPP
 
 #include <entt/entt.hpp>
-
 #include <functional>
+#include <vector>
+
 
 namespace CubbyTower
 {
@@ -17,7 +18,8 @@ namespace CubbyTower
 //! \brief TargetPriority struct.
 //!
 //! This struct stores the type of priority and finding target function.
-//! priority : 1 => minimum distance, 2 => maximum distance, 3 => maximum healthPoint
+//! priority : 1 => minimum distance, 2 => maximum distance, 3 => maximum
+//! healthPoint
 //!
 struct TargetPriority
 {
