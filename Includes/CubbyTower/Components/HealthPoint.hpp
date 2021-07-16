@@ -4,20 +4,20 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_HEALTH_POINT_HPP
-#define CUBBYTOWER_HEALTH_POINT_HPP
+#ifndef CUBBYTOWER_HEALTH_HPP
+#define CUBBYTOWER_HEALTH_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Health Point struct
+//! \brief Health struct.
 //!
-//! This struct stores the entity's hp.
+//! This struct stores the health of the entity.
 //!
-struct HealthPoint
+struct Health
 {
-    int hp;
+    int health;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_HEALTH_POINT_HPP
+#endif  // CUBBYTOWER_HEALTH_HPP
