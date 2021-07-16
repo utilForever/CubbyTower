@@ -22,8 +22,8 @@ void Attack(entt::registry& registry)
     {
         for (auto enemy : registry.view<Tag::Enemy>())
         {
-            const auto tPosition = registry.get<Position>(tower);
-            const auto ePosition = registry.get<Position>(enemy);
+            const auto towerPos = registry.get<Position>(tower);
+            const auto enemyPos = registry.get<Position>(enemy);
             const auto attackRange = registry.get<AttackRange>(tower).attackRange;
 
             if ((tPosition.x - ePosition.x) * (tPosition.x - ePosition.x) + (tPosition.y - ePosition.y) * (tPosition.y - ePosition.y) > attackRange * attackRange)
