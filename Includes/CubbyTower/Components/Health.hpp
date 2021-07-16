@@ -4,22 +4,20 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TARGET_MASK_HPP
-#define CUBBYTOWER_TARGET_MASK_HPP
+#ifndef CUBBYTOWER_HEALTH_HPP
+#define CUBBYTOWER_HEALTH_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief TargetMask struct.
+//! \brief Health struct.
 //!
-//! This struct stores whether the tower/bullet can attack the target.
-//! 1 bit means attakable
-//! 1<<2 : Air, 1<<1 : ground, 1 : stealth
+//! This struct stores the health of the entity.
 //!
-struct TargetMask
+struct Health
 {
-    int targetMask;
+    int health;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TARGET_MASK_HPP
+#endif  // CUBBYTOWER_HEALTH_HPP
