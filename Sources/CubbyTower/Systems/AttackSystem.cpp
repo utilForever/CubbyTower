@@ -38,10 +38,10 @@ void Attack(entt::registry& registry)
 
             if ((targetMask & typeMask) == typeMask)
             {
-                // Todo : Consider the target priority, make a projectile
-                //simple attack test
-                auto& healthPoint = registry.get<HealthPoint>(enemy);
-                healthPoint.hp -= damage;
+                // TODO: Consider the target priority, make a projectile
+                // Simple attack test
+                auto& health = registry.get<HealthPoint>(enemy);
+                health.health -= damage;
             }
         }
     }
