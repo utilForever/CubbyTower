@@ -28,14 +28,15 @@ TEST_CASE("[MonsterHelpers] - Make several monsters")
     {
         auto view = registry.view<Tag::Enemy>();
         CHECK_EQ(view.size(), 1);
-        for (auto enemy : view)
+        // multi-type view do not know the number of items
+    }
+    {
+        auto view = registry.view<Tag::Enemy, Health, TypeMask, Distance>();
+        for (auto [enemy, health, type, dist] : view.each())
         {
-            auto health = view.get<Health>(enemy);
-            auto type = view.get<TypeMask>(enemy);
-            auto dist = view.get<Distance>(enemy);
             CHECK_EQ(health.health, 10);
-            CHECK_EQ(dist.distance, 0);
-            CHECK_EQ(type.typeMask, 0b000);
+            CHECK_EQ(type.typeMask, 0b010);
+            CHECK_EQ(dist.distance, 0.0);
         }
     }
 }
