@@ -8,6 +8,7 @@
 #define CUBBYTOWER_TOWER_HELPERS_HPP
 
 #include <entt/entt.hpp>
+#include <optional>
 
 namespace CubbyTower
 {
@@ -23,8 +24,8 @@ void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity);
 //! Return the maxim distance enemy
 //! \param registry A registry that handles entities.
 //! \param attackable A collection of attackable entities.
-entt::entity MaxDistanceTargeter(entt::registry& registry,
-                                 std::vector<entt::entity> attackable);
+std::optional<entt::entity> MaxDistanceTargeter(
+    entt::registry& registry, std::vector<entt::entity> attackable);
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_TOWER_HELPERS_HPP

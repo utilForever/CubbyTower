@@ -45,16 +45,16 @@ void Attack(entt::registry& registry)
                 attackable.push_back(enemy);
             }
         }
-        if (attackable.empty())
+        const auto& priority = registry.get<TargetPriority>(tower);
+        auto enemy = priority.Targeter(registry, attackable);
+
+        if (enemy == std::nullopt)
         {
             continue;
         }
-        const auto& priority = registry.get<TargetPriority>(tower);
-        entt::entity enemy = priority.Targeter(registry, attackable);
-
         // Simple attack test
         // TODO: make a projectile
-        auto& health = registry.get<Health>(enemy);
+        auto& health = registry.get<Health>(*enemy);
         const int damage = registry.get<Damage>(tower).damage;
         health.health -= damage;
     }

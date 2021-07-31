@@ -17,6 +17,8 @@
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 
+#include <optional>
+
 namespace CubbyTower
 {
 void BuyArrowTower(entt::registry& registry, double x, double y)
@@ -46,9 +48,13 @@ void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
     registry.remove<Upgradable>(entity);
 }
 
-entt::entity MaxDistanceTargeter(entt::registry& registry,
-                                 std::vector<entt::entity> attackable)
+std::optional<entt::entity> MaxDistanceTargeter(
+    entt::registry& registry, std::vector<entt::entity> attackable)
 {
+    if (attackable.empty())
+    {
+        return std::nullopt;
+    }
     entt::entity target = attackable[0];
     for (int i = 1; i < (int)attackable.size(); i++)
     {

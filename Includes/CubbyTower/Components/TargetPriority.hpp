@@ -9,7 +9,9 @@
 
 #include <entt/entt.hpp>
 #include <functional>
+#include <optional>
 #include <vector>
+
 
 namespace CubbyTower
 {
@@ -23,7 +25,8 @@ namespace CubbyTower
 struct TargetPriority
 {
     int priority;
-    std::function<entt::entity(entt::registry&, std::vector<entt::entity>)>
+    std::function<std::optional<entt::entity>(entt::registry&,
+                                              std::vector<entt::entity>)>
         Targeter;
 };
 }  // namespace CubbyTower
