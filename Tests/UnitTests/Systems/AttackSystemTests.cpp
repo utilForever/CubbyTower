@@ -42,14 +42,14 @@ TEST_CASE("[AttackSystem] - Attack")
     registry.emplace<Health>(enemy1, 3);
     registry.emplace<TypeMask>(enemy1, 0b010);  // Type: ground
     registry.emplace<Position>(enemy1, 0.0, 0.0);
-    registry.emplace<Distance>(enemy1, 250.0);
+    registry.emplace<Distance>(enemy1, 300.0);
 
     auto enemy2 = registry.create();
     registry.emplace<Tag::Enemy>(enemy2);
     registry.emplace<Health>(enemy2, 3);
     registry.emplace<TypeMask>(enemy2, 0b010);  // Type: ground
     registry.emplace<Position>(enemy2, 0.0, 0.0);
-    registry.emplace<Distance>(enemy2, 300.0);  // go further than enemy1
+    registry.emplace<Distance>(enemy2, 250.0);  // go further than enemy1
 
     auto enemy3 = registry.create();
     registry.emplace<Tag::Enemy>(enemy3);
