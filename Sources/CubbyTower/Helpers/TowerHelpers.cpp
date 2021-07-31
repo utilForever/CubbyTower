@@ -50,7 +50,7 @@ entt::entity MaxDistanceTargeter(entt::registry& registry,
                                  std::vector<entt::entity> attackable)
 {
     entt::entity target = attackable[0];
-    for (int i = 1; i < attackable.size(); i++)
+    for (int i = 1; i < (int)attackable.size(); i++)
     {
         double pre = registry.get<Distance>(target).distance;
         double cur = registry.get<Distance>(attackable[i]).distance;
