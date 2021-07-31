@@ -4,21 +4,19 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TOWER_HELPERS_HPP
-#define CUBBYTOWER_TOWER_HELPERS_HPP
+#ifndef CUBBYTOWER_MONSTER_HELPERS_HPP
+#define CUBBYTOWER_MONSTER_HELPERS_HPP
 
 #include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-//! Buys a arrow tower.
+//! Creates a Monster
 //! \param registry A registry that handles entities.
-void BuyArrowTower(entt::registry& registry);
+//! \param health The health of a monster that will be created
+//! \param targetmask A mask that contains the type of a monster
+void CreateMonster(entt::registry& registry, int health, int targetmask);
 
-//! Upgrades a arrow tower to level 2.
-//! \param registry A registry that handles entities.
-//! \param entity A arrow tower entity to upgrade.
-void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity);
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TOWER_HELPERS_HPP
+#endif  // CUBBYTOWER_MONSTER_HELPERS_HPP
