@@ -46,16 +46,23 @@ TEST_CASE("[AttackSystem] - Attack")
     auto enemy2 = registry.create();
     registry.emplace<Tag::Enemy>(enemy2);
     registry.emplace<Health>(enemy2, 2);
-    registry.emplace<TypeMask>(enemy2, 0b011);  // Type: ground & stealth
+    registry.emplace<TypeMask>(enemy2, 0b010);  // Type: ground
     registry.emplace<Position>(enemy2, 0.0, 0.0);
-    registry.emplace<Distance>(enemy2, 350.0);
+    registry.emplace<Distance>(enemy2, 300.0);  // go further than enemy1
 
     auto enemy3 = registry.create();
     registry.emplace<Tag::Enemy>(enemy3);
     registry.emplace<Health>(enemy3, 2);
-    registry.emplace<TypeMask>(enemy3, 0b010);  // Type: ground
+    registry.emplace<TypeMask>(enemy3, 0b011);  // Type: ground & stealth
     registry.emplace<Position>(enemy3, 0.0, 0.0);
-    registry.emplace<Distance>(enemy3, 100.0);
+    registry.emplace<Distance>(enemy3, 350.0);
+
+    auto enemy4 = registry.create();
+    registry.emplace<Tag::Enemy>(enemy4);
+    registry.emplace<Health>(enemy4, 2);
+    registry.emplace<TypeMask>(enemy4, 0b010);  // Type: ground
+    registry.emplace<Position>(enemy4, 0.0, 0.0);
+    registry.emplace<Distance>(enemy4, 100.0);
 
     Path::UpdatePathSystem(registry);
 
@@ -69,6 +76,10 @@ TEST_CASE("[AttackSystem] - Attack")
             CHECK_EQ(hp.health, 2);
         }
         else if (dist.distance == 250)
+        {
+            CHECK_EQ(hp.health, 2);
+        }
+        else if (dist.distance == 300)
         {
             CHECK_EQ(hp.health, 1);
         }

@@ -11,7 +11,6 @@
 #include <functional>
 #include <vector>
 
-
 namespace CubbyTower
 {
 //!
@@ -23,8 +22,9 @@ namespace CubbyTower
 //!
 struct TargetPriority
 {
-    int priority = 2;
-    std::function<void(std::vector<entt::entity>)> Targeter;
+    int priority;
+    std::function<entt::entity(entt::registry&, std::vector<entt::entity>)>
+        Targeter;
 };
 }  // namespace CubbyTower
 
