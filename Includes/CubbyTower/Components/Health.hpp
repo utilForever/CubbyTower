@@ -7,8 +7,6 @@
 #ifndef CUBBYTOWER_HEALTH_HPP
 #define CUBBYTOWER_HEALTH_HPP
 
-#include <string>
-
 namespace CubbyTower
 {
 //!
