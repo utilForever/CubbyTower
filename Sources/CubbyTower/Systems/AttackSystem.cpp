@@ -37,8 +37,6 @@ void Attack(entt::registry& registry)
                 continue;
             }
 
-            const int damage = registry.get<Damage>(tower).damage;
-
             const int targetMask = registry.get<TargetMask>(tower).targetMask;
             const int typeMask = registry.get<TypeMask>(enemy).typeMask;
 
