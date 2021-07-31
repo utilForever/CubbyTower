@@ -4,24 +4,23 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#include <CubbyTower/Components/Gold.hpp>
-#include <CubbyTower/Helpers/GoldHelpers.hpp>
+#include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Components/Distance.hpp>
+#include <CubbyTower/Components/Health.hpp>
+#include <CubbyTower/Components/Position.hpp>
+#include <CubbyTower/Components/TypeMask.hpp>
+#include <CubbyTower/Helpers/MonsterHelpers.hpp>
+#include <CubbyTower/Systems/PathSystem.hpp>
 
 namespace CubbyTower
 {
-bool Withdraw(entt::registry& registry, entt::entity from, int amount)
+void CreateMonster(entt::registry& registry, int health, int typemask)
 {
-    if (!registry.all_of<Gold>(from))
-    {
-        return false;
-    }
-
-    if (auto& gold = registry.get<Gold>(from); gold.amount >= amount)
-    {
-        gold.amount -= amount;
-        return true;
-    }
-
-    return false;
+    auto entity = registry.create();
+    registry.emplace<Tag::Enemy>(entity);
+    registry.emplace<TypeMask>(entity, typemask);
+    registry.emplace<Health>(entity, health);
+    registry.emplace<Position>(entity, 0.0, 0.0);
+    registry.emplace<Distance>(entity, 0.0);
 }
 }  // namespace CubbyTower
