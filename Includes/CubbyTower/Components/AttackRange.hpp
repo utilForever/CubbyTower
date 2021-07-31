@@ -4,20 +4,20 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_HEALTH_HPP
-#define CUBBYTOWER_HEALTH_HPP
+#ifndef CUBBYTOWER_ATTACK_RANGE_HPP
+#define CUBBYTOWER_ATTACK_RANGE_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Health struct.
+//! \brief AttackRange struct.
 //!
-//! This struct stores the health of the monster.
+//! This struct stores the attack range of the tower.
 //!
-struct Health
+struct AttackRange
 {
-    int health;
+    double attackRange;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_HEALTH_HPP
+#endif  // CUBBYTOWER_ATTACK_RANGE_HPP

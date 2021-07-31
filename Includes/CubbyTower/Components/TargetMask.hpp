@@ -4,8 +4,8 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TARGETMASK_HPP
-#define CUBBYTOWER_TARGETMASK_HPP
+#ifndef CUBBYTOWER_TARGET_MASK_HPP
+#define CUBBYTOWER_TARGET_MASK_HPP
 
 namespace CubbyTower
 {
@@ -22,4 +22,4 @@ struct TargetMask
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TARGETMASK_HPP
+#endif  // CUBBYTOWER_TARGET_MASK_HPP
