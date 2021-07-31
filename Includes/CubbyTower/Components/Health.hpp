@@ -16,9 +16,9 @@ namespace CubbyTower
 //!
 //! This struct stores the health of the monster.
 //!
-struct Name
+struct Health
 {
-    std::string name;
+    int health;
 };
 }  // namespace CubbyTower
 
