@@ -9,6 +9,7 @@
 
 #include <entt/entt.hpp>
 #include <functional>
+#include <optional>
 #include <vector>
 
 
@@ -17,14 +18,15 @@ namespace CubbyTower
 //!
 //! \brief TargetPriority struct.
 //!
-//! This struct stores the type of priority and finding target function.
-//! priority : 1 => minimum distance, 2 => maximum distance, 3 => maximum
-//! healthPoint
+//! This struct stores the type of priority and finding target function
+//! priority : 1 => first enemy, 2 => last enemy, 3 => maximum health
 //!
 struct TargetPriority
 {
-    int priority = 2;
-    std::function<void(std::vector<entt::entity>)> Targeter;
+    int priority;
+    std::function<std::optional<entt::entity>(entt::registry&,
+                                              std::vector<entt::entity>)>
+        Targeter;
 };
 }  // namespace CubbyTower
 

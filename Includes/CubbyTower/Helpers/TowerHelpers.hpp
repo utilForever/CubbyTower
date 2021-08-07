@@ -8,6 +8,7 @@
 #define CUBBYTOWER_TOWER_HELPERS_HPP
 
 #include <entt/entt.hpp>
+#include <optional>
 
 namespace CubbyTower
 {
@@ -19,6 +20,12 @@ void BuyArrowTower(entt::registry& registry, double x, double y);
 //! \param registry A registry that handles entities.
 //! \param entity A arrow tower entity to upgrade.
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity);
+
+//! Return the first enemy
+//! \param registry A registry that handles entities.
+//! \param attackable A collection of attackable entities.
+std::optional<entt::entity> FirstEnemyTargeter(
+    entt::registry& registry, std::vector<entt::entity> attackable);
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_TOWER_HELPERS_HPP
