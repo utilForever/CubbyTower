@@ -10,15 +10,14 @@
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
-#include <CubbyTower/Systems/PathSystem.hpp>
 
 namespace CubbyTower
 {
-void CreateMonster(entt::registry& registry, int health, int typemask)
+void CreateMonster(entt::registry& registry, int health, int typeMask)
 {
     auto entity = registry.create();
     registry.emplace<Tag::Enemy>(entity);
-    registry.emplace<TypeMask>(entity, typemask);
+    registry.emplace<TypeMask>(entity, typeMask);
     registry.emplace<Health>(entity, health);
     registry.emplace<Position>(entity, 0.0, 0.0);
     registry.emplace<Distance>(entity, 0.0);
