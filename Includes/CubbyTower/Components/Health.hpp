@@ -12,7 +12,7 @@ namespace CubbyTower
 //!
 //! \brief Health struct.
 //!
-//! This struct stores the health of the entity.
+//! This struct stores the health of the monster.
 //!
 struct Health
 {
