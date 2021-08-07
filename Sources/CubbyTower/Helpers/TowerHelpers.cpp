@@ -36,7 +36,7 @@ void BuyArrowTower(entt::registry& registry, double x, double y)
     registry.emplace<Upgradable>(entity, ARROW_TOWER_LV2_PRICE,
                                  UpgradeArrowTowerLv2);
     registry.emplace<TargetMask>(entity, 0b110);
-    registry.emplace<TargetPriority>(entity, 2, MaxDistanceTargeter);
+    registry.emplace<TargetPriority>(entity, 2, FirstEnemyTargeter);
     registry.emplace<Damage>(entity, 1);
     registry.emplace<AttackRange>(entity, 100.0);
     registry.emplace<Position>(entity, x, y);
@@ -48,7 +48,7 @@ void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
     registry.remove<Upgradable>(entity);
 }
 
-std::optional<entt::entity> MaxDistanceTargeter(
+std::optional<entt::entity> FirstEnemyTargeter(
     entt::registry& registry, std::vector<entt::entity> attackable)
 {
     if (attackable.empty())

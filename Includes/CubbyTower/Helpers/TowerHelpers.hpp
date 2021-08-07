@@ -21,10 +21,10 @@ void BuyArrowTower(entt::registry& registry, double x, double y);
 //! \param entity A arrow tower entity to upgrade.
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity);
 
-//! Return the maxim distance enemy
+//! Return the first enemy
 //! \param registry A registry that handles entities.
 //! \param attackable A collection of attackable entities.
-std::optional<entt::entity> MaxDistanceTargeter(
+std::optional<entt::entity> FirstEnemyTargeter(
     entt::registry& registry, std::vector<entt::entity> attackable);
 }  // namespace CubbyTower
 

@@ -18,9 +18,8 @@ namespace CubbyTower
 //!
 //! \brief TargetPriority struct.
 //!
-//! This struct stores the type of priority and finding target function.
-//! priority : 1 => minimum distance, 2 => maximum distance, 3 => maximum
-//! healthPoint
+//! This struct stores the type of priority and finding target function
+//! priority : 1 => first enemy, 2 => last enemy, 3 => maximum health
 //!
 struct TargetPriority
 {
