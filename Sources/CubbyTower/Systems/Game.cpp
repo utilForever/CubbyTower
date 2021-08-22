@@ -6,6 +6,7 @@
 
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
+#include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 
 namespace CubbyTower
@@ -19,6 +20,15 @@ void Initialize(entt::registry& registry)
         auto entity = registry.create();
         registry.emplace<Tag::Player>(entity);
         registry.emplace<Gold>(entity, 500);
+    }
+
+    // Inputs
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::Inputs>(entity);
+
+        Inputs inputs;
+        registry.emplace<Inputs>(entity, inputs);
     }
 }
 }  // namespace Game
