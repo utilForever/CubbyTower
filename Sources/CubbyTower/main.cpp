@@ -4,14 +4,24 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
+#include <CubbyTower/Systems/Game.hpp>
+
+#include <entt/entt.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Window.hpp>
 
+using namespace CubbyTower;
+
 int main()
 {
+    // Create SFML window
     sf::Window window;
     window.create(sf::VideoMode(800, 600), "Cubby Tower",
                   sf::Style::Titlebar | sf::Style::Close);
+
+    // Create registry and initialize the game
+    entt::registry registry;
+    Game::Initialize(registry);
 
     sf::Event newEvent;
     while (window.isOpen())
