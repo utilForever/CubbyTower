@@ -4,11 +4,12 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
+#include <CubbyTower/Helpers/InputHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 
-#include <entt/entt.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Window.hpp>
+#include <entt/entt.hpp>
 
 using namespace CubbyTower;
 
@@ -32,6 +33,11 @@ int main()
             if (newEvent.type == sf::Event::Closed)
             {
                 window.close();
+            }
+            else if (newEvent.type == sf::Event::MouseButtonPressed)
+            {
+                Input::OnMouseButtonPressed(registry,
+                                            newEvent.mouseButton.button);
             }
         }
 
