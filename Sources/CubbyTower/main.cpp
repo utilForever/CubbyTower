@@ -39,6 +39,11 @@ int main()
                 Input::OnMouseButtonPressed(registry,
                                             newEvent.mouseButton.button);
             }
+            else if (newEvent.type == sf::Event::MouseButtonReleased)
+            {
+                Input::OnMouseButtonReleased(registry,
+                                             newEvent.mouseButton.button);
+            }
         }
 
         window.display();
