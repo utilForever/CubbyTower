@@ -9,6 +9,7 @@
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
+#include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 
 namespace CubbyTower
@@ -37,6 +38,12 @@ void Initialize(entt::registry& registry)
     {
         auto entity = registry.create();
         registry.emplace<Tag::HUDs>(entity);
+
+        UI::CreateTowerButton(
+            registry, "Arrow Tower", { -1, 16.5f }, ARROW_TOWER_LV1_PRICE,
+            [](entt::registry& registry, entt::entity button) {
+                BuyArrowTower(registry, 0, 0);
+            });
     }
 }
 }  // namespace Game
