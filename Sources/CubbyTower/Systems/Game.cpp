@@ -4,9 +4,11 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
+#include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
+#include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 
 namespace CubbyTower
@@ -29,6 +31,12 @@ void Initialize(entt::registry& registry)
 
         Inputs inputs;
         registry.emplace<Inputs>(entity, inputs);
+    }
+
+    // HUDs
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::HUDs>(entity);
     }
 }
 }  // namespace Game
