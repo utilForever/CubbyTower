@@ -16,6 +16,11 @@ namespace CubbyTower::Input
 //! \param registry A registry that handles entities.
 //! \param button The state of the mouse.
 void OnMouseButtonPressed(entt::registry& registry, sf::Mouse::Button button);
+
+//! Handles mouse button released event.
+//! \param registry A registry that handles entities.
+//! \param button The state of the mouse.
+void OnMouseButtonReleased(entt::registry& registry, sf::Mouse::Button button);
 }  // namespace CubbyTower::Input
 
 #endif  // CUBBYTOWER_INPUT_HELPERS_HPP

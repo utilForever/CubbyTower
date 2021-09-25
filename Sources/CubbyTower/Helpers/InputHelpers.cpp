@@ -23,4 +23,18 @@ void OnMouseButtonPressed(entt::registry& registry, sf::Mouse::Button button)
         inputs.rightButton = true;
     }
 }
+
+void OnMouseButtonReleased(entt::registry& registry, sf::Mouse::Button button)
+{
+    auto& inputs = registry.get<Inputs>(registry.view<Tag::Inputs>()[0]);
+
+    if (button == sf::Mouse::Button::Left)
+    {
+        inputs.leftButton = false;
+    }
+    else if (button == sf::Mouse::Button::Right)
+    {
+        inputs.rightButton = false;
+    }
+}
 }  // namespace CubbyTower::Input
