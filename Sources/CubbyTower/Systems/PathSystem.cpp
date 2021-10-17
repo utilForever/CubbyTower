@@ -4,7 +4,6 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/Distance.hpp>
 #include <CubbyTower/Systems/PathSystem.hpp>
