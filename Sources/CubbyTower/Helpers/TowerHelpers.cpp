@@ -21,7 +21,7 @@
 
 namespace CubbyTower
 {
-void BuyArrowTower(entt::registry& registry, double x, double y)
+void BuyArrowTower(entt::registry& registry, float x, float y)
 {
     // Check the player can buy arrow tower
     if (!Withdraw(registry, registry.view<Tag::Player>()[0],

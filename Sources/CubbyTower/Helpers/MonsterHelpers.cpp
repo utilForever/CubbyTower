@@ -19,7 +19,7 @@ void CreateMonster(entt::registry& registry, int health, int typeMask)
     registry.emplace<Tag::Enemy>(entity);
     registry.emplace<TypeMask>(entity, typeMask);
     registry.emplace<Health>(entity, health);
-    registry.emplace<Position>(entity, 0.0, 0.0);
-    registry.emplace<Distance>(entity, 0.0);
+    registry.emplace<Position>(entity, 0.0f, 0.0f);
+    registry.emplace<Distance>(entity, 0.0f);
 }
 }  // namespace CubbyTower
