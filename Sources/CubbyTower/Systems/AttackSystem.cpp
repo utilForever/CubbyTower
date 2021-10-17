@@ -21,7 +21,7 @@ void Attack(entt::registry& registry)
     for (auto tower : registry.view<Tag::Tower>())
     {
         std::vector<entt::entity> attackable;
-        
+
         for (auto enemy : registry.view<Tag::Enemy>())
         {
             const auto towerPos = registry.get<Position>(tower);
@@ -44,7 +44,7 @@ void Attack(entt::registry& registry)
                 attackable.push_back(enemy);
             }
         }
-        
+
         const auto& priority = registry.get<TargetPriority>(tower);
         auto enemy = priority.Targeter(registry, attackable);
 
@@ -52,7 +52,7 @@ void Attack(entt::registry& registry)
         {
             continue;
         }
-        
+
         // Simple attack test
         // TODO: make a projectile
         auto& health = registry.get<Health>(*enemy);
