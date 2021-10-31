@@ -6,7 +6,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Sources
 file(GLOB_RECURSE sources
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/gl3w.c)
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gl3w.cpp)
 
 # Build library
 add_library(${target} STATIC ${sources})
