@@ -61,7 +61,8 @@ int main()
             }
         }
 
-        (void)deltaTime;
+        Game::Update(registry, deltaTime);
+        Game::Render(registry);
 
         window.display();
     }
