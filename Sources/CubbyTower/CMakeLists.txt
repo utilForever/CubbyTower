@@ -47,6 +47,8 @@ target_link_libraries(${target}
     ${SFML_LIBRARY_DEPENDENCIES}
     ${SFML_OPENAL_DEPENDENCIES}
     gl3w
+    OpenGL::GL
+    ${CMAKE_DL_LIBS}
 
     PUBLIC
     ${DEFAULT_LINKER_OPTIONS}

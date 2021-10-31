@@ -40,4 +40,6 @@ target_link_libraries(${target}
     PRIVATE
     ${DEFAULT_LINKER_OPTIONS}
     doctest
-    gl3w)
+    gl3w
+    OpenGL::GL
+    ${CMAKE_DL_LIBS})
