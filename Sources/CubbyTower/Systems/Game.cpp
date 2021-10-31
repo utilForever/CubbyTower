@@ -12,9 +12,7 @@
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 
-namespace CubbyTower
-{
-namespace Game
+namespace CubbyTower::Game
 {
 void Initialize(entt::registry& registry)
 {
@@ -46,5 +44,10 @@ void Initialize(entt::registry& registry)
             });
     }
 }
-}  // namespace Game
-}  // namespace CubbyTower
+
+void Update(entt::registry& registry, float deltaTime)
+{
+    (void)registry;
+    (void)deltaTime;
+}
+}  // namespace CubbyTower::Game

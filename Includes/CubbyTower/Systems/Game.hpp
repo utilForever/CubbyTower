@@ -9,14 +9,16 @@
 
 #include <entt/entt.hpp>
 
-namespace CubbyTower
-{
-namespace Game
+namespace CubbyTower::Game
 {
 //! Initializes entities that are needed to the game.
 //! \param registry A registry that handles entities.
 void Initialize(entt::registry& registry);
-}
-}  // namespace CubbyTower
+
+//! Updates game system according to delta time.
+//! \param registry A registry that handles entities.
+//! \param deltaTime The delta time relation to hardware responsiveness.
+void Update(entt::registry& registry, float deltaTime);
+}  // namespace CubbyTower::Game
 
 #endif  // CUBBYTOWER_GAME_HPP
