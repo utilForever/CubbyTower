@@ -46,6 +46,7 @@ target_link_libraries(${target}
     PRIVATE
     ${SFML_LIBRARY_DEPENDENCIES}
     ${SFML_OPENAL_DEPENDENCIES}
+    gl3w
 
     PUBLIC
     ${DEFAULT_LINKER_OPTIONS}
