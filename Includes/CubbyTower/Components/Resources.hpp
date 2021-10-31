@@ -7,6 +7,8 @@
 #ifndef CUBBYTOWER_RESOURCES_HPP
 #define CUBBYTOWER_RESOURCES_HPP
 
+#include <GL/gl3w.h>
+
 namespace CubbyTower
 {
 struct VertexPC;
@@ -18,6 +20,7 @@ struct VertexPC;
 //!
 struct Resources
 {
+    GLuint vertexBuffer;
     VertexPC* pcVertices;
 };
 }  // namespace CubbyTower
