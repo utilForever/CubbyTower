@@ -37,6 +37,7 @@ set(CMAKE_MACOSX_RPATH ON)
 
 # Project modules
 add_subdirectory(Libraries/doctest)
+add_subdirectory(Libraries/gl3w)
 add_subdirectory(Libraries/SFML)
 add_subdirectory(Sources/CubbyTower)
 add_subdirectory(Tests/UnitTests)
