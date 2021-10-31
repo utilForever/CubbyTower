@@ -28,5 +28,11 @@ void UpdateShapeRenderSystem(entt::registry& registry)
             vertices += shapeRenderer.DrawShape(vertices, position, size.width,
                                                 size.height, color);
         });
+
+    if (const auto count = vertices - resources.pcVertices; count)
+    {
+        Rendering::DrawLines(registry, resources.pcVertices,
+                             static_cast<int>(count));
+    }
 }
 }  // namespace CubbyTower
