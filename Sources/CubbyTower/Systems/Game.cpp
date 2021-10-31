@@ -11,6 +11,7 @@
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
+#include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 
 namespace CubbyTower::Game
 {
@@ -49,5 +50,10 @@ void Update(entt::registry& registry, float deltaTime)
 {
     (void)registry;
     (void)deltaTime;
+}
+
+void Render(entt::registry& registry)
+{
+    UpdateShapeRenderSystem(registry);
 }
 }  // namespace CubbyTower::Game
