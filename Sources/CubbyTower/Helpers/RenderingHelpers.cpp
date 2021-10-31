@@ -25,4 +25,9 @@ static void DrawPC(entt::registry& registry, const VertexPC* vertices,
                           (float*)(uintptr_t)(8));
     glDrawArrays(mode, 0, count);
 }
+
+void DrawLines(entt::registry& registry, const VertexPC* vertices, int count)
+{
+    DrawPC(registry, vertices, count, GL_LINES);
+}
 }  // namespace CubbyTower::Rendering

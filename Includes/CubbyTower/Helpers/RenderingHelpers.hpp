@@ -10,6 +10,9 @@
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Position.hpp>
 
+#include <entt/entt.hpp>
+#include <GL/gl3w.h>
+
 namespace CubbyTower
 {
 struct VertexPC
@@ -17,6 +20,15 @@ struct VertexPC
     Position position;
     Color color;
 };
+
+namespace Rendering
+{
+// Draw lines for Position + Color rendering.
+//! \param registry A registry that handles entities.
+//! \param vertices A pointer indicates a list of vertices.
+//! \param count The number of vertices.
+void DrawLines(entt::registry& registry, const VertexPC* vertices, int count);
+}
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_RENDERING_HELPERS_HPP
