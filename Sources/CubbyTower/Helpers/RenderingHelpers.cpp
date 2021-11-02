@@ -10,6 +10,18 @@
 
 namespace CubbyTower::Rendering
 {
+void PrepareForPC(entt::registry& registry)
+{
+    const Resources& resources =
+        registry.get<Resources>(registry.view<Tag::Resources>()[0]);
+
+    glDisable(GL_TEXTURE_2D);
+    glUseProgram(resources.programPC);
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glDisableVertexAttribArray(2);
+}
+
 static void DrawPC(entt::registry& registry, const VertexPC* vertices,
                    int count, GLenum mode)
 {

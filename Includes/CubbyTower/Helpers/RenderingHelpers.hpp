@@ -23,6 +23,10 @@ struct VertexPC
 
 namespace Rendering
 {
+//! Prepare the rendering pipeline for Position + Color rendering.
+//! \param registry A registry that handles entities.
+void PrepareForPC(entt::registry& registry);
+
 // Draw lines for Position + Color rendering.
 //! \param registry A registry that handles entities.
 //! \param vertices A pointer indicates a list of vertices.
