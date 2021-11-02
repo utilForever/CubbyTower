@@ -20,6 +20,7 @@ struct VertexPC;
 //!
 struct Resources
 {
+    GLuint programPC;
     GLuint vertexBuffer;
     VertexPC* pcVertices;
 };
