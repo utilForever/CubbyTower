@@ -4,6 +4,7 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
+#include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
@@ -20,6 +21,38 @@ void SetTransform(entt::registry& registry, const float* matrix)
         const auto uniform = glGetUniformLocation(resources.programPC, "ProjMtx");
         glUniformMatrix4fv(uniform, 1, GL_FALSE, matrix);
     }
+}
+
+void BeginFrame(entt::registry& registry)
+{
+    constexpr float L = 0;
+    constexpr float R = WIDTH;
+    constexpr float T = 0;
+    constexpr float B = HEIGHT;
+    constexpr float S = 2.0f * ZOOM;
+    constexpr float X = MAP_WIDTH / 2.0f * ZOOM / WIDTH;
+    constexpr float Y = MAP_HEIGHT / 2.0f * ZOOM / HEIGHT / 4;
+
+    constexpr GLfloat orthoProjection[4][4] = {
+        { S / (R - L), 0.0f, 0.0f, 0.0f },
+        { 0.0f, S / (T - B), 0.0f, 0.0f },
+        { 0.0f, 0.0f, -1.0f, 0.0f },
+        { (R + L) / (L - R) + X, (B + T) / (B - T) - Y, 0.0f, 1.0f },
+    };
+
+    SetTransform(registry, &orthoProjection[0][0]);
+
+    glViewport(0, 0, WIDTH, HEIGHT);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0, 0, 0, 1);
+
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_CULL_FACE);
+    glDisable(GL_SCISSOR_TEST);
+    glDisable(GL_DEPTH_TEST);
+    glDepthMask(GL_FALSE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void PrepareForPC(entt::registry& registry)
