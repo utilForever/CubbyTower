@@ -9,6 +9,13 @@
 
 namespace CubbyTower
 {
+constexpr static int WIDTH = 800;
+constexpr static int HEIGHT = 600;
+constexpr static float ZOOM = 32;
+
+constexpr static int MAP_WIDTH = 16;
+constexpr static int MAP_HEIGHT = 16;
+
 //! The price of arrow tower at level 1.
 constexpr static int ARROW_TOWER_LV1_PRICE = 100;
 
