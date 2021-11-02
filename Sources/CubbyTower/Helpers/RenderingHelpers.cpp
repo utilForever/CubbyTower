@@ -10,6 +10,18 @@
 
 namespace CubbyTower::Rendering
 {
+void SetTransform(entt::registry& registry, const float* matrix)
+{
+    const Resources& resources =
+        registry.get<Resources>(registry.view<Tag::Resources>()[0]);
+
+    {
+        glUseProgram(resources.programPC);
+        const auto uniform = glGetUniformLocation(resources.programPC, "ProjMtx");
+        glUniformMatrix4fv(uniform, 1, GL_FALSE, matrix);
+    }
+}
+
 void PrepareForPC(entt::registry& registry)
 {
     const Resources& resources =
