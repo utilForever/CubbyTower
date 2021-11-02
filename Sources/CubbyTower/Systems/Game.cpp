@@ -55,6 +55,8 @@ void Update(entt::registry& registry, float deltaTime)
 
 void Render(entt::registry& registry)
 {
+    Rendering::BeginFrame(registry);
+
     Rendering::PrepareForPC(registry);
     UpdateShapeRenderSystem(registry);
 }
