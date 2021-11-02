@@ -8,6 +8,7 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
+#include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
@@ -54,6 +55,7 @@ void Update(entt::registry& registry, float deltaTime)
 
 void Render(entt::registry& registry)
 {
+    Rendering::PrepareForPC(registry);
     UpdateShapeRenderSystem(registry);
 }
 }  // namespace CubbyTower::Game
