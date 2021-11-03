@@ -7,6 +7,7 @@
 #include <CubbyTower/Helpers/InputHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 
+#include <GL/gl3w.h>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Window.hpp>
 #include <entt/entt.hpp>
@@ -24,6 +25,9 @@ int main()
     window.create(sf::VideoMode(800, 600), "Cubby Tower",
                   sf::Style::Titlebar | sf::Style::Close);
 
+    // Init OpenGL
+    gl3wInit();
+
     // Create registry and initialize the game
     entt::registry registry;
     Game::Initialize(registry);
@@ -31,7 +35,9 @@ int main()
     sf::Event newEvent{};
     auto lastTime = high_resolution_clock::now();
 
-    while (window.isOpen())
+    bool running = true;
+
+    while (running)
     {
         // Calculate delta time
         auto now = high_resolution_clock::now();
@@ -47,7 +53,7 @@ int main()
             // Close windows
             if (newEvent.type == sf::Event::Closed)
             {
-                window.close();
+                running = false;
             }
             else if (newEvent.type == sf::Event::MouseButtonPressed)
             {
