@@ -8,12 +8,12 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
+#include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
-#include <CubbyTower/Components/Resources.hpp>
 
 namespace CubbyTower::Game
 {
@@ -25,8 +25,8 @@ void Initialize(entt::registry& registry)
         registry.emplace<Tag::Resources>(entity);
 
         Resources resources;
-        resources.programPC =
-            Rendering::CreateProgram(PC_VERT, PC_FRAG, { "Position", "Color" });
+        resources.programPC = Rendering::CreateProgram(
+            PC_VERT.c_str(), PC_FRAG.c_str(), { "Position", "Color" });
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
         resources.pcVertices = new VertexPC[MAX_VERTICES];
         registry.emplace<Resources>(entity, resources);

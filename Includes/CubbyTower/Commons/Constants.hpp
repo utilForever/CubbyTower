@@ -7,6 +7,8 @@
 #ifndef CUBBYTOWER_CONSTANTS_HPP
 #define CUBBYTOWER_CONSTANTS_HPP
 
+#include <string>
+
 namespace CubbyTower
 {
 constexpr static int WIDTH = 800;
@@ -18,7 +20,7 @@ constexpr static int MAP_HEIGHT = 16;
 
 constexpr static int MAX_VERTICES = 100000; 
 
-const static char* PC_VERT =
+const std::string PC_VERT =
     "uniform mat4 ProjMtx;                                  \
      attribute vec2 Position;                               \
      attribute vec4 Color;                                  \
@@ -28,7 +30,7 @@ const static char* PC_VERT =
          Frag_Color = Color;                                \
          gl_Position = ProjMtx * vec4(Position.xy, 0, 1);   \
      }";
-const static char* PC_FRAG =
+const std::string PC_FRAG =
     "varying vec4 Frag_Color;                               \
      void main()                                            \
      {                                                      \
