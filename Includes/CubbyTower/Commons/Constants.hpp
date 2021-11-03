@@ -16,6 +16,8 @@ constexpr static float ZOOM = 32;
 constexpr static int MAP_WIDTH = 16;
 constexpr static int MAP_HEIGHT = 16;
 
+constexpr static int MAX_VERTICES = 100000; 
+
 const static char* PC_VERT =
     "uniform mat4 ProjMtx;                                  \
      attribute vec2 Position;                               \
