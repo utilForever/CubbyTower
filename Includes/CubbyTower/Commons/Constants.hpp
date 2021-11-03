@@ -16,6 +16,23 @@ constexpr static float ZOOM = 32;
 constexpr static int MAP_WIDTH = 16;
 constexpr static int MAP_HEIGHT = 16;
 
+const static char* PC_VERT =
+    "uniform mat4 ProjMtx;                                  \
+     attribute vec2 Position;                               \
+     attribute vec4 Color;                                  \
+     varying vec4 Frag_Color;                               \
+     void main()                                            \
+     {                                                      \
+         Frag_Color = Color;                                \
+         gl_Position = ProjMtx * vec4(Position.xy, 0, 1);   \
+     }";
+const static char* PC_FRAG =
+    "varying vec4 Frag_Color;                               \
+     void main()                                            \
+     {                                                      \
+         gl_FragColor = Frag_Color;                         \
+     }";
+
 //! The price of arrow tower at level 1.
 constexpr static int ARROW_TOWER_LV1_PRICE = 100;
 
