@@ -9,6 +9,21 @@
 #include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 
+static void CheckShader(GLuint handle)
+{
+    GLint result;
+    glGetShaderiv(handle, GL_COMPILE_STATUS, &result);
+
+    if (result == GL_FALSE)
+    {
+        GLchar infoLog[1024];
+        glGetShaderInfoLog(handle, 1023, nullptr, infoLog);
+
+        printf("Shader compile failed: %s\n", infoLog);
+        assert(false);
+    }
+}
+
 namespace CubbyTower::Rendering
 {
 void SetTransform(entt::registry& registry, const float* matrix)
