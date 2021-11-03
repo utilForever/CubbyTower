@@ -13,11 +13,25 @@
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/Game.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
+#include <CubbyTower/Components/Resources.hpp>
 
 namespace CubbyTower::Game
 {
 void Initialize(entt::registry& registry)
 {
+    // Load resources
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::Resources>(entity);
+
+        Resources resources;
+        resources.programPC =
+            Rendering::CreateProgram(PC_VERT, PC_FRAG, { "Position", "Color" });
+        resources.vertexBuffer = Rendering::CreateVertexBuffer();
+        resources.pcVertices = new VertexPC[MAX_VERTICES];
+        registry.emplace<Resources>(entity, resources);
+    }
+
     // Player
     {
         auto entity = registry.create();
