@@ -5,7 +5,7 @@
 // property of any third parties.
 
 #include <CubbyTower/Helpers/InputHelpers.hpp>
-#include <CubbyTower/Systems/Game.hpp>
+#include <CubbyTower/Game.hpp>
 
 #include <GL/gl3w.h>
 #include <SFML/Window/Event.hpp>

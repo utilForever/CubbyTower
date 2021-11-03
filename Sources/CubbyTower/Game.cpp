@@ -9,10 +9,10 @@
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/Resources.hpp>
+#include <CubbyTower/Game.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
-#include <CubbyTower/Systems/Game.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 
 namespace CubbyTower::Game
