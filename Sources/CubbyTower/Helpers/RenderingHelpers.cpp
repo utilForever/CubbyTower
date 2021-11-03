@@ -59,6 +59,14 @@ GLuint CreateProgram(const GLchar* vertex, const GLchar* fragment,
     return program;
 }
 
+GLuint CreateVertexBuffer()
+{
+    GLuint handle;
+    glGenBuffers(1, &handle);
+
+    return handle;
+}
+
 void SetTransform(entt::registry& registry, const float* matrix)
 {
     const Resources& resources =

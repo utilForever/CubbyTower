@@ -31,6 +31,10 @@ namespace Rendering
 GLuint CreateProgram(const GLchar* vertex, const GLchar* fragment,
                      const std::vector<const char*>& attributes);
 
+//! Create an empty vertex buffer.
+//! \return The handle of generated vertex buffer.
+GLuint CreateVertexBuffer();
+
 //! Start a rendering frame. This will clear background to black and
 //! set defaults render states.
 //! \param registry A registry that handles entities.
