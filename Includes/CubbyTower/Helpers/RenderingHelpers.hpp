@@ -23,6 +23,14 @@ struct VertexPC
 
 namespace Rendering
 {
+//! Create a shader program from vertex/fragment shader source.
+//! \param vertex A source of vertex shader.
+//! \param fragment A source of fragment shader.
+//! \param attributes A list of attributes.
+//! \return The return value of glCreateProgram().
+GLuint CreateProgram(const GLchar* vertex, const GLchar* fragment,
+                     const std::vector<const char*>& attributes);
+
 //! Start a rendering frame. This will clear background to black and
 //! set defaults render states.
 //! \param registry A registry that handles entities.

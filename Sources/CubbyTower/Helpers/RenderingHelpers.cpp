@@ -26,6 +26,39 @@ static void CheckShader(GLuint handle)
 
 namespace CubbyTower::Rendering
 {
+GLuint CreateProgram(const GLchar* vertex, const GLchar* fragment,
+                     const std::vector<const char*>& attributes)
+{
+    const GLchar* vertexShader[2] = { "#version 120\n", vertex };
+    const GLchar* fragmentShader[2] = { "#version 120\n", fragment };
+
+    const GLuint vertexHandle = glCreateShader(GL_VERTEX_SHADER);
+    glShaderSource(vertexHandle, 2, vertexShader, nullptr);
+    glCompileShader(vertexHandle);
+    CheckShader(vertexHandle);
+
+    const GLuint fragmentHandle = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragmentHandle, 2, fragmentShader, nullptr);
+    glCompileShader(fragmentHandle);
+    CheckShader(fragmentHandle);
+
+    const GLuint program = glCreateProgram();
+    glAttachShader(program, vertexHandle);
+    glAttachShader(program, fragmentHandle);
+
+    int idx = 0;
+
+    for (const auto attr : attributes)
+    {
+        glBindAttribLocation(program, idx, attr);
+        ++idx;
+    }
+
+    glLinkProgram(program);
+
+    return program;
+}
+
 void SetTransform(entt::registry& registry, const float* matrix)
 {
     const Resources& resources =
