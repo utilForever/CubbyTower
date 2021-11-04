@@ -24,7 +24,7 @@ void Initialize(entt::registry& registry)
         auto entity = registry.create();
         registry.emplace<Tag::Resources>(entity);
 
-        Resources resources;
+        Resources resources{};
         resources.programPC = Rendering::CreateProgram(
             PC_VERT.c_str(), PC_FRAG.c_str(), { "Position", "Color" });
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
@@ -44,7 +44,7 @@ void Initialize(entt::registry& registry)
         auto entity = registry.create();
         registry.emplace<Tag::Inputs>(entity);
 
-        Inputs inputs;
+        Inputs inputs{};
         registry.emplace<Inputs>(entity, inputs);
     }
 
