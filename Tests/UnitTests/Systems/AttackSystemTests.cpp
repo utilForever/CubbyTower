@@ -41,29 +41,29 @@ TEST_CASE("[AttackSystem] - Attack")
     registry.emplace<Tag::Enemy>(enemy1);
     registry.emplace<Health>(enemy1, 3);
     registry.emplace<TypeMask>(enemy1, 0b010);  // Type: ground
-    registry.emplace<Position>(enemy1, 0.0, 0.0);
-    registry.emplace<Distance>(enemy1, 300.0);
+    registry.emplace<Position>(enemy1, 0.0f, 0.0f);
+    registry.emplace<Distance>(enemy1, 300.0f);
 
     auto enemy2 = registry.create();
     registry.emplace<Tag::Enemy>(enemy2);
     registry.emplace<Health>(enemy2, 3);
     registry.emplace<TypeMask>(enemy2, 0b010);  // Type: ground
-    registry.emplace<Position>(enemy2, 0.0, 0.0);
-    registry.emplace<Distance>(enemy2, 250.0);  // go further than enemy1
+    registry.emplace<Position>(enemy2, 0.0f, 0.0f);
+    registry.emplace<Distance>(enemy2, 250.0f);  // go further than enemy1
 
     auto enemy3 = registry.create();
     registry.emplace<Tag::Enemy>(enemy3);
     registry.emplace<Health>(enemy3, 3);
     registry.emplace<TypeMask>(enemy3, 0b011);  // Type: ground & stealth
-    registry.emplace<Position>(enemy3, 0.0, 0.0);
-    registry.emplace<Distance>(enemy3, 350.0);
+    registry.emplace<Position>(enemy3, 0.0f, 0.0f);
+    registry.emplace<Distance>(enemy3, 350.0f);
 
     auto enemy4 = registry.create();
     registry.emplace<Tag::Enemy>(enemy4);
     registry.emplace<Health>(enemy4, 3);
     registry.emplace<TypeMask>(enemy4, 0b010);  // Type: ground
-    registry.emplace<Position>(enemy4, 0.0, 0.0);
-    registry.emplace<Distance>(enemy4, 100.0);
+    registry.emplace<Position>(enemy4, 0.0f, 0.0f);
+    registry.emplace<Distance>(enemy4, 100.0f);
 
     Path::UpdatePathSystem(registry);
 

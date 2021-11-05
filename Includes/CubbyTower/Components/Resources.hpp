@@ -4,19 +4,26 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_GAME_HPP
-#define CUBBYTOWER_GAME_HPP
+#ifndef CUBBYTOWER_RESOURCES_HPP
+#define CUBBYTOWER_RESOURCES_HPP
 
-#include <entt/entt.hpp>
+#include <GL/gl3w.h>
 
 namespace CubbyTower
 {
-namespace Game
+struct VertexPC;
+
+//!
+//! \brief Resources struct.
+//!
+//! This struct stores resource handles.
+//!
+struct Resources
 {
-//! Initializes entities that are needed to the game.
-//! \param registry A registry that handles entities.
-void Initialize(entt::registry& registry);
-}
+    GLuint programPC;
+    GLuint vertexBuffer;
+    VertexPC* pcVertices;
+};
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_GAME_HPP
+#endif  // CUBBYTOWER_RESOURCES_HPP

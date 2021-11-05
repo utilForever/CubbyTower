@@ -3,7 +3,6 @@
 // We are making my contributions/submissions to this project solely in our
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
-#include <entt/entt.hpp>
 
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/AttackRange.hpp>
@@ -14,7 +13,6 @@
 #include <CubbyTower/Components/TargetPriority.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
-#include <iostream>
 
 namespace CubbyTower
 {
@@ -23,7 +21,7 @@ void Attack(entt::registry& registry)
     for (auto tower : registry.view<Tag::Tower>())
     {
         std::vector<entt::entity> attackable;
-        
+
         for (auto enemy : registry.view<Tag::Enemy>())
         {
             const auto towerPos = registry.get<Position>(tower);
@@ -46,7 +44,7 @@ void Attack(entt::registry& registry)
                 attackable.push_back(enemy);
             }
         }
-        
+
         const auto& priority = registry.get<TargetPriority>(tower);
         auto enemy = priority.Targeter(registry, attackable);
 
@@ -54,7 +52,7 @@ void Attack(entt::registry& registry)
         {
             continue;
         }
-        
+
         // Simple attack test
         // TODO: make a projectile
         auto& health = registry.get<Health>(*enemy);

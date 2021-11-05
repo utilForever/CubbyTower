@@ -16,8 +16,8 @@ namespace CubbyTower
 //!
 struct Position 
 {
-    double x;
-    double y;
+    float x;
+    float y;
 };
 }  // namespace CubbyTower
 

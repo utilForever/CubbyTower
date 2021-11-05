@@ -1,18 +1,15 @@
 # Target name
-set(target UnitTests)
+set(target gl3w)
 
 # Includes
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 # Sources
 file(GLOB_RECURSE sources
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../Sources/CubbyTower/Helpers/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../Sources/CubbyTower/Systems/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/gl3w.cpp)
 
-# Build executable
-add_executable(${target}
-    ${sources})
+# Build library
+add_library(${target} STATIC ${sources})
 
 # Project options
 set_target_properties(${target}
@@ -39,7 +36,8 @@ target_compile_definitions(${target}
 target_link_libraries(${target}
     PRIVATE
     ${DEFAULT_LINKER_OPTIONS}
-    doctest
-    gl3w
-    OpenGL::GL
-    ${CMAKE_DL_LIBS})
+)
+
+# Install
+install(TARGETS ${target} DESTINATION lib)
+install(DIRECTORY ${header_dir} DESTINATION include)

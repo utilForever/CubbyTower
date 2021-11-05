@@ -15,7 +15,10 @@ namespace Tag
 {
 using namespace entt::literals;
 
+using Resources = entt::tag<"resources"_hs>;
 using Player = entt::tag<"player"_hs>;
+using Inputs = entt::tag<"inputs"_hs>;
+using HUDs = entt::tag<"huds"_hs>;
 using Tower = entt::tag<"tower"_hs>;
 using Enemy = entt::tag<"enemy"_hs>;
 }  // namespace Tag

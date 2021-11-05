@@ -4,17 +4,22 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ATTACK_SYSTEM_HPP
-#define CUBBYTOWER_ATTACK_SYSTEM_HPP
-
-#include <entt/entt.hpp>
+#ifndef CUBBYTOWER_INPUTS_HPP
+#define CUBBYTOWER_INPUTS_HPP
 
 namespace CubbyTower
 {
-//! This function called every frame and handles all attacks in game.
-//! \param registry A registry that handles entities.
-void Attack(entt::registry& registry);
-    
+//!
+//! \brief Inputs struct.
+//!
+//! This struct stores the position of mouse and the state of key/button.
+//!
+struct Inputs
+{
+    // Raw states
+    bool leftButton;
+    bool rightButton;
+};
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP
+#endif  // CUBBYTOWER_INPUTS_HPP

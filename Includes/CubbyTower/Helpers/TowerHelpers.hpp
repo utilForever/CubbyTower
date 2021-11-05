@@ -14,7 +14,7 @@ namespace CubbyTower
 {
 //! Buys a arrow tower.
 //! \param registry A registry that handles entities.
-void BuyArrowTower(entt::registry& registry, double x, double y);
+void BuyArrowTower(entt::registry& registry, float x, float y);
 
 //! Upgrades a arrow tower to level 2.
 //! \param registry A registry that handles entities.

@@ -4,17 +4,23 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ATTACK_SYSTEM_HPP
-#define CUBBYTOWER_ATTACK_SYSTEM_HPP
-
-#include <entt/entt.hpp>
+#ifndef CUBBYTOWER_COLOR_HPP
+#define CUBBYTOWER_COLOR_HPP
 
 namespace CubbyTower
 {
-//! This function called every frame and handles all attacks in game.
-//! \param registry A registry that handles entities.
-void Attack(entt::registry& registry);
-    
+//!
+//! \brief Color struct.
+//!
+//! This struct stores the color of the component.
+//!
+struct Color
+{
+    float r;
+    float g;
+    float b;
+    float a;
+};
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP
+#endif  // CUBBYTOWER_COLOR_HPP

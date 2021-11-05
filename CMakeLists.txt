@@ -16,11 +16,15 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 # Set enable output of compile commands during generation
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Require OpenGL package
+find_package(OpenGL REQUIRED)
+
 # Includes
 include_directories(Includes)
 include_directories(Libraries)
 include_directories(Libraries/doctest/doctest)
 include_directories(Libraries/entt/single_include)
+include_directories(Libraries/gl3w/include)
 include_directories(Libraries/SFML/include)
 
 # Compile options
@@ -36,6 +40,7 @@ set(CMAKE_MACOSX_RPATH ON)
 
 # Project modules
 add_subdirectory(Libraries/doctest)
+add_subdirectory(Libraries/gl3w)
 add_subdirectory(Libraries/SFML)
 add_subdirectory(Sources/CubbyTower)
 add_subdirectory(Tests/UnitTests)

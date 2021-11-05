@@ -16,7 +16,7 @@ namespace CubbyTower
 //!
 struct Distance
 {
-    double distance;
+    float distance;
 };
 }  // namespace CubbyTower
 

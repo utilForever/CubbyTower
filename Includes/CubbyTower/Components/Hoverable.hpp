@@ -4,17 +4,21 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ATTACK_SYSTEM_HPP
-#define CUBBYTOWER_ATTACK_SYSTEM_HPP
-
-#include <entt/entt.hpp>
+#ifndef CUBBYTOWER_HOVERABLE_HPP
+#define CUBBYTOWER_HOVERABLE_HPP
 
 namespace CubbyTower
 {
-//! This function called every frame and handles all attacks in game.
-//! \param registry A registry that handles entities.
-void Attack(entt::registry& registry);
-    
+//!
+//! \brief Hoverable struct.
+//!
+//! This struct stores the value of normal/hover color.
+//!
+struct Hoverable
+{
+    Color normalColor;
+    Color hoverColor;
+};
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP
+#endif  // CUBBYTOWER_HOVERABLE_HPP

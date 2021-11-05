@@ -4,16 +4,16 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_PATH_HPP
-#define CUBBYTOWER_PATH_HPP
+#ifndef CUBBYTOWER_SHAPE_RENDER_SYSTEM_HPP
+#define CUBBYTOWER_SHAPE_RENDER_SYSTEM_HPP
 
 #include <entt/entt.hpp>
 
-namespace CubbyTower::Path
+namespace CubbyTower
 {
-//! This function called every frame and gives the position of enemies using distance.
+//! Draws entities that contains the component 'ShapeRenderers'.
 //! \param registry A registry that handles entities.
-void UpdatePathSystem(entt::registry& registry);
+void UpdateShapeRenderSystem(entt::registry& registry);
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_PATH_HPP
+#endif  // CUBBYTOWER_SHAPE_RENDER_SYSTEM_HPP

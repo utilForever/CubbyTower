@@ -4,17 +4,21 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ATTACK_SYSTEM_HPP
-#define CUBBYTOWER_ATTACK_SYSTEM_HPP
-
-#include <entt/entt.hpp>
+#ifndef CUBBYTOWER_SIZE_HPP
+#define CUBBYTOWER_SIZE_HPP
 
 namespace CubbyTower
 {
-//! This function called every frame and handles all attacks in game.
-//! \param registry A registry that handles entities.
-void Attack(entt::registry& registry);
-    
+//!
+//! \brief Size struct.
+//!
+//! This struct stores the size of the component for mouse picking.
+//!
+struct Size
+{
+    float width;
+    float height;
+};
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP
+#endif  // CUBBYTOWER_SIZE_HPP
