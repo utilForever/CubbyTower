@@ -40,6 +40,9 @@ GLuint CreateVertexBuffer();
 //! \param registry A registry that handles entities.
 void BeginFrame(entt::registry& registry);
 
+//! End a rendering frame. It does nothing, but might eventually.
+void EndFrame();
+
 //! Prepare the rendering pipeline for Position + Color rendering.
 //! \param registry A registry that handles entities.
 void PrepareForPC(entt::registry& registry);

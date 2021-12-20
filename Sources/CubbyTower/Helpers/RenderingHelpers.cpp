@@ -74,7 +74,8 @@ void SetTransform(entt::registry& registry, const float* matrix)
 
     {
         glUseProgram(resources.programPC);
-        const auto uniform = glGetUniformLocation(resources.programPC, "ProjMtx");
+        const auto uniform =
+            glGetUniformLocation(resources.programPC, "ProjMtx");
         glUniformMatrix4fv(uniform, 1, GL_FALSE, matrix);
     }
 }
@@ -109,6 +110,11 @@ void BeginFrame(entt::registry& registry)
     glDepthMask(GL_FALSE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
+
+void EndFrame()
+{
+    // Do nothing
 }
 
 void PrepareForPC(entt::registry& registry)
