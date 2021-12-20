@@ -73,5 +73,7 @@ void Render(entt::registry& registry)
 
     Rendering::PrepareForPC(registry);
     UpdateShapeRenderSystem(registry);
+
+    Rendering::EndFrame();
 }
 }  // namespace CubbyTower::Game
