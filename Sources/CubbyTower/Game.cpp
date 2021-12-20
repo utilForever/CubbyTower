@@ -14,6 +14,7 @@
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
+#include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 
 namespace CubbyTower::Game
 {
@@ -72,6 +73,7 @@ void Render(entt::registry& registry)
     Rendering::BeginFrame(registry);
 
     Rendering::PrepareForPC(registry);
+    UpdateStaticLinesRenderSystem(registry);
     UpdateShapeRenderSystem(registry);
 
     Rendering::EndFrame();
