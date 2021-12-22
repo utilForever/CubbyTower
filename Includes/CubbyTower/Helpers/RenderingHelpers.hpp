@@ -58,6 +58,17 @@ void PrepareForPC(entt::registry& registry);
 //! \param vertices A pointer indicates a list of vertices.
 //! \param count The number of vertices.
 void DrawLines(entt::registry& registry, const VertexPC* vertices, int count);
+
+//! Draw a line for Position + Color rendering.
+//! Note that this function doesn't render on the screen,
+//! but generates vertices and returns the number of vertices added.
+//! \param vertices A pointer indicates a list of vertices.
+//! \param from The position that draws a line from.
+//! \param to The position that draws a line to.
+//! \param color The color of a line.
+//! \Return The number of vertices.
+int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
+             const Color& color);
 }  // namespace Rendering
 }  // namespace CubbyTower
 

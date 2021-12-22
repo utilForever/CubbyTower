@@ -159,4 +159,18 @@ void DrawLines(entt::registry& registry, const VertexPC* vertices, int count)
 {
     DrawPC(registry, vertices, count, GL_LINES);
 }
+
+int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
+             const Color& color)
+{
+    vertices[0].position.x = from.x;
+    vertices[0].position.y = from.y;
+    vertices[0].color = color;
+
+    vertices[1].position.x = to.x;
+    vertices[1].position.y = to.y;
+    vertices[1].color = color;
+
+    return 2;
+}
 }  // namespace CubbyTower::Rendering
