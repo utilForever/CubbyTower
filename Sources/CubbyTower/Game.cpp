@@ -5,10 +5,12 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Constants.hpp>
+#include <CubbyTower/Commons/Data.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/Resources.hpp>
+#include <CubbyTower/Components/StaticLinesRenderer.hpp>
 #include <CubbyTower/Game.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
@@ -31,6 +33,17 @@ void Initialize(entt::registry& registry)
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
         resources.pcVertices = new VertexPC[MAX_VERTICES];
         registry.emplace<Resources>(entity, resources);
+    }
+
+    // Create map entity
+    {
+        auto entity = registry.create();
+        StaticLinesRenderer staticLinesRenderer{};
+        staticLinesRenderer.vertexBuffer =
+            Rendering::CreateVertexBuffer(sizeof(MAP_VERTS), MAP_VERTS);
+        staticLinesRenderer.vertCount =
+            (GLsizei)(sizeof(MAP_VERTS) / (sizeof(float) * 6));
+        registry.emplace<StaticLinesRenderer>(entity, staticLinesRenderer);
     }
 
     // Player
