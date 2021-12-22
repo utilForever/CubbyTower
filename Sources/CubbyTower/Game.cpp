@@ -15,6 +15,7 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 
@@ -88,6 +89,7 @@ void Render(entt::registry& registry)
     Rendering::PrepareForPC(registry);
     UpdateStaticLinesRenderSystem(registry);
     UpdateShapeRenderSystem(registry);
+    UpdateLineRenderSystem(registry);
 
     Rendering::EndFrame();
 }
