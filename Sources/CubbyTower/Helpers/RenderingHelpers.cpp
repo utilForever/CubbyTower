@@ -67,6 +67,16 @@ GLuint CreateVertexBuffer()
     return handle;
 }
 
+GLuint CreateVertexBuffer(GLsizeiptr size, const void* data)
+{
+    GLuint handle;
+    glGenBuffers(1, &handle);
+    glBindBuffer(GL_ARRAY_BUFFER, handle);
+    glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
+
+    return handle;
+}
+
 void SetTransform(entt::registry& registry, const float* matrix)
 {
     const Resources& resources =

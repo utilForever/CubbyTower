@@ -35,6 +35,12 @@ GLuint CreateProgram(const GLchar* vertex, const GLchar* fragment,
 //! \return The handle of generated vertex buffer.
 GLuint CreateVertexBuffer();
 
+//! Create an static vertex buffer.
+//! \param size The size of vertices array.
+//! \param data A pointer indicates a list of vertices.
+//! \return The handle of generated vertex buffer.
+GLuint CreateVertexBuffer(GLsizeiptr size, const void* data);
+
 //! Start a rendering frame. This will clear background to black and
 //! set defaults render states.
 //! \param registry A registry that handles entities.
