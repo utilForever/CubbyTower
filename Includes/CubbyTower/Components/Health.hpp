@@ -16,7 +16,8 @@ namespace CubbyTower
 //!
 struct Health
 {
-    int health;
+    int curAmount;
+    int maxAmount;
 };
 }  // namespace CubbyTower
 
