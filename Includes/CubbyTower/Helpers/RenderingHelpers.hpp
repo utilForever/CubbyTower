@@ -75,6 +75,19 @@ void DrawLines(entt::registry& registry, const VertexPC* vertices, int count);
 //! \Return The number of vertices.
 int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
              const Color& color);
+
+//! Draw a rect for Position + Color rendering.
+//! Note that this function doesn't render on the screen,
+//! but generates vertices and returns the number of vertices added.
+//! \param vertices A pointer indicates a rect of vertices.
+//! \param x The left position of a rect.
+//! \param y The top position of a rect.
+//! \param w The width of a rect.
+//! \param h The height of a rect.
+//! \param color The color of a line.
+//! \Return The number of vertices.
+int DrawRect(VertexPC* vertices, float x, float y, float w, float h,
+             const Color& color);
 }  // namespace Rendering
 }  // namespace CubbyTower
 

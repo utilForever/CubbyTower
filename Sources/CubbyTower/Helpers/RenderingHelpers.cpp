@@ -178,4 +178,28 @@ int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
 
     return 2;
 }
+
+int DrawRect(VertexPC* vertices, float x, float y, float w, float h,
+             const Color& color)
+{
+    vertices[0].position.x = x;
+    vertices[0].position.y = y;
+    vertices[0].color = color;
+
+    vertices[1].position.x = x;
+    vertices[1].position.y = y + h;
+    vertices[1].color = color;
+
+    vertices[2].position.x = x + w;
+    vertices[2].position.y = y + h;
+    vertices[2].color = color;
+
+    vertices[3].position.x = x + w;
+    vertices[3].position.y = y;
+    vertices[3].color = color;
+
+    vertices += 4;
+
+    return 4;
+}
 }  // namespace CubbyTower::Rendering
