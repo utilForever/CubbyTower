@@ -18,7 +18,7 @@ constexpr static float ZOOM = 32;
 constexpr static int MAP_WIDTH = 16;
 constexpr static int MAP_HEIGHT = 16;
 
-constexpr static int MAX_VERTICES = 100000; 
+constexpr static int MAX_VERTICES = 100000;
 
 const std::string PC_VERT =
     "uniform mat4 ProjMtx;                                  \
@@ -35,6 +35,29 @@ const std::string PC_FRAG =
      void main()                                            \
      {                                                      \
          gl_FragColor = Frag_Color;                         \
+     }";
+
+const std::string PTC_VERT =
+    "uniform mat4 ProjMtx;                                  \
+     attribute vec2 Position;                               \
+     attribute vec2 TexCoord;                               \
+     attribute vec4 Color;                                  \
+     varying vec2 Frag_TexCoord;                            \
+     varying vec4 Frag_Color;                               \
+     void main()                                            \
+     {                                                      \
+         Frag_TexCoord = TexCoord;                          \
+         Frag_Color = Color;                                \
+         gl_Position = ProjMtx * vec4(Position.xy, 0, 1);   \
+     }";
+const std::string PTC_FRAG =
+    "varying vec2 Frag_TexCoord;                            \
+     varying vec4 Frag_Color;                               \
+     uniform sampler2D Texture;                             \
+     void main()                                            \
+     {                                                      \
+         vec4 diffuse = texture2D(Texture, Frag_TexCoord);  \
+         gl_FragColor = diffuse * Frag_Color;               \
      }";
 
 //! The price of arrow tower at level 1.
