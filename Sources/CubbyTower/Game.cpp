@@ -15,6 +15,7 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
@@ -92,6 +93,7 @@ void Render(entt::registry& registry)
     UpdateShapeRenderSystem(registry);
     UpdateLineRenderSystem(registry);
     UpdatePointRenderSystem(registry);
+    UpdateHealthBarRenderSystem(registry);
 
     Rendering::EndFrame();
 }
