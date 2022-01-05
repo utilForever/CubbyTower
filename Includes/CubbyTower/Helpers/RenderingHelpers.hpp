@@ -53,6 +53,12 @@ void EndFrame();
 //! \param registry A registry that handles entities.
 void PrepareForPC(entt::registry& registry);
 
+// Draw points for Position + Color rendering.
+//! \param registry A registry that handles entities.
+//! \param vertices A pointer indicates a list of vertices.
+//! \param count The number of vertices.
+void DrawPoints(entt::registry& registry, const VertexPC* vertices, int count);
+
 // Draw lines for Position + Color rendering.
 //! \param registry A registry that handles entities.
 //! \param vertices A pointer indicates a list of vertices.

@@ -155,6 +155,11 @@ static void DrawPC(entt::registry& registry, const VertexPC* vertices,
     glDrawArrays(mode, 0, count);
 }
 
+void DrawPoints(entt::registry& registry, const VertexPC* vertices, int count)
+{
+    DrawPC(registry, vertices, count, GL_POINTS);
+}
+
 void DrawLines(entt::registry& registry, const VertexPC* vertices, int count)
 {
     DrawPC(registry, vertices, count, GL_LINES);
