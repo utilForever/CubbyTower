@@ -16,6 +16,7 @@
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
+#include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 
@@ -90,6 +91,7 @@ void Render(entt::registry& registry)
     UpdateStaticLinesRenderSystem(registry);
     UpdateShapeRenderSystem(registry);
     UpdateLineRenderSystem(registry);
+    UpdatePointRenderSystem(registry);
 
     Rendering::EndFrame();
 }
