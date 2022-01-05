@@ -98,6 +98,8 @@ void Render(entt::registry& registry)
     UpdatePointRenderSystem(registry);
     UpdateHealthBarRenderSystem(registry);
 
+    Rendering::PrepareForPTC(registry);
+
     Rendering::EndFrame();
 }
 }  // namespace CubbyTower::Game
