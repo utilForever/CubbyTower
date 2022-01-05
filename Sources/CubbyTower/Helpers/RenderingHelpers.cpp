@@ -165,6 +165,11 @@ void DrawLines(entt::registry& registry, const VertexPC* vertices, int count)
     DrawPC(registry, vertices, count, GL_LINES);
 }
 
+void DrawQuads(entt::registry& registry, const VertexPC* vertices, int count)
+{
+    DrawPC(registry, vertices, count, GL_QUADS);
+}
+
 int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
              const Color& color)
 {
