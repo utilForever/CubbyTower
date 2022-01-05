@@ -71,6 +71,10 @@ void DrawLines(entt::registry& registry, const VertexPC* vertices, int count);
 //! \param count The number of vertices.
 void DrawQuads(entt::registry& registry, const VertexPC* vertices, int count);
 
+//! Prepare the rendering pipeline for Position + TexCoord + Color rendering.
+//! \param registry A registry that handles entities.
+void PrepareForPTC(entt::registry& registry);
+
 //! Draw a line for Position + Color rendering.
 //! Note that this function doesn't render on the screen,
 //! but generates vertices and returns the number of vertices added.

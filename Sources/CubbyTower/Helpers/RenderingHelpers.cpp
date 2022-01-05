@@ -170,6 +170,19 @@ void DrawQuads(entt::registry& registry, const VertexPC* vertices, int count)
     DrawPC(registry, vertices, count, GL_QUADS);
 }
 
+void PrepareForPTC(entt::registry& registry)
+{
+    const Resources& resources =
+        registry.get<Resources>(registry.view<Tag::Resources>()[0]);
+
+    glEnable(GL_TEXTURE_2D);
+    glActiveTexture(GL_TEXTURE0);
+    glUseProgram(resources.programPTC);
+    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
+}
+
 int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
              const Color& color)
 {
