@@ -36,6 +36,7 @@ void Initialize(entt::registry& registry)
         resources.programPTC =
             Rendering::CreateProgram(PTC_VERT.c_str(), PTC_FRAG.c_str(),
                                      { "Position", "TexCoord", "Color" });
+        resources.fontTexture = Rendering::CreateTexture("Resources/font.png");
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
         resources.pcVertices = new VertexPC[MAX_VERTICES];
         registry.emplace<Resources>(entity, resources);

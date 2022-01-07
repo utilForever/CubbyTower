@@ -22,6 +22,7 @@ struct Resources
 {
     GLuint programPC;
     GLuint programPTC;
+    GLuint fontTexture;
     GLuint vertexBuffer;
     VertexPC* pcVertices;
 };
