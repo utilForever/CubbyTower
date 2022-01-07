@@ -9,6 +9,9 @@
 #include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 static void CheckShader(GLuint handle)
 {
     GLint result;
@@ -57,6 +60,29 @@ GLuint CreateProgram(const GLchar* vertex, const GLchar* fragment,
     glLinkProgram(program);
 
     return program;
+}
+
+GLuint CreateTexture(const char* fileName)
+{
+    int x, y, n;
+    unsigned char* data = stbi_load(fileName, &x, &y, &n, 4);
+
+    GLuint handle;
+    glGenTextures(1, &handle);
+    glEnable(GL_TEXTURE_2D);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, handle);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, x, y, 0, GL_RGBA, GL_UNSIGNED_BYTE,
+                 data);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+    stbi_image_free(data);
+
+    return handle;
 }
 
 GLuint CreateVertexBuffer()

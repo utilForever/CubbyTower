@@ -31,6 +31,11 @@ namespace Rendering
 GLuint CreateProgram(const GLchar* vertex, const GLchar* fragment,
                      const std::vector<const char*>& attributes);
 
+//! Load a texture from an image file.
+//! \param fileName The name of image file.
+//! \return The handle of generated texture.
+GLuint CreateTexture(const char* fileName);
+
 //! Create an empty vertex buffer.
 //! \return The handle of generated vertex buffer.
 GLuint CreateVertexBuffer();
