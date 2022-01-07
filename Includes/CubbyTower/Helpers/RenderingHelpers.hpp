@@ -9,6 +9,7 @@
 
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Position.hpp>
+#include <CubbyTower/Components/TexCoord.hpp>
 
 #include <GL/gl3w.h>
 #include <entt/entt.hpp>
@@ -18,6 +19,13 @@ namespace CubbyTower
 struct VertexPC
 {
     Position position;
+    Color color;
+};
+
+struct VertexPTC
+{
+    Position position;
+    TexCoord texCoord;
     Color color;
 };
 
