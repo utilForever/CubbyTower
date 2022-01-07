@@ -39,6 +39,7 @@ void Initialize(entt::registry& registry)
         resources.fontTexture = Rendering::CreateTexture("Resources/font.png");
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
         resources.pcVertices = new VertexPC[MAX_VERTICES];
+        resources.ptcVertices = new VertexPTC[MAX_VERTICES];
         registry.emplace<Resources>(entity, resources);
     }
 

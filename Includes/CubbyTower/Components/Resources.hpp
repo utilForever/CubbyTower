@@ -12,6 +12,7 @@
 namespace CubbyTower
 {
 struct VertexPC;
+struct VertexPTC;
 
 //!
 //! \brief Resources struct.
@@ -25,6 +26,7 @@ struct Resources
     GLuint fontTexture;
     GLuint vertexBuffer;
     VertexPC* pcVertices;
+    VertexPTC* ptcVertices;
 };
 }  // namespace CubbyTower
 
