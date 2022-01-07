@@ -209,6 +209,24 @@ void PrepareForPTC(entt::registry& registry)
     glEnableVertexAttribArray(2);
 }
 
+static void DrawPTC(entt::registry& registry, const VertexPTC* vertices,
+                    int count, GLenum mode)
+{
+    const Resources& resources =
+        registry.get<Resources>(registry.view<Tag::Resources>()[0]);
+
+    glBindBuffer(GL_ARRAY_BUFFER, resources.vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(VertexPTC) * count, vertices,
+                 GL_DYNAMIC_DRAW);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(VertexPTC),
+                          (float*)(uintptr_t)(0));
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(VertexPTC),
+                          (float*)(uintptr_t)(8));
+    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(VertexPTC),
+                          (float*)(uintptr_t)(16));
+    glDrawArrays(mode, 0, count);
+}
+
 int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
              const Color& color)
 {
