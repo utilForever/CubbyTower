@@ -26,6 +26,7 @@ include_directories(Libraries/doctest/doctest)
 include_directories(Libraries/entt/single_include)
 include_directories(Libraries/gl3w/include)
 include_directories(Libraries/SFML/include)
+include_directories(Libraries/stb)
 
 # Compile options
 include(CMake/CompileOptions.cmake)
