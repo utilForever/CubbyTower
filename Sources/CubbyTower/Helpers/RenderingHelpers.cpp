@@ -227,6 +227,11 @@ static void DrawPTC(entt::registry& registry, const VertexPTC* vertices,
     glDrawArrays(mode, 0, count);
 }
 
+void DrawQuads(entt::registry& registry, const VertexPTC* vertices, int count)
+{
+    DrawPTC(registry, vertices, count, GL_QUADS);
+}
+
 int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
              const Color& color)
 {
