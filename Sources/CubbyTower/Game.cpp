@@ -20,6 +20,7 @@
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
+#include <CubbyTower/Systems/TextRenderSystem.hpp>
 
 namespace CubbyTower::Game
 {
@@ -101,6 +102,7 @@ void Render(entt::registry& registry)
     UpdateHealthBarRenderSystem(registry);
 
     Rendering::PrepareForPTC(registry);
+    UpdateTextRenderSystem(registry);
 
     Rendering::EndFrame();
 }
