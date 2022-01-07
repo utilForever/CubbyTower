@@ -117,6 +117,20 @@ int DrawLine(VertexPC* vertices, const Position& from, const Position& to,
 //! \Return The number of vertices.
 int DrawRect(VertexPC* vertices, float x, float y, float w, float h,
              const Color& color);
+
+//! Draw a text for Position + Texture + Color rendering.
+//! Note that this function doesn't render on the screen,
+//! but generates vertices and returns the number of vertices added.
+//! \param vertices A pointer indicates a list of vertices.
+//! \param text The text to draw.
+//! \param position The position that draws a text.
+//! \param bgColor The background color.
+//! \param color The color of a text.
+//! \param align The align of a text.
+//! \Return The number of vertices.
+int DrawSimpleText(VertexPTC* vertices, const std::string& text,
+                   const Position& position, const Color& bgColor,
+                   const Color& color, float align);
 }  // namespace Rendering
 }  // namespace CubbyTower
 

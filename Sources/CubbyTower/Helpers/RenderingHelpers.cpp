@@ -269,4 +269,83 @@ int DrawRect(VertexPC* vertices, float x, float y, float w, float h,
 
     return 4;
 }
+
+int DrawSimpleText(VertexPTC* vertices, const std::string& text,
+                   const Position& position, const Color& bgColor,
+                   const Color& color, float align)
+{
+    const float SIZE = 20.0f / ZOOM;
+
+    Position pos = position;
+    float w = static_cast<float>(text.size()) * TEXT_ADVANCE;
+    pos.x -= w * align;
+    pos.y -= SIZE / 2.0f;
+    int vertCount = 0;
+
+    // background
+    vertices[0].position.x = pos.x;
+    vertices[0].position.y = pos.y;
+    vertices[0].texCoord = WHITE_UV;
+    vertices[0].color = bgColor;
+
+    vertices[1].position.x = pos.x;
+    vertices[1].position.y = pos.y + SIZE;
+    vertices[1].texCoord = WHITE_UV;
+    vertices[1].color = bgColor;
+
+    vertices[2].position.x = pos.x + w;
+    vertices[2].position.y = pos.y + SIZE;
+    vertices[2].texCoord = WHITE_UV;
+    vertices[2].color = bgColor;
+
+    vertices[3].position.x = pos.x + w;
+    vertices[3].position.y = pos.y;
+    vertices[3].texCoord = WHITE_UV;
+    vertices[3].color = bgColor;
+    vertices += 4;
+    vertCount += 4;
+
+    for (const auto c : text)
+    {
+        if (c < FIRST_CHAR || c > LAST_CHAR)
+        {
+            pos.x += TEXT_ADVANCE;
+            continue;
+        }
+
+        auto index = c - FIRST_CHAR;
+        const auto& uv1 = FONT[index][0];
+        const auto& uv2 = FONT[index][1];
+
+        vertices[0].position.x = pos.x;
+        vertices[0].position.y = pos.y;
+        vertices[0].texCoord.u = uv1.u;
+        vertices[0].texCoord.v = uv1.v;
+        vertices[0].color = color;
+
+        vertices[1].position.x = pos.x;
+        vertices[1].position.y = pos.y + SIZE;
+        vertices[1].texCoord.u = uv1.u;
+        vertices[1].texCoord.v = uv2.v;
+        vertices[1].color = color;
+
+        vertices[2].position.x = pos.x + SIZE;
+        vertices[2].position.y = pos.y + SIZE;
+        vertices[2].texCoord.u = uv2.u;
+        vertices[2].texCoord.v = uv2.v;
+        vertices[2].color = color;
+
+        vertices[3].position.x = pos.x + SIZE;
+        vertices[3].position.y = pos.y;
+        vertices[3].texCoord.u = uv2.u;
+        vertices[3].texCoord.v = uv1.v;
+        vertices[3].color = color;
+
+        vertices += 4;
+        vertCount += 4;
+        pos.x += TEXT_ADVANCE;
+    }
+
+    return vertCount;
+}
 }  // namespace CubbyTower::Rendering
