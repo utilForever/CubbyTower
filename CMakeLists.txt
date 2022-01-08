@@ -39,6 +39,11 @@ endif()
 # Overrides
 set(CMAKE_MACOSX_RPATH ON)
 
+# Set resources
+get_filename_component(RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Resources ABSOLUTE)
+set(RESOURCES_OBJS
+        ${RESOURCES_DIR}/font.png)
+
 # Project modules
 add_subdirectory(Libraries/doctest)
 add_subdirectory(Libraries/gl3w)
