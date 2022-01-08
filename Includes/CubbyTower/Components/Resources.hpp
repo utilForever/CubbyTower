@@ -7,7 +7,7 @@
 #ifndef CUBBYTOWER_RESOURCES_HPP
 #define CUBBYTOWER_RESOURCES_HPP
 
-#include <GL/gl3w.h>
+#include <GL/gl3w.hpp>
 
 namespace CubbyTower
 {

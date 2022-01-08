@@ -29,7 +29,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <GL/gl3w.h>
+#include <GL/gl3w.hpp>
 #include <GL/freeglut.h>
 
 static int width = 600, height = 600;

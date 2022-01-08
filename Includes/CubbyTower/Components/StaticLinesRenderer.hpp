@@ -7,7 +7,7 @@
 #ifndef CUBBYTOWER_STATIC_LINES_RENDERER_HPP
 #define CUBBYTOWER_STATIC_LINES_RENDERER_HPP
 
-#include <GL/gl3w.h>
+#include <GL/gl3w.hpp>
 
 namespace CubbyTower
 {
