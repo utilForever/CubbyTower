@@ -26,6 +26,7 @@ jobs:
         submodules: true
     - name: Install Packages
       run: |
+        sudo apt-get update
         sudo apt-get install -yq lcov
         sudo apt-get install -yq xorg-dev libglu1-mesa-dev
         sudo apt-get install -yq libxrandr-dev libxi-dev libxxf86vm-dev libxinerama-dev libxcursor-dev
