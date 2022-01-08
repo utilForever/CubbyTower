@@ -28,7 +28,9 @@ constexpr static int LAST_CHAR = '~';
 constexpr static TexCoord WHITE_UV = { static_cast<float>(0.0048828125),
                                        static_cast<float>(0.8125) };
 
-static const TexCoord FONT[][2] = {
+constexpr static TexCoord FONT[][2] = {
+    { { static_cast<float>(0), 0.0f },
+      { static_cast<float>(0.009765625), static_cast<float>(0.625) } },
     { { static_cast<float>(0.009765625), 0.0f },
       { static_cast<float>(0.01953125), static_cast<float>(0.625) } },
     { { static_cast<float>(0.01953125), 0.0f },
