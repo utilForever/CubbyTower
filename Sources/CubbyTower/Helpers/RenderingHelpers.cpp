@@ -20,7 +20,7 @@ static void CheckShader(GLuint handle)
     if (result == GL_FALSE)
     {
         GLchar infoLog[1024];
-        glGetShaderInfoLog(handle, 1023, nullptr, infoLog);
+        glGetShaderInfoLog(handle, 1024, nullptr, infoLog);
 
         printf("Shader compile failed: %s\n", infoLog);
         assert(false);
