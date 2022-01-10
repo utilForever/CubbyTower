@@ -37,7 +37,7 @@ TEST_CASE("[MonsterHelpers] - Make several monsters")
         auto view = registry.view<Tag::Enemy, Health, TypeMask, Distance>();
         for (auto [enemy, health, type, dist] : view.each())
         {
-            CHECK_EQ(health.health, 10);
+            CHECK_EQ(health.curAmount, 10);
             CHECK_EQ(type.typeMask, 0b010);
             CHECK_EQ(dist.distance, 0.0);
         }

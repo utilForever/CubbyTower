@@ -74,19 +74,19 @@ TEST_CASE("[AttackSystem] - Attack")
     {
         if (mask.typeMask == 0b011)
         {
-            CHECK_EQ(hp.health, 3);
+            CHECK_EQ(hp.curAmount, 3);
         }
         else if (dist.distance == 250)
         {
-            CHECK_EQ(hp.health, 3);
+            CHECK_EQ(hp.curAmount, 3);
         }
         else if (dist.distance == 300)
         {
-            CHECK_EQ(hp.health, 2);
+            CHECK_EQ(hp.curAmount, 2);
         }
         else if (dist.distance == 100)
         {
-            CHECK_EQ(hp.health, 3);
+            CHECK_EQ(hp.curAmount, 3);
         }
     }
 }

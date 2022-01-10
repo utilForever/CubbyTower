@@ -4,21 +4,20 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_HEALTH_HPP
-#define CUBBYTOWER_HEALTH_HPP
+#ifndef CUBBYTOWER_POINT_RENDERER_HPP
+#define CUBBYTOWER_POINT_RENDERER_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Health struct.
+//! \brief PointRenderer struct.
 //!
-//! This struct stores the health of the monster.
+//! This struct stores the functor for rendering point.
 //!
-struct Health
+struct PointRenderer
 {
-    int curAmount;
-    int maxAmount;
+    int dummy = 0;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_HEALTH_HPP
+#endif  // CUBBYTOWER_POINT_RENDERER_HPP

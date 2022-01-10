@@ -4,30 +4,24 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_RESOURCES_HPP
-#define CUBBYTOWER_RESOURCES_HPP
+#ifndef CUBBYTOWER_STATIC_LINES_RENDERER_HPP
+#define CUBBYTOWER_STATIC_LINES_RENDERER_HPP
 
 #include <GL/gl3w.hpp>
 
 namespace CubbyTower
 {
-struct VertexPC;
-struct VertexPTC;
-
 //!
-//! \brief Resources struct.
+//! \brief StaticLinesRenderer struct.
 //!
-//! This struct stores resource handles.
+//! This struct stores the data for drawing static lines.
+//! This is used by the map entity.
 //!
-struct Resources
+struct StaticLinesRenderer
 {
-    GLuint programPC;
-    GLuint programPTC;
-    GLuint fontTexture;
     GLuint vertexBuffer;
-    VertexPC* pcVertices;
-    VertexPTC* ptcVertices;
+    GLsizei vertCount;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_RESOURCES_HPP
+#endif  // CUBBYTOWER_STATIC_LINES_RENDERER_HPP

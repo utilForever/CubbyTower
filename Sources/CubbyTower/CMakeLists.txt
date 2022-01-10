@@ -41,6 +41,10 @@ target_compile_options(${target}
 
     INTERFACE
 )
+target_compile_definitions(${target}
+    PRIVATE
+    RESOURCES_DIR="${RESOURCES_DIR}"
+)
 
 target_link_libraries(${target}
     PRIVATE

@@ -7,7 +7,7 @@
 #include <CubbyTower/Helpers/InputHelpers.hpp>
 #include <CubbyTower/Game.hpp>
 
-#include <GL/gl3w.h>
+#include <GL/gl3w.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Window.hpp>
 #include <entt/entt.hpp>

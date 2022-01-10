@@ -4,21 +4,22 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_HEALTH_HPP
-#define CUBBYTOWER_HEALTH_HPP
+#ifndef CUBBYTOWER_TEX_COORD_HPP
+#define CUBBYTOWER_TEX_COORD_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Health struct.
+//! \brief TexCoord struct.
 //!
-//! This struct stores the health of the monster.
+//! This struct stores the coordinate of the texture.
+//! Only used by vertex buffers and not directly as a component.
 //!
-struct Health
+struct TexCoord
 {
-    int curAmount;
-    int maxAmount;
+    float u;
+    float v;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_HEALTH_HPP
+#endif  // CUBBYTOWER_TEX_COORD_HPP

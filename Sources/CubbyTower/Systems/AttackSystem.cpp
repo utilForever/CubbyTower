@@ -57,7 +57,7 @@ void Attack(entt::registry& registry)
         // TODO: make a projectile
         auto& health = registry.get<Health>(*enemy);
         const int damage = registry.get<Damage>(tower).damage;
-        health.health -= damage;
+        health.curAmount -= damage;
     }
 }
 }  // namespace CubbyTower

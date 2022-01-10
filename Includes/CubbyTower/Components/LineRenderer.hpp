@@ -4,21 +4,22 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_HEALTH_HPP
-#define CUBBYTOWER_HEALTH_HPP
+#ifndef CUBBYTOWER_LINE_RENDERER_HPP
+#define CUBBYTOWER_LINE_RENDERER_HPP
+
+#include <CubbyTower/Components/Position.hpp>
 
 namespace CubbyTower
 {
 //!
-//! \brief Health struct.
+//! \brief LineRenderer struct.
 //!
-//! This struct stores the health of the monster.
+//! This struct stores the functor for rendering line.
 //!
-struct Health
+struct LineRenderer
 {
-    int curAmount;
-    int maxAmount;
+    Position target;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_HEALTH_HPP
+#endif  // CUBBYTOWER_LINE_RENDERER_HPP

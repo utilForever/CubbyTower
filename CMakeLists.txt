@@ -26,6 +26,7 @@ include_directories(Libraries/doctest/doctest)
 include_directories(Libraries/entt/single_include)
 include_directories(Libraries/gl3w/include)
 include_directories(Libraries/SFML/include)
+include_directories(Libraries/stb)
 
 # Compile options
 include(CMake/CompileOptions.cmake)
@@ -37,6 +38,11 @@ endif()
 
 # Overrides
 set(CMAKE_MACOSX_RPATH ON)
+
+# Set resources
+get_filename_component(RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Resources ABSOLUTE)
+set(RESOURCES_OBJS
+        ${RESOURCES_DIR}/font.png)
 
 # Project modules
 add_subdirectory(Libraries/doctest)

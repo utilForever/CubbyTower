@@ -5,15 +5,22 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Constants.hpp>
+#include <CubbyTower/Commons/Data.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/Resources.hpp>
+#include <CubbyTower/Components/StaticLinesRenderer.hpp>
 #include <CubbyTower/Game.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
+#include <CubbyTower/Systems/LineRenderSystem.hpp>
+#include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
+#include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
+#include <CubbyTower/Systems/TextRenderSystem.hpp>
 
 namespace CubbyTower::Game
 {
@@ -27,9 +34,25 @@ void Initialize(entt::registry& registry)
         Resources resources{};
         resources.programPC = Rendering::CreateProgram(
             PC_VERT.c_str(), PC_FRAG.c_str(), { "Position", "Color" });
+        resources.programPTC =
+            Rendering::CreateProgram(PTC_VERT.c_str(), PTC_FRAG.c_str(),
+                                     { "Position", "TexCoord", "Color" });
+        resources.fontTexture = Rendering::CreateTexture(RESOURCES_DIR "/font.png");
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
         resources.pcVertices = new VertexPC[MAX_VERTICES];
+        resources.ptcVertices = new VertexPTC[MAX_VERTICES];
         registry.emplace<Resources>(entity, resources);
+    }
+
+    // Create map entity
+    {
+        auto entity = registry.create();
+        StaticLinesRenderer staticLinesRenderer{};
+        staticLinesRenderer.vertexBuffer =
+            Rendering::CreateVertexBuffer(sizeof(MAP_VERTS), MAP_VERTS);
+        staticLinesRenderer.vertCount =
+            (GLsizei)(sizeof(MAP_VERTS) / (sizeof(float) * 6));
+        registry.emplace<StaticLinesRenderer>(entity, staticLinesRenderer);
     }
 
     // Player
@@ -72,6 +95,15 @@ void Render(entt::registry& registry)
     Rendering::BeginFrame(registry);
 
     Rendering::PrepareForPC(registry);
+    UpdateStaticLinesRenderSystem(registry);
     UpdateShapeRenderSystem(registry);
+    UpdateLineRenderSystem(registry);
+    UpdatePointRenderSystem(registry);
+    UpdateHealthBarRenderSystem(registry);
+
+    Rendering::PrepareForPTC(registry);
+    UpdateTextRenderSystem(registry);
+
+    Rendering::EndFrame();
 }
 }  // namespace CubbyTower::Game
