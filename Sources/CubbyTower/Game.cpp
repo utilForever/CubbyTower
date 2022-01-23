@@ -76,7 +76,7 @@ void Initialize(entt::registry& registry)
     // HUDs
     {
         auto entity = registry.create();
-        registry.emplace<Tag::HUDs>(entity);
+        registry.emplace<Tag::HUD>(entity);
 
         auto& hud = registry.emplace<HUD>(entity);
         hud.currentWaveLabel = UI::CreateLabel(
