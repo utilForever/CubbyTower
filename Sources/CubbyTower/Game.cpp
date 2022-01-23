@@ -16,6 +16,7 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
@@ -94,8 +95,9 @@ void Initialize(entt::registry& registry)
 
 void Update(entt::registry& registry, float deltaTime)
 {
-    (void)registry;
     (void)deltaTime;
+
+    UpdateHUDSystem(registry);
 }
 
 void Render(entt::registry& registry)
