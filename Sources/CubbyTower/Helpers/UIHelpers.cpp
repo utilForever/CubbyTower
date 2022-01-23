@@ -17,6 +17,19 @@
 
 namespace CubbyTower::UI
 {
+entt::entity CreateLabel(entt::registry& registry, const char* text,
+                         const Position& position, const Color& color,
+                         float align)
+{
+    auto entity = registry.create();
+    registry.emplace<Position>(entity, position);
+    registry.emplace<Color>(entity, color);
+    registry.emplace<TextRenderer>(entity, text,
+                                   Color{ 0.0f, 0.0f, 0.0f, 0.0f }, align);
+
+    return entity;
+}
+
 void CreateTowerButton(
     entt::registry& registry, const char* caption, const Position& position,
     int price, std::function<void(entt::registry&, entt::entity)> onClick)
