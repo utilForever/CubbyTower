@@ -8,6 +8,7 @@
 #include <CubbyTower/Commons/Data.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
+#include <CubbyTower/Components/HUD.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Components/StaticLinesRenderer.hpp>
@@ -15,6 +16,7 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
@@ -37,7 +39,8 @@ void Initialize(entt::registry& registry)
         resources.programPTC =
             Rendering::CreateProgram(PTC_VERT.c_str(), PTC_FRAG.c_str(),
                                      { "Position", "TexCoord", "Color" });
-        resources.fontTexture = Rendering::CreateTexture(RESOURCES_DIR "/font.png");
+        resources.fontTexture =
+            Rendering::CreateTexture(RESOURCES_DIR "/font.png");
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
         resources.pcVertices = new VertexPC[MAX_VERTICES];
         resources.ptcVertices = new VertexPTC[MAX_VERTICES];
@@ -74,7 +77,13 @@ void Initialize(entt::registry& registry)
     // HUDs
     {
         auto entity = registry.create();
-        registry.emplace<Tag::HUDs>(entity);
+        registry.emplace<Tag::HUD>(entity);
+
+        auto& hud = registry.emplace<HUD>(entity);
+        hud.currentWaveLabel = UI::CreateLabel(
+            registry, "", { 0, 0 }, Color{ 0.75f, 0.75f, 0.75f, 1.0f }, 0.0f);
+        hud.goldLabel = UI::CreateLabel(registry, "", { 16, 0 },
+                                        Color{ 1.0f, 1.0f, 0.0f, 1.0f }, 1.0f);
 
         UI::CreateTowerButton(
             registry, "Arrow Tower", { -1, 16.5f }, ARROW_TOWER_LV1_PRICE,
@@ -86,8 +95,9 @@ void Initialize(entt::registry& registry)
 
 void Update(entt::registry& registry, float deltaTime)
 {
-    (void)registry;
     (void)deltaTime;
+
+    UpdateHUDSystem(registry);
 }
 
 void Render(entt::registry& registry)
