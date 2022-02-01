@@ -7,6 +7,8 @@
 #ifndef CUBBYTOWER_HOVERABLE_HPP
 #define CUBBYTOWER_HOVERABLE_HPP
 
+#include <CubbyTower/Components/Color.hpp>
+
 namespace CubbyTower
 {
 //!
