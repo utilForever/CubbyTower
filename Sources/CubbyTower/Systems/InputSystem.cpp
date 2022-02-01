@@ -11,6 +11,32 @@
 
 namespace CubbyTower
 {
+static InputState UpdateInputState(bool isRawInput, InputState prevState)
+{
+    if (isRawInput)
+    {
+        if (prevState != InputState::DOWN)
+        {
+            return InputState::JUST_DOWN;
+        }
+        else
+        {
+            return prevState;
+        }
+    }
+    else
+    {
+        if (prevState != InputState::UP)
+        {
+            return InputState::JUST_UP;
+        }
+        else
+        {
+            return prevState;
+        }
+    }
+}
+
 void UpdateInputSystem(entt::registry& registry)
 {
     Inputs& inputs = registry.get<Inputs>(registry.view<Tag::Inputs>()[0]);
