@@ -37,4 +37,12 @@ void OnMouseButtonReleased(entt::registry& registry, sf::Mouse::Button button)
         inputs.rightButton = false;
     }
 }
+
+void OnMouseMoved(entt::registry& registry, int x, int y)
+{
+    auto& inputs = registry.get<Inputs>(registry.view<Tag::Inputs>()[0]);
+
+    inputs.mouse.x = static_cast<float>(x);
+    inputs.mouse.y = static_cast<float>(y);
+}
 }  // namespace CubbyTower::Input
