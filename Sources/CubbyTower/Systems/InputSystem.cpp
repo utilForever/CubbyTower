@@ -46,5 +46,10 @@ void UpdateInputSystem(entt::registry& registry)
     auto realHeight = static_cast<float>(HEIGHT) - MAP_HEIGHT * ZOOM;
     inputs.worldMouse.x = (inputs.mouse.x - realWidth / 2.0f) / ZOOM + 0.5f;
     inputs.worldMouse.y = (inputs.mouse.y - realHeight / 2.0f) / ZOOM + 0.4f;
+
+    inputs.leftButtonState =
+        UpdateInputState(inputs.leftButton, inputs.leftButtonState);
+    inputs.rightButtonState =
+        UpdateInputState(inputs.rightButton, inputs.rightButtonState);
 }
 }  // namespace CubbyTower
