@@ -11,6 +11,15 @@
 
 namespace CubbyTower
 {
+//! \brief An enumerator for identifying input state.
+enum class InputState
+{
+    UP,
+    JUST_UP,
+    DOWN,
+    JUST_DOWN,
+};
+
 //!
 //! \brief Inputs struct.
 //!
