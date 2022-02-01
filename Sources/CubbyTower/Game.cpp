@@ -12,6 +12,7 @@
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Components/StaticLinesRenderer.hpp>
+#include <CubbyTower/Components/UIContext.hpp>
 #include <CubbyTower/Game.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
@@ -72,6 +73,13 @@ void Initialize(entt::registry& registry)
 
         Inputs inputs{};
         registry.emplace<Inputs>(entity, inputs);
+    }
+
+    // UI Context
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::UIContext>(entity);
+        registry.emplace<UIContext>(entity, entt::null, entt::null);
     }
 
     // HUDs
