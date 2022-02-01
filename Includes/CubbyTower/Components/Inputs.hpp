@@ -31,6 +31,10 @@ struct Inputs
     Position mouse;
     Position worldMouse;
 
+    // Button states
+    InputState leftButtonState;
+    InputState rightButtonState;
+
     // Raw states
     bool leftButton;
     bool rightButton;
