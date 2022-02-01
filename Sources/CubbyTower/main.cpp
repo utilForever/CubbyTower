@@ -4,8 +4,8 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#include <CubbyTower/Helpers/InputHelpers.hpp>
 #include <CubbyTower/Game.hpp>
+#include <CubbyTower/Helpers/InputHelpers.hpp>
 
 #include <GL/gl3w.hpp>
 #include <SFML/Window/Event.hpp>
@@ -64,6 +64,11 @@ int main()
             {
                 Input::OnMouseButtonReleased(registry,
                                              newEvent.mouseButton.button);
+            }
+            else if (newEvent.type == sf::Event::MouseMoved)
+            {
+                Input::OnMouseMoved(registry, newEvent.mouseMove.x,
+                                    newEvent.mouseMove.y);
             }
         }
 
