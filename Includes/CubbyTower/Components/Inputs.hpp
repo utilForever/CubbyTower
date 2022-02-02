@@ -7,8 +7,19 @@
 #ifndef CUBBYTOWER_INPUTS_HPP
 #define CUBBYTOWER_INPUTS_HPP
 
+#include <CubbyTower/Components/Position.hpp>
+
 namespace CubbyTower
 {
+//! \brief An enumerator for identifying input state.
+enum class InputState
+{
+    UP,
+    JUST_UP,
+    DOWN,
+    JUST_DOWN,
+};
+
 //!
 //! \brief Inputs struct.
 //!
@@ -16,6 +27,14 @@ namespace CubbyTower
 //!
 struct Inputs
 {
+    // Mouse position
+    Position mouse;
+    Position worldMouse;
+
+    // Button states
+    InputState leftButtonState;
+    InputState rightButtonState;
+
     // Raw states
     bool leftButton;
     bool rightButton;

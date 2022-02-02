@@ -12,12 +12,16 @@
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Components/StaticLinesRenderer.hpp>
+#include <CubbyTower/Components/UIContext.hpp>
 #include <CubbyTower/Game.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Systems/ButtonStateSystem.hpp>
 #include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
+#include <CubbyTower/Systems/HoverSystem.hpp>
+#include <CubbyTower/Systems/InputSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
@@ -74,6 +78,13 @@ void Initialize(entt::registry& registry)
         registry.emplace<Inputs>(entity, inputs);
     }
 
+    // UI Context
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::UIContext>(entity);
+        registry.emplace<UIContext>(entity, entt::null, entt::null);
+    }
+
     // HUDs
     {
         auto entity = registry.create();
@@ -97,7 +108,10 @@ void Update(entt::registry& registry, float deltaTime)
 {
     (void)deltaTime;
 
+    UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
+    UpdateHoverSystem(registry);
+    UpdateButtonStateSystem(registry);
 }
 
 void Render(entt::registry& registry)
