@@ -18,6 +18,7 @@
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Systems/ButtonStateSystem.hpp>
+#include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
 #include <CubbyTower/Systems/ClickSystem.hpp>
 #include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
@@ -111,6 +112,7 @@ void Update(entt::registry& registry, float deltaTime)
 
     UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
+    UpdateCashButtonTogglerSystem(registry);
     UpdateHoverSystem(registry);
     UpdateClickSystem(registry);
     UpdateButtonStateSystem(registry);
