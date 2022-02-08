@@ -6,6 +6,7 @@
 
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Button.hpp>
+#include <CubbyTower/Components/Clickable.hpp>
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Hoverable.hpp>
 #include <CubbyTower/Components/UIContext.hpp>
@@ -21,17 +22,32 @@ void UpdateButtonStateSystem(entt::registry& registry)
     registry.view<Button, Color>().each(
         [&registry, &uiContext](auto entity, const Button& button,
                                 Color& color) {
-            if (registry.all_of<Hoverable>(entity))
+            if (registry.all_of<Hoverable, Clickable>(entity))
             {
+                Clickable& clickable = registry.get<Clickable>(entity);
                 Hoverable& hoverable = registry.get<Hoverable>(entity);
 
                 if (entity == uiContext.hover)
                 {
-                    color = hoverable.hoverColor;
+                    if (entity == uiContext.down)
+                    {
+                        color = clickable.downColor;
+                    }
+                    else
+                    {
+                        color = hoverable.hoverColor;
+                    }
                 }
                 else
                 {
-                    color = hoverable.normalColor;
+                    if (entity == uiContext.down)
+                    {
+                        color = hoverable.hoverColor;
+                    }
+                    else
+                    {
+                        color = hoverable.normalColor;
+                    }
                 }
             }
             else
