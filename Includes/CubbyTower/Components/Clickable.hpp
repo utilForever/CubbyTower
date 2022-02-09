@@ -4,23 +4,27 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_HOVERABLE_HPP
-#define CUBBYTOWER_HOVERABLE_HPP
+#ifndef CUBBYTOWER_CLICKABLE_HPP
+#define CUBBYTOWER_CLICKABLE_HPP
 
 #include <CubbyTower/Components/Color.hpp>
+
+#include <entt/entt.hpp>
+
+#include <functional>
 
 namespace CubbyTower
 {
 //!
-//! \brief Hoverable struct.
+//! \brief Clickable struct.
 //!
-//! This struct stores the value of normal/hover color.
+//! This struct stores the value of click color and callback function.
 //!
-struct Hoverable
+struct Clickable
 {
-    Color normalColor;
-    Color hoverColor;
+    Color downColor;
+    std::function<void(entt::registry&, entt::entity)> OnClick;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_HOVERABLE_HPP
+#endif  // CUBBYTOWER_CLICKABLE_HPP

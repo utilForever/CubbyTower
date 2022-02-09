@@ -4,23 +4,16 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_HOVERABLE_HPP
-#define CUBBYTOWER_HOVERABLE_HPP
+#ifndef CUBBYTOWER_BUTTON_STATE_SYSTEM_HPP
+#define CUBBYTOWER_BUTTON_STATE_SYSTEM_HPP
 
-#include <CubbyTower/Components/Color.hpp>
+#include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-//!
-//! \brief Hoverable struct.
-//!
-//! This struct stores the value of normal/hover color.
-//!
-struct Hoverable
-{
-    Color normalColor;
-    Color hoverColor;
-};
+//! Updates button state system.
+//! \param registry A registry that handles entities.
+void UpdateButtonStateSystem(entt::registry& registry);
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_HOVERABLE_HPP
+#endif  // CUBBYTOWER_BUTTON_STATE_SYSTEM_HPP

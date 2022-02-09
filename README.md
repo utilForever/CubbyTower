@@ -2,7 +2,7 @@
 
 <img src="./Medias/Logos/Logo.png" width=256 height=256 />
 
-[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://github.com/utilForever/CubbyTower/blob/main/LICENSE) ![Windows](https://github.com/utilForever/CubbyTower/workflows/Windows/badge.svg) ![Ubuntu](https://github.com/utilForever/CubbyTower/workflows/Ubuntu/badge.svg) ![macOS](https://github.com/utilForever/CubbyTower/workflows/macOS/badge.svg) ![Ubuntu - Codecov](https://github.com/utilForever/CubbyTower/workflows/Ubuntu%20-%20Codecov/badge.svg) [![Build Status](https://travis-ci.com/utilForever/CubbyTower.svg?branch=main)](https://travis-ci.com/utilForever/CubbyTower)
+[![License](https://img.shields.io/badge/Licence-MIT-blue.svg)](https://github.com/utilForever/CubbyTower/blob/main/LICENSE) ![Windows](https://github.com/utilForever/CubbyTower/workflows/Windows/badge.svg) ![Ubuntu](https://github.com/utilForever/CubbyTower/workflows/Ubuntu/badge.svg) ![macOS](https://github.com/utilForever/CubbyTower/workflows/macOS/badge.svg)
 
 [![codecov](https://codecov.io/gh/utilForever/CubbyTower/branch/main/graph/badge.svg)](https://codecov.io/gh/utilForever/CubbyTower)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9aa9200b1ad246deab0263367343d867)](https://www.codacy.com/gh/utilForever/CubbyTower/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=utilForever/CubbyTower&amp;utm_campaign=Badge_Grade)
