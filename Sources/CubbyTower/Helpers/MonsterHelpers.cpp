@@ -10,10 +10,12 @@
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
+#include <CubbyTower/Components/Enemy.hpp>
 
 namespace CubbyTower
 {
-void CreateMonster(entt::registry& registry, int health, int typeMask)
+void CreateMonster(entt::registry& registry, int health, int typeMask,
+                   std::function<void(entt::registry&, entt::entity)> onDestroy)
 {
     auto entity = registry.create();
     registry.emplace<Tag::Enemy>(entity);
@@ -21,5 +23,11 @@ void CreateMonster(entt::registry& registry, int health, int typeMask)
     registry.emplace<Health>(entity, health);
     registry.emplace<Position>(entity, 0.0f, 0.0f);
     registry.emplace<Distance>(entity, 0.0f);
+    registry.emplace<Enemy>(entity, onDestroy);
+}
+
+void DestroyMonster(entt::registry& registry, entt::entity entity)
+{
+    registry.destroy(entity);
 }
 }  // namespace CubbyTower

@@ -22,7 +22,6 @@ using UIContext = entt::tag<"uicontext"_hs>;
 using HUD = entt::tag<"hud"_hs>;
 using Tower = entt::tag<"tower"_hs>;
 using Enemy = entt::tag<"enemy"_hs>;
-using Field = entt::tag<"field"_hs>;
 }  // namespace Tag
 }  // namespace CubbyTower
 

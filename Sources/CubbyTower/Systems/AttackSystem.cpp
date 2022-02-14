@@ -6,6 +6,7 @@
 
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/AttackRange.hpp>
+#include <CubbyTower/Components/Enemy.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
@@ -58,6 +59,11 @@ void Attack(entt::registry& registry)
         auto& health = registry.get<Health>(*enemy);
         const int damage = registry.get<Damage>(tower).damage;
         health.curAmount -= damage;
+        if (health.curAmount <= 0) {
+            // Destroy event
+            auto& monster = registry.get<Enemy>(*enemy);
+            monster.OnDestroy(registry, *enemy);
+        }
     }
 }
 }  // namespace CubbyTower

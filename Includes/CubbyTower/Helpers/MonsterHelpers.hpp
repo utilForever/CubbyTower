@@ -15,7 +15,13 @@ namespace CubbyTower
 //! \param registry A registry that handles entities.
 //! \param health The health of a monster that will be created.
 //! \param typeMask A mask that contains the type of a monster.
-void CreateMonster(entt::registry& registry, int health, int typeMask);
+void CreateMonster(entt::registry& registry, int health, int typeMask,
+                   std::function<void(entt::registry&, entt::entity)> onDestroy);
+
+//! Creates a monster.
+//! \param registry A registry that handles entities.
+//! \param entity The monster that will be destroyed.
+void DestroyMonster(entt::registry& registry, entt::entity entity);
 
 }  // namespace CubbyTower
 
