@@ -6,11 +6,11 @@
 
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Distance.hpp>
+#include <CubbyTower/Components/Enemy.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
-#include <CubbyTower/Components/Enemy.hpp>
 
 namespace CubbyTower
 {

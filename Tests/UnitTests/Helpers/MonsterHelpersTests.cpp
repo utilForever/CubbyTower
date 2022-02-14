@@ -19,22 +19,23 @@ using namespace CubbyTower;
 TEST_CASE("[MonsterHelpers] - Make several monsters")
 {
     entt::registry registry;
-    
+
     {
         auto view = registry.view<Tag::Enemy>();
         CHECK(view.empty());
     }
-    
-    CreateMonster(registry, 10, 0b010, [](entt::registry& registry, entt::entity entity) {
-        DestroyMonster(registry, entity);
-    });
+
+    CreateMonster(registry, 10, 0b010,
+                  [](entt::registry& registry, entt::entity entity) {
+                      DestroyMonster(registry, entity);
+                  });
 
     {
         auto view = registry.view<Tag::Enemy>();
         CHECK_EQ(view.size(), 1);
         // NOTE: Multi-view don't know the number of items
     }
-    
+
     {
         auto view = registry.view<Tag::Enemy, Health, TypeMask, Distance>();
         for (auto [enemy, health, type, dist] : view.each())
@@ -44,6 +45,4 @@ TEST_CASE("[MonsterHelpers] - Make several monsters")
             CHECK_EQ(dist.distance, 0.0);
         }
     }
-
-
 }
