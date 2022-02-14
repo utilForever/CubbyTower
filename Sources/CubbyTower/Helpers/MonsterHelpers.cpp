@@ -15,7 +15,7 @@
 namespace CubbyTower
 {
 void CreateMonster(entt::registry& registry, int health, int typeMask,
-                   std::function<void(entt::registry&, entt::entity)> onDestroy)
+                   std::function<void(entt::registry&, entt::entity)> OnDestroy)
 {
     auto entity = registry.create();
     registry.emplace<Tag::Enemy>(entity);
@@ -23,7 +23,7 @@ void CreateMonster(entt::registry& registry, int health, int typeMask,
     registry.emplace<Health>(entity, health);
     registry.emplace<Position>(entity, 0.0f, 0.0f);
     registry.emplace<Distance>(entity, 0.0f);
-    registry.emplace<Enemy>(entity, onDestroy);
+    registry.emplace<Enemy>(entity, OnDestroy);
 }
 
 void DestroyMonster(entt::registry& registry, entt::entity entity)
