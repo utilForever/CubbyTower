@@ -29,6 +29,7 @@
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
+#include <CubbyTower/Systems/AttackSystem.hpp>
 
 namespace CubbyTower::Game
 {
@@ -108,7 +109,6 @@ void Initialize(entt::registry& registry)
 
 void Update(entt::registry& registry, float deltaTime)
 {
-    (void)deltaTime;
 
     UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
@@ -116,6 +116,7 @@ void Update(entt::registry& registry, float deltaTime)
     UpdateHoverSystem(registry);
     UpdateClickSystem(registry);
     UpdateButtonStateSystem(registry);
+    UpdateAttackSystem(registry, deltaTime);
 }
 
 void Render(entt::registry& registry)

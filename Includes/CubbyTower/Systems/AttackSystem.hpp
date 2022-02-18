@@ -13,7 +13,8 @@ namespace CubbyTower
 {
 //! This function called every frame and handles all attacks in game.
 //! \param registry A registry that handles entities.
-void Attack(entt::registry& registry);
+//! \param deltaTime Time passed from last Attack Update
+void UpdateAttackSystem(entt::registry& registry, float deltaTime);
     
 }  // namespace CubbyTower
 

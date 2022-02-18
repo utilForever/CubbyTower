@@ -16,7 +16,7 @@
 
 namespace CubbyTower
 {
-void Attack(entt::registry& registry)
+void UpdateAttackSystem(entt::registry& registry, float deltaTime)
 {
     for (auto tower : registry.view<Tag::Tower>())
     {
