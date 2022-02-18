@@ -7,20 +7,40 @@
 #include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/AttackRange.hpp>
+#include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Distance.hpp>
 #include <CubbyTower/Components/Name.hpp>
+#include <CubbyTower/Components/Placer.hpp>
 #include <CubbyTower/Components/Position.hpp>
+#include <CubbyTower/Components/ShapeRenderer.hpp>
+#include <CubbyTower/Components/Size.hpp>
+#include <CubbyTower/Components/SizePulseAnim.hpp>
 #include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TargetPriority.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
+#include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 
 #include <optional>
 
 namespace CubbyTower::Tower
 {
+void CreatePlacer(
+    entt::registry& registry,
+    const std::function<void(entt::registry&, const Position&)>& callback)
+{
+    registry.clear<Placer>();
+
+    auto entity = registry.create();
+    registry.emplace<Placer>(entity, callback);
+    registry.emplace<Color>(entity, Color{ 0.0f, 1.0f, 1.0f, 0.75f });
+    registry.emplace<Size>(entity, Size{ 0.45f, 0.45f });
+    registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
+    registry.emplace<SizePulseAnim>(entity, 0.0f, 20.0f, 0.35f, 0.45f);
+}
+
 void BuyArrowTower(entt::registry& registry, float x, float y)
 {
     // Check the player can buy arrow tower

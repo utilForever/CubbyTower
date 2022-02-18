@@ -8,10 +8,22 @@
 #define CUBBYTOWER_TOWER_HELPERS_HPP
 
 #include <entt/entt.hpp>
+
 #include <optional>
 
-namespace CubbyTower::Tower
+namespace CubbyTower
 {
+struct Position;
+
+namespace Tower
+{
+//! Creates a tower placer cursor with a callback.
+//! \param registry A registry that handles entities.
+//! \param callback A callback for placing a tower.
+void CreatePlacer(
+    entt::registry& registry,
+    const std::function<void(entt::registry&, const Position&)>& callback);
+
 //! Buys a arrow tower.
 //! \param registry A registry that handles entities.
 void BuyArrowTower(entt::registry& registry, float x, float y);
@@ -26,6 +38,7 @@ void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity);
 //! \param attackable A collection of attackable entities.
 std::optional<entt::entity> FirstEnemyTargeter(
     entt::registry& registry, std::vector<entt::entity> attackable);
-}  // namespace CubbyTower::Tower
+}  // namespace Tower
+}  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_TOWER_HELPERS_HPP
