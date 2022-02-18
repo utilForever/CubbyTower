@@ -27,6 +27,7 @@
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
+#include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
 
@@ -104,6 +105,10 @@ void Initialize(entt::registry& registry)
                 Tower::BuyArrowTower(registry, 0, 0);
             });
     }
+}
+
+void Simulate(entt::registry& registry, float deltaTime)
+{
 }
 
 void Update(entt::registry& registry, float deltaTime)
