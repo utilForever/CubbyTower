@@ -10,7 +10,7 @@
 
 namespace CubbyTower
 {
-void CreateProjetile(entt::registry& registry, entt::entity tower, entt:entity enemy)
+void CreateProjectile(entt::registry& registry, entt::entity tower, entt:entity enemy)
 {
 
     float speed = 1.0; //TODO : add projectile speed component in tower
