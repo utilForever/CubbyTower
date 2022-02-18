@@ -109,6 +109,7 @@ void Initialize(entt::registry& registry)
 
 void Simulate(entt::registry& registry, float deltaTime)
 {
+    UpdateSizePulseAnimSystem(registry, deltaTime);
 }
 
 void Update(entt::registry& registry, float deltaTime)
