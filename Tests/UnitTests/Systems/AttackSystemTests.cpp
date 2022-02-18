@@ -34,8 +34,8 @@ TEST_CASE("[AttackSystem] - Attack")
     registry.emplace<Tag::Player>(entity);
     registry.emplace<Gold>(entity, 500);
 
-    BuyArrowTower(registry, 300.0, 280.0);
-    BuyArrowTower(registry, 600.0, 280.0);
+    Tower::BuyArrowTower(registry, 300.0, 280.0);
+    Tower::BuyArrowTower(registry, 600.0, 280.0);
 
     auto enemy1 = registry.create();
     registry.emplace<Tag::Enemy>(enemy1);

@@ -27,14 +27,14 @@ TEST_CASE("[TowerHelpers] - BuyArrowTower")
         CHECK_EQ(view.size(), 0);
     }
 
-    BuyArrowTower(registry, 0.0, 0.0);
+    Tower::BuyArrowTower(registry, 0.0, 0.0);
 
     {
         auto view = registry.view<Tag::Tower>();
         CHECK_EQ(view.size(), 1);
     }
 
-    BuyArrowTower(registry, 0.0, 100.0);
+    Tower::BuyArrowTower(registry, 0.0, 100.0);
 
     {
         auto view = registry.view<Tag::Tower>();

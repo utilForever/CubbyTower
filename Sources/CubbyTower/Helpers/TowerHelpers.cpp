@@ -19,7 +19,7 @@
 
 #include <optional>
 
-namespace CubbyTower
+namespace CubbyTower::Tower
 {
 void BuyArrowTower(entt::registry& registry, float x, float y)
 {
@@ -55,20 +55,20 @@ std::optional<entt::entity> FirstEnemyTargeter(
     {
         return std::nullopt;
     }
-    
+
     entt::entity target = attackable[0];
     for (int i = 1; i < static_cast<int>(attackable.size()); ++i)
     {
         double pre = registry.get<Distance>(target).distance;
         double cur = registry.get<Distance>(attackable[i]).distance;
-        
+
         if (pre < cur)
         {
             target = attackable[i];
         }
     }
-    
+
     return target;
 }
 
-}  // namespace CubbyTower
+}  // namespace CubbyTower::Tower
