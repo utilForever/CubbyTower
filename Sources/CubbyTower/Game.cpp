@@ -102,7 +102,7 @@ void Initialize(entt::registry& registry)
         UI::CreateTowerButton(
             registry, "Arrow Tower", { -1, 16.5f }, ARROW_TOWER_LV1_PRICE,
             [](entt::registry& registry, entt::entity button) {
-                Tower::BuyArrowTower(registry, 0, 0);
+                Tower::CreatePlacer(registry, Tower::BuyArrowTower);
             });
     }
 }
