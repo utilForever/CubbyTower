@@ -25,6 +25,7 @@
 #include <CubbyTower/Systems/HoverSystem.hpp>
 #include <CubbyTower/Systems/InputSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
+#include <CubbyTower/Systems/PlaceSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
@@ -122,6 +123,7 @@ void Update(entt::registry& registry, float deltaTime)
     UpdateHoverSystem(registry);
     UpdateClickSystem(registry);
     UpdateButtonStateSystem(registry);
+    UpdatePlaceSystem(registry);
 }
 
 void Render(entt::registry& registry)
