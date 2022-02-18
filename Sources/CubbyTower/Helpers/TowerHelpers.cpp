@@ -41,7 +41,7 @@ void CreatePlacer(
     registry.emplace<SizePulseAnim>(entity, 0.0f, 20.0f, 0.35f, 0.45f);
 }
 
-void BuyArrowTower(entt::registry& registry, float x, float y)
+void BuyArrowTower(entt::registry& registry, const Position& position)
 {
     // Check the player can buy arrow tower
     if (!Withdraw(registry, registry.view<Tag::Player>()[0],
@@ -59,7 +59,7 @@ void BuyArrowTower(entt::registry& registry, float x, float y)
     registry.emplace<TargetPriority>(entity, 2, FirstEnemyTargeter);
     registry.emplace<Damage>(entity, 1);
     registry.emplace<AttackRange>(entity, 100.0);
-    registry.emplace<Position>(entity, x, y);
+    registry.emplace<Position>(entity, position);
 }
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)

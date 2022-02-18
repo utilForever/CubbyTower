@@ -26,7 +26,8 @@ void CreatePlacer(
 
 //! Buys a arrow tower.
 //! \param registry A registry that handles entities.
-void BuyArrowTower(entt::registry& registry, float x, float y);
+//! \param position The position to place an arrow tower.
+void BuyArrowTower(entt::registry& registry, const Position& position);
 
 //! Upgrades a arrow tower to level 2.
 //! \param registry A registry that handles entities.

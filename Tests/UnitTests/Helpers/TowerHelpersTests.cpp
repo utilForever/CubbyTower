@@ -8,6 +8,7 @@
 
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
+#include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 
 #include <entt/entt.hpp>
@@ -27,14 +28,14 @@ TEST_CASE("[TowerHelpers] - BuyArrowTower")
         CHECK_EQ(view.size(), 0);
     }
 
-    Tower::BuyArrowTower(registry, 0.0, 0.0);
+    Tower::BuyArrowTower(registry, Position{ 0.0f, 0.0f });
 
     {
         auto view = registry.view<Tag::Tower>();
         CHECK_EQ(view.size(), 1);
     }
 
-    Tower::BuyArrowTower(registry, 0.0, 100.0);
+    Tower::BuyArrowTower(registry, Position{ 0.0f, 100.0f });
 
     {
         auto view = registry.view<Tag::Tower>();
