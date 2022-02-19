@@ -70,6 +70,7 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
 {
+    registry.replace<Color>(entity, TOWER_LEVEL2_COLOR);
     registry.replace<Name>(entity, "Arrow Tower Lv 2");
     registry.remove<Upgradable>(entity);
 }
