@@ -9,6 +9,7 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/Name.hpp>
+#include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Systems/UpgradeSystem.hpp>
 
@@ -26,7 +27,7 @@ TEST_CASE("[UpgradeSystem] - UpdateUpgradeSystem")
     registry.emplace<Tag::Player>(entity);
     registry.emplace<Gold>(entity, 500);
 
-    BuyArrowTower(registry, 0.0, 0.0);
+    Tower::BuyArrowTower(registry, Position{ 0.0f, 0.0f });
     UpdateUpgradeSystem(registry, registry.view<Tag::Tower>()[0]);
 
     auto playerView = registry.view<Tag::Player, Gold>();

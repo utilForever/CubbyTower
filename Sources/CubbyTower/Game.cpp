@@ -25,8 +25,10 @@
 #include <CubbyTower/Systems/HoverSystem.hpp>
 #include <CubbyTower/Systems/InputSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
+#include <CubbyTower/Systems/PlaceSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
+#include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
@@ -102,9 +104,14 @@ void Initialize(entt::registry& registry)
         UI::CreateTowerButton(
             registry, "Arrow Tower", { -1, 16.5f }, ARROW_TOWER_LV1_PRICE,
             [](entt::registry& registry, entt::entity button) {
-                BuyArrowTower(registry, 0, 0);
+                Tower::CreatePlacer(registry, Tower::BuyArrowTower);
             });
     }
+}
+
+void Simulate(entt::registry& registry, float deltaTime)
+{
+    UpdateSizePulseAnimSystem(registry, deltaTime);
 }
 
 void Update(entt::registry& registry, float deltaTime)
@@ -116,6 +123,7 @@ void Update(entt::registry& registry, float deltaTime)
     UpdateClickSystem(registry);
     UpdateButtonStateSystem(registry);
     UpdateAttackSystem(registry, deltaTime);
+    UpdatePlaceSystem(registry);
 }
 
 void Render(entt::registry& registry)

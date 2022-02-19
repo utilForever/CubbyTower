@@ -15,6 +15,11 @@ namespace CubbyTower::Game
 //! \param registry A registry that handles entities.
 void Initialize(entt::registry& registry);
 
+//! Simulates game system according to delta time.
+//! \param registry A registry that handles entities.
+//! \param deltaTime The delta time relation to hardware responsiveness.
+void Simulate(entt::registry& registry, float deltaTime);
+
 //! Updates game system according to delta time.
 //! \param registry A registry that handles entities.
 //! \param deltaTime The delta time relation to hardware responsiveness.
