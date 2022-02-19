@@ -12,7 +12,8 @@ namespace CubbyTower
 //!
 //! \brief SizePulseAnim struct.
 //!
-//! This struct stores the animation size of the component.
+//! This struct stores the animation size of the component. 'anim' increases
+//! over time, and 'sin(anim)' is used to determine the size of a component.
 //!
 struct SizePulseAnim
 {
