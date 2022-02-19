@@ -18,6 +18,7 @@
 #include <CubbyTower/Components/SizePulseAnim.hpp>
 #include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TargetPriority.hpp>
+#include <CubbyTower/Components/TextRenderer.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
@@ -52,14 +53,19 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
 
     auto entity = registry.create();
     registry.emplace<Tag::Tower>(entity);
-    registry.emplace<Name>(entity, "Arrow Tower Lv 1");
+    registry.emplace<Position>(entity, position);
+    registry.emplace<Size>(entity, TOWER_SIZE, TOWER_SIZE);
+    registry.emplace<Color>(entity, TOWER_LEVEL1_COLOR);
+    registry.emplace<TextRenderer>(entity, "A", Color{ 0.0f, 0.0f, 0.0f, 0.0f },
+                                   0.5f);
+    registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
+    registry.emplace<Name>(entity, "Arrow Tower Lv 1 - \"U\" upgrade $200");
     registry.emplace<Upgradable>(entity, ARROW_TOWER_LV2_PRICE,
                                  UpgradeArrowTowerLv2);
     registry.emplace<TargetMask>(entity, 0b110);
     registry.emplace<TargetPriority>(entity, 2, FirstEnemyTargeter);
     registry.emplace<Damage>(entity, 1);
     registry.emplace<AttackRange>(entity, 100.0);
-    registry.emplace<Position>(entity, position);
 }
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
