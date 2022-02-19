@@ -15,7 +15,7 @@ namespace CubbyTower
 //! \param registry A registry that handles entities.
 //! \param tower The tower entity.
 //! \param enemy A enemy entity which is being attacked
-void CreateProjectile(entt::registry& registry, entt::entity tower, entt:entity enemy);
+void CreateProjectile(entt::registry& registry, entt::entity tower, entt::entity enemy);
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_PROJECTILE_HELPERS_HPP
