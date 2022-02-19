@@ -8,6 +8,12 @@
 #include <CubbyTower/Components/SizePulseAnim.hpp>
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 
+#if defined(_WIN32) || defined(_WIN64)
+#include <cmath>
+#else
+#include <math.h>
+#endif
+
 namespace CubbyTower
 {
 void UpdateSizePulseAnimSystem(entt::registry& registry, float deltaTime)
@@ -17,7 +23,11 @@ void UpdateSizePulseAnimSystem(entt::registry& registry, float deltaTime)
                      Size& size) {
             const auto anim =
                 sizePulseAnim.anim + sizePulseAnim.speed * deltaTime;
+#if defined(_WIN32) || defined(_WIN64)
             const auto t = std::sinf(anim);
+#else
+            const auto t = sinf(anim);
+#endif
             const auto r = (sizePulseAnim.to - sizePulseAnim.from) / 2.0f;
             const auto sizeA = sizePulseAnim.from + r + t * r;
 
