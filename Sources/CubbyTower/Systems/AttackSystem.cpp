@@ -13,6 +13,7 @@
 #include <CubbyTower/Components/TargetPriority.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
+#include <CubbyTower/Helpers/ProjectileHelpers.hpp>
 
 namespace CubbyTower
 {
@@ -21,6 +22,8 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
     for (auto tower : registry.view<Tag::Tower>())
     {
         std::vector<entt::entity> attackable;
+        // TODO: add cooldown check
+
 
         for (auto enemy : registry.view<Tag::Enemy>())
         {
@@ -53,11 +56,8 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
             continue;
         }
 
-        // Simple attack test
-        // TODO: make a projectile
-        auto& health = registry.get<Health>(*enemy);
-        const int damage = registry.get<Damage>(tower).damage;
-        health.curAmount -= damage;
+        CreateProjectile(registry, tower, *enemy);
+
     }
 }
 }  // namespace CubbyTower
