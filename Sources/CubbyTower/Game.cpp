@@ -109,7 +109,6 @@ void Initialize(entt::registry& registry)
 
 void Update(entt::registry& registry, float deltaTime)
 {
-
     UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
     UpdateCashButtonTogglerSystem(registry);

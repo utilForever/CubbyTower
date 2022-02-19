@@ -16,8 +16,6 @@ namespace CubbyTower
 {
 void CreateProjectile(entt::registry& registry, entt::entity tower, entt::entity enemy)
 {
-
-
     float speed = 1.0; //TODO : add projectile speed component in tower
 
     auto entity = registry.create();
@@ -42,7 +40,5 @@ void CreateProjectile(entt::registry& registry, entt::entity tower, entt::entity
     }
 
     registry.emplace<Velocity>(entity, speed * positionDiff.x / distance , speed * positionDiff.y / distance );
-
-
 }
 }  // namespace CubbyTower

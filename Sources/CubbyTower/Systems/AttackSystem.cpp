@@ -57,7 +57,6 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
         }
 
         CreateProjectile(registry, tower, *enemy);
-
     }
 }
 }  // namespace CubbyTower

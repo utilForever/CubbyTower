@@ -92,6 +92,5 @@ TEST_CASE("[AttackSystem] - Attack")
     {
         CHECK_EQ(vel.vx, 0);
         CHECK_EQ(vel.vy, 1.0);
-
     }
 }
