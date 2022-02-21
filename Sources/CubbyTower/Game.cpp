@@ -112,17 +112,18 @@ void Initialize(entt::registry& registry)
 void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSizePulseAnimSystem(registry, deltaTime);
+    UpdateAttackSystem(registry, deltaTime);
 }
 
 void Update(entt::registry& registry, float deltaTime)
 {
+    (void)deltaTime;
     UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
     UpdateCashButtonTogglerSystem(registry);
     UpdateHoverSystem(registry);
     UpdateClickSystem(registry);
     UpdateButtonStateSystem(registry);
-    UpdateAttackSystem(registry, deltaTime);
     UpdatePlaceSystem(registry);
 }
 
