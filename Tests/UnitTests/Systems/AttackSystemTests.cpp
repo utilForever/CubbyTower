@@ -16,10 +16,10 @@
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
+#include <CubbyTower/Components/Velocity.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/PathSystem.hpp>
-#include <CubbyTower/Components/Velocity.hpp>
 
 #include <entt/entt.hpp>
 
@@ -90,7 +90,7 @@ TEST_CASE("[AttackSystem] - Attack")
     }
     for (auto [proj, vel] : registry.view<Tag::Projectile, Velocity>().each())
     {
-        CHECK_EQ(vel.vx, 0);
-        CHECK_EQ(vel.vy, 1.0);
+        CHECK_EQ(vel.x, 0);
+        CHECK_EQ(vel.y, 1.0);
     }
 }

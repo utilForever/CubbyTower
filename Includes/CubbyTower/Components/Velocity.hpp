@@ -16,8 +16,8 @@ namespace CubbyTower
 //!
 struct Velocity
 {
-    float vx;
-    float vy;
+    float x;
+    float y;
 };
 }  // namespace CubbyTower
 
