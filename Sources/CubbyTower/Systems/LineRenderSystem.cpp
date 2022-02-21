@@ -21,10 +21,11 @@ void UpdateLineRenderSystem(entt::registry& registry)
     VertexPC* vertices = resources.pcVertices;
 
     registry.view<LineRenderer, Position, Color>().each(
-        [&vertices](
-            [[maybe_unused]] auto entity, const LineRenderer& lineRenderer,
-            const Position& position, const Color& color) {
-            vertices += Rendering::DrawLine(vertices, position, lineRenderer.target, color);
+        [&vertices]([[maybe_unused]] auto entity,
+                    const LineRenderer& lineRenderer, const Position& position,
+                    const Color& color) {
+            vertices += Rendering::DrawLine(vertices, position,
+                                            lineRenderer.target, color);
         });
 
     if (const auto count = vertices - resources.pcVertices; count)
