@@ -66,7 +66,7 @@ TEST_CASE("[AttackSystem] - Attack")
 
     Path::UpdatePathSystem(registry);
 
-    UpdateAttackSystem(registry, 0.0);
+    UpdateAttackSystem(registry, 0.0f);
 
     for (auto [enemy, dist, hp, mask] :
          registry.view<Tag::Enemy, Distance, Health, TypeMask>().each())

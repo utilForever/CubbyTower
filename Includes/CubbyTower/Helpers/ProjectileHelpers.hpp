@@ -11,9 +11,9 @@
 
 namespace CubbyTower
 {
-//! Makes Projectile Heading from \p tower to \enemy that follows tower's aspects
+//! Makes a projectile Heading from \p tower to \enemy that follows tower's aspects
 //! \param registry A registry that handles entities.
-//! \param tower The tower entity.
+//! \param tower A tower entity.
 //! \param enemy A enemy entity which is being attacked
 void CreateProjectile(entt::registry& registry, entt::entity tower, entt::entity enemy);
 }  // namespace CubbyTower

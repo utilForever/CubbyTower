@@ -22,8 +22,7 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
     for (auto tower : registry.view<Tag::Tower>())
     {
         std::vector<entt::entity> attackable;
-        // TODO: add cooldown check
-
+        // TODO: Add cooldown check
 
         for (auto enemy : registry.view<Tag::Enemy>())
         {
