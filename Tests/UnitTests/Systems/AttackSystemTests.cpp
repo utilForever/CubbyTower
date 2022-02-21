@@ -16,10 +16,10 @@
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
-#include <CubbyTower/Components/Velocity.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/PathSystem.hpp>
+#include <CubbyTower/Components/Velocity.hpp>
 
 #include <entt/entt.hpp>
 

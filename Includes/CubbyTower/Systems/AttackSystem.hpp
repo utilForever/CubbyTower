@@ -15,7 +15,7 @@ namespace CubbyTower
 //! \param registry A registry that handles entities.
 //! \param deltaTime The time passed from last attack is updated.
 void UpdateAttackSystem(entt::registry& registry, float deltaTime);
-
+    
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP

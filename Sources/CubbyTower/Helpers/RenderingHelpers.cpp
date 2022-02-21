@@ -119,7 +119,7 @@ void SetTransform(entt::registry& registry, const float* matrix)
         glUseProgram(resources.programPTC);
         const auto uniform =
             glGetUniformLocation(resources.programPTC, "ProjMtx");
-        glUniformMatrix4fv(uniform, 1, GL_FALSE, matrix);
+        glUniformMatrix4fv(uniform, 1, GL_FALSE, matrix);    
     }
 }
 

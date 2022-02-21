@@ -14,7 +14,7 @@ namespace CubbyTower
 //!
 //! This struct stores the position of the entity.
 //!
-struct Position
+struct Position 
 {
     float x;
     float y;

@@ -12,8 +12,8 @@
 #include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TargetPriority.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
-#include <CubbyTower/Helpers/ProjectileHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
+#include <CubbyTower/Helpers/ProjectileHelpers.hpp>
 
 namespace CubbyTower
 {
