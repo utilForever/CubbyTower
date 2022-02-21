@@ -12,8 +12,8 @@ namespace CubbyTower
 //!
 //! \brief Cooldown struct.
 //!
-//! This struct stores the data for cooldowns for attack cooldowns or ability cooldowns.
-//! This is used by the tower, or abilities (might be added later).
+//! This struct stores the data for cooldowns for attack cooldowns or ability
+//! cooldowns. This is used by the tower, or abilities (might be added later).
 //!
 struct Cooldown
 {
