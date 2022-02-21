@@ -90,7 +90,7 @@ TEST_CASE("[AttackSystem] - Attack")
     }
     for (auto [proj, vel] : registry.view<Tag::Projectile, Velocity>().each())
     {
-        CHECK_EQ(vel.x, 0);
-        CHECK_EQ(vel.y, 1.0);
+        CHECK_EQ(vel.x, 0.0f);
+        CHECK_EQ(vel.y, 1.0f);
     }
 }
