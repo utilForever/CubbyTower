@@ -5,10 +5,10 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/HUD.hpp>
 #include <CubbyTower/Components/TextRenderer.hpp>
 #include <CubbyTower/Systems/HUDSystem.hpp>
-#include <CubbyTower/Components/Gold.hpp>
 
 namespace CubbyTower
 {

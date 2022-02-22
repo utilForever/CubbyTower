@@ -17,6 +17,7 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/ButtonStateSystem.hpp>
 #include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
 #include <CubbyTower/Systems/ClickSystem.hpp>
@@ -111,12 +112,12 @@ void Initialize(entt::registry& registry)
 void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSizePulseAnimSystem(registry, deltaTime);
+    UpdateAttackSystem(registry, deltaTime);
 }
 
 void Update(entt::registry& registry, float deltaTime)
 {
     (void)deltaTime;
-
     UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
     UpdateCashButtonTogglerSystem(registry);

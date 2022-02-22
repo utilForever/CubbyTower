@@ -16,6 +16,7 @@
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
+#include <CubbyTower/Components/Velocity.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/PathSystem.hpp>
@@ -26,8 +27,6 @@ using namespace CubbyTower;
 
 TEST_CASE("[AttackSystem] - Attack")
 {
-    // Testing only Attack functions running right way
-    // Todo : Real attack
     entt::registry registry;
 
     auto entity = registry.create();
@@ -67,7 +66,7 @@ TEST_CASE("[AttackSystem] - Attack")
 
     Path::UpdatePathSystem(registry);
 
-    Attack(registry);
+    UpdateAttackSystem(registry, 0.0f);
 
     for (auto [enemy, dist, hp, mask] :
          registry.view<Tag::Enemy, Distance, Health, TypeMask>().each())
@@ -82,11 +81,16 @@ TEST_CASE("[AttackSystem] - Attack")
         }
         else if (dist.distance == 300)
         {
-            CHECK_EQ(hp.curAmount, 2);
+            CHECK_EQ(hp.curAmount, 3);
         }
         else if (dist.distance == 100)
         {
             CHECK_EQ(hp.curAmount, 3);
         }
+    }
+    for (auto [proj, vel] : registry.view<Tag::Projectile, Velocity>().each())
+    {
+        CHECK_EQ(vel.x, 0.0f);
+        CHECK_EQ(vel.y, 1.0f);
     }
 }
