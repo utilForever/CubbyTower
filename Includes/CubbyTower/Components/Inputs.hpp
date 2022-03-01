@@ -34,10 +34,12 @@ struct Inputs
     // Button states
     InputState leftButtonState;
     InputState rightButtonState;
+    InputState upgradeKeyState;
 
     // Raw states
     bool leftButton;
     bool rightButton;
+    bool upgradeKey;
 };
 }  // namespace CubbyTower
 
