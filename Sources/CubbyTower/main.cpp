@@ -70,6 +70,10 @@ int main()
                 Input::OnMouseMoved(registry, newEvent.mouseMove.x,
                                     newEvent.mouseMove.y);
             }
+            else if (newEvent.type == sf::Event::KeyPressed)
+            {
+                Input::OnKeyPressed(registry, newEvent.key.code);
+            }
         }
 
         Game::Simulate(registry, deltaTime);
