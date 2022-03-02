@@ -28,7 +28,7 @@ TEST_CASE("[UpgradeSystem] - UpdateUpgradeSystem")
     registry.emplace<Gold>(entity, 500);
 
     Tower::BuyArrowTower(registry, Position{ 0.0f, 0.0f });
-    UpdateUpgradeSystem(registry, registry.view<Tag::Tower>()[0]);
+    UpdateUpgradeSystem(registry);
 
     auto playerView = registry.view<Tag::Player, Gold>();
     for (auto [playerEntity, gold] : playerView.each())
