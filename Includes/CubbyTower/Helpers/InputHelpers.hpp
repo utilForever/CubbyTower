@@ -33,6 +33,11 @@ void OnMouseMoved(entt::registry& registry, int x, int y);
 //! \param registry A registry that handles entities.
 //! \param key The pressed key of the keyboard.
 void OnKeyPressed(entt::registry& registry, sf::Keyboard::Key key);
+
+//! Handles key released event.
+//! \param registry A registry that handles entities.
+//! \param key The released key of the keyboard.
+void OnKeyReleased(entt::registry& registry, sf::Keyboard::Key key);
 }  // namespace CubbyTower::Input
 
 #endif  // CUBBYTOWER_INPUT_HELPERS_HPP

@@ -55,4 +55,14 @@ void OnKeyPressed(entt::registry& registry, sf::Keyboard::Key key)
         inputs.upgradeKey = true;
     }
 }
+
+void OnKeyReleased(entt::registry& registry, sf::Keyboard::Key key)
+{
+    auto& inputs = registry.get<Inputs>(registry.view<Tag::Inputs>()[0]);
+
+    if (key == sf::Keyboard::U)
+    {
+        inputs.upgradeKey = false;
+    }
+}
 }  // namespace CubbyTower::Input
