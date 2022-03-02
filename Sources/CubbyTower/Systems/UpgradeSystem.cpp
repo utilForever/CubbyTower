@@ -5,20 +5,33 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Components/Inputs.hpp>
+#include <CubbyTower/Components/UIContext.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
 #include <CubbyTower/Systems/UpgradeSystem.hpp>
 
 namespace CubbyTower
 {
-void UpdateUpgradeSystem(entt::registry& registry, entt::entity from)
+void UpdateUpgradeSystem(entt::registry& registry)
 {
-    if (registry.all_of<Upgradable>(from))
+    Inputs& inputs = registry.get<Inputs>(registry.view<Tag::Inputs>()[0]);
+    const UIContext& uiContext =
+        registry.get<UIContext>(registry.view<Tag::UIContext>()[0]);
+
+    if (inputs.upgradeKeyState == InputState::JUST_DOWN &&
+        uiContext.hover != entt::null)
     {
-        if (const auto& upgradable = registry.get<Upgradable>(from); Withdraw(
-                registry, registry.view<Tag::Player>()[0], upgradable.cost))
+        if (registry.all_of<Upgradable>(uiContext.hover))
         {
-            upgradable.Upgrade(registry, from);
+            if (const auto& upgradable =
+                    registry.get<Upgradable>(uiContext.hover);
+                Withdraw(registry, registry.view<Tag::Player>()[0],
+                         upgradable.cost))
+            {
+                upgradable.Upgrade(registry, uiContext.hover);
+                inputs.upgradeKeyState = InputState::DOWN;
+            }
         }
     }
 }
