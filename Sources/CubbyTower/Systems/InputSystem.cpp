@@ -51,5 +51,7 @@ void UpdateInputSystem(entt::registry& registry)
         UpdateInputState(inputs.leftButton, inputs.leftButtonState);
     inputs.rightButtonState =
         UpdateInputState(inputs.rightButton, inputs.rightButtonState);
+    inputs.upgradeKeyState =
+        UpdateInputState(inputs.upgradeKey, inputs.upgradeKeyState);
 }
 }  // namespace CubbyTower

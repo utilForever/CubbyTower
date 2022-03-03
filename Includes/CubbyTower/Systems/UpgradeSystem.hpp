@@ -13,8 +13,7 @@ namespace CubbyTower
 {
 //! Updates upgrade system.
 //! \param registry A registry that handles entities.
-//! \param from The tower entity to upgrade.
-void UpdateUpgradeSystem(entt::registry& registry, entt::entity from);
+void UpdateUpgradeSystem(entt::registry& registry);
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_UPGRADE_SYSTEM_HPP
