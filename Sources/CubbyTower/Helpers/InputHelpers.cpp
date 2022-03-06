@@ -45,4 +45,24 @@ void OnMouseMoved(entt::registry& registry, int x, int y)
     inputs.mouse.x = static_cast<float>(x);
     inputs.mouse.y = static_cast<float>(y);
 }
+
+void OnKeyPressed(entt::registry& registry, sf::Keyboard::Key key)
+{
+    auto& inputs = registry.get<Inputs>(registry.view<Tag::Inputs>()[0]);
+
+    if (key == sf::Keyboard::U)
+    {
+        inputs.upgradeKey = true;
+    }
+}
+
+void OnKeyReleased(entt::registry& registry, sf::Keyboard::Key key)
+{
+    auto& inputs = registry.get<Inputs>(registry.view<Tag::Inputs>()[0]);
+
+    if (key == sf::Keyboard::U)
+    {
+        inputs.upgradeKey = false;
+    }
+}
 }  // namespace CubbyTower::Input

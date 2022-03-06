@@ -7,6 +7,7 @@
 #ifndef CUBBYTOWER_INPUT_HELPERS_HPP
 #define CUBBYTOWER_INPUT_HELPERS_HPP
 
+#include <SFML/Window/Keyboard.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include <entt/entt.hpp>
 
@@ -27,6 +28,16 @@ void OnMouseButtonReleased(entt::registry& registry, sf::Mouse::Button button);
 //! \param x The x position of the mouse.
 //! \param y The y position of the mouse.
 void OnMouseMoved(entt::registry& registry, int x, int y);
+
+//! Handles key pressed event.
+//! \param registry A registry that handles entities.
+//! \param key The pressed key of the keyboard.
+void OnKeyPressed(entt::registry& registry, sf::Keyboard::Key key);
+
+//! Handles key released event.
+//! \param registry A registry that handles entities.
+//! \param key The released key of the keyboard.
+void OnKeyReleased(entt::registry& registry, sf::Keyboard::Key key);
 }  // namespace CubbyTower::Input
 
 #endif  // CUBBYTOWER_INPUT_HELPERS_HPP
