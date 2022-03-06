@@ -84,6 +84,12 @@ void Initialize(entt::registry& registry)
         registry.emplace<Inputs>(entity, inputs);
     }
 
+    // Tooltip
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::Tooltip>(entity);
+    }
+
     // UI Context
     {
         auto entity = registry.create();
