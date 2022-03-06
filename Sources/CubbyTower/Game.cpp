@@ -32,6 +32,7 @@
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
+#include <CubbyTower/Systems/TooltipSystem.hpp>
 #include <CubbyTower/Systems/UpgradeSystem.hpp>
 
 namespace CubbyTower::Game
@@ -84,6 +85,12 @@ void Initialize(entt::registry& registry)
         registry.emplace<Inputs>(entity, inputs);
     }
 
+    // Tooltip
+    {
+        auto entity = registry.create();
+        registry.emplace<Tag::Tooltip>(entity);
+    }
+
     // UI Context
     {
         auto entity = registry.create();
@@ -125,6 +132,7 @@ void Update(entt::registry& registry, float deltaTime)
     UpdateHoverSystem(registry);
     UpdateClickSystem(registry);
     UpdateUpgradeSystem(registry);
+    UpdateTooltipSystem(registry);
     UpdateButtonStateSystem(registry);
     UpdatePlaceSystem(registry);
 }
