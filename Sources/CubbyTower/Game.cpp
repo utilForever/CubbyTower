@@ -32,6 +32,7 @@
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
+#include <CubbyTower/Systems/TooltipSystem.hpp>
 #include <CubbyTower/Systems/UpgradeSystem.hpp>
 
 namespace CubbyTower::Game
@@ -131,6 +132,7 @@ void Update(entt::registry& registry, float deltaTime)
     UpdateHoverSystem(registry);
     UpdateClickSystem(registry);
     UpdateUpgradeSystem(registry);
+    UpdateTooltipSystem(registry);
     UpdateButtonStateSystem(registry);
     UpdatePlaceSystem(registry);
 }
