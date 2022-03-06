@@ -7,7 +7,7 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/AttackRange.hpp>
 #include <CubbyTower/Components/Damage.hpp>
-#include <CubbyTower/Components/Enemy.hpp>
+#include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TargetMask.hpp>
@@ -56,16 +56,6 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
             continue;
         }
 
-        // Simple attack test
-        auto& health = registry.get<Health>(*enemy);
-        const int damage = registry.get<Damage>(tower).damage;
-        health.curAmount -= damage;
-        if (health.curAmount <= 0)
-        {
-            // Destroy event
-            auto& monster = registry.get<Enemy>(*enemy);
-            monster.OnDestroy(registry, *enemy);
-        }
         CreateProjectile(registry, tower, *enemy);
     }
 }

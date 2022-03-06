@@ -5,12 +5,13 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Distance.hpp>
-#include <CubbyTower/Components/Enemy.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
+
 
 namespace CubbyTower
 {
@@ -23,7 +24,7 @@ void CreateMonster(entt::registry& registry, int health, int typeMask,
     registry.emplace<Health>(entity, health);
     registry.emplace<Position>(entity, 0.0f, 0.0f);
     registry.emplace<Distance>(entity, 0.0f);
-    registry.emplace<Enemy>(entity, OnDestroy);
+    registry.emplace<Destroyable>(entity, OnDestroy);
 }
 
 void DestroyMonster(entt::registry& registry, entt::entity entity)

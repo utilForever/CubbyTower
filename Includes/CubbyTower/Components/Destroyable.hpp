@@ -4,8 +4,8 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ENEMY_HPP
-#define CUBBYTOWER_ENEMY_HPP
+#ifndef CUBBYTOWER_DESTROYABLE_HPP
+#define CUBBYTOWER_DESTROYABLE_HPP
 
 #include <entt/entt.hpp>
 
@@ -14,15 +14,15 @@
 namespace CubbyTower
 {
 //!
-//! \brief Enemy struct.
+//! \brief Destroyable struct.
 //!
-//! This struct defines basic properties of a enemy. It stores destroy event
-//! OnDestroy callback.
+//! This struct defines basic properties of a Destroyable. It stores destroy
+//! event OnDestroy callback.
 //!
-struct Enemy
+struct Destroyable
 {
     std::function<void(entt::registry&, entt::entity)> OnDestroy;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ENEMY_HPP
+#endif  // CUBBYTOWER_DESTROYABLE_HPP
