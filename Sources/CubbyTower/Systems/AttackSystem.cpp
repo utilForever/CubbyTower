@@ -7,6 +7,7 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/AttackRange.hpp>
 #include <CubbyTower/Components/Damage.hpp>
+#include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TargetMask.hpp>

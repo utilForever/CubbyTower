@@ -25,7 +25,10 @@ TEST_CASE("[MonsterHelpers] - Make several monsters")
         CHECK(view.empty());
     }
 
-    CreateMonster(registry, 10, 0b010);
+    CreateMonster(registry, 10, 0b010,
+                  [](entt::registry& registry, entt::entity entity) {
+                      DestroyMonster(registry, entity);
+                  });
 
     {
         auto view = registry.view<Tag::Enemy>();
