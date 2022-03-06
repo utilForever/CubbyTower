@@ -11,9 +11,9 @@
 
 namespace CubbyTower::Path
 {
-//! This function called every frame and gives the position of enemies using distance.
-//! \param registry A registry that handles entities.
+//! This function called every frame and gives the position of enemies using
+//! distance. \param registry A registry that handles entities.
 void UpdatePathSystem(entt::registry& registry);
-}  // namespace CubbyTower
+}  // namespace CubbyTower::Path
 
 #endif  // CUBBYTOWER_PATH_HPP

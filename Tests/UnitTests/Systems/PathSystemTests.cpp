@@ -7,8 +7,8 @@
 #include <doctest.h>
 
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/Distance.hpp>
+#include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Systems/PathSystem.hpp>
 
 #include <entt/entt.hpp>

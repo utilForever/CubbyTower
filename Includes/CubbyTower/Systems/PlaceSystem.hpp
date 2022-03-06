@@ -4,18 +4,16 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ATTACK_SYSTEM_HPP
-#define CUBBYTOWER_ATTACK_SYSTEM_HPP
+#ifndef CUBBYTOWER_PLACE_SYSTEM_HPP
+#define CUBBYTOWER_PLACE_SYSTEM_HPP
 
 #include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-//! This function called every frame and handles all attacks in game.
+//! Update the cursor for placing a tower.
 //! \param registry A registry that handles entities.
-//! \param deltaTime The time passed from last attack is updated.
-void UpdateAttackSystem(entt::registry& registry, float deltaTime);
-
+void UpdatePlaceSystem(entt::registry& registry);
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP
+#endif  // CUBBYTOWER_PLACE_SYSTEM_HPP

@@ -18,26 +18,26 @@
 #include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
+#include <CubbyTower/Components/Velocity.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/PathSystem.hpp>
 
 #include <entt/entt.hpp>
+#include <iostream>
 
 using namespace CubbyTower;
 
 TEST_CASE("[AttackSystem] - Attack")
 {
-    // Testing only Attack functions running right way
-    // Todo : Real attack
     entt::registry registry;
 
     auto entity = registry.create();
     registry.emplace<Tag::Player>(entity);
     registry.emplace<Gold>(entity, 500);
 
-    BuyArrowTower(registry, 300.0, 280.0);
-    BuyArrowTower(registry, 600.0, 280.0);
+    Tower::BuyArrowTower(registry, Position{ 300.0f, 280.0f });
+    Tower::BuyArrowTower(registry, Position{ 600.0f, 280.0f });
 
     auto enemy1 = registry.create();
 
@@ -91,53 +91,5 @@ TEST_CASE("[AttackSystem] - Attack")
         CHECK_EQ(view.size(), 4);
     }
 
-    // This will destroy enemy1
-    Attack(registry);
-
-    {
-        auto view = registry.view<Tag::Enemy>();
-        CHECK_EQ(view.size(), 3);
-    }
-
-    for (auto [enemy, dist, hp, mask] :
-         registry.view<Tag::Enemy, Distance, Health, TypeMask>().each())
-    {
-        if (mask.typeMask == 0b011)  // enemy3
-        {
-            CHECK_EQ(hp.curAmount, 3);
-        }
-        else if (dist.distance == 250)  // enemy2
-        {
-            CHECK_EQ(hp.curAmount, 3);
-        }
-        else if (dist.distance == 100)  // enemy4
-        {
-            CHECK_EQ(hp.curAmount, 3);
-        }
-    }
-
-    // This will attack enemy 2
-    Attack(registry);
-
-    {
-        auto view = registry.view<Tag::Enemy>();
-        CHECK_EQ(view.size(), 3);
-    }
-
-    for (auto [enemy, dist, hp, mask] :
-         registry.view<Tag::Enemy, Distance, Health, TypeMask>().each())
-    {
-        if (mask.typeMask == 0b011)  // enemy3
-        {
-            CHECK_EQ(hp.curAmount, 3);
-        }
-        else if (dist.distance == 250)  // enemy2
-        {
-            CHECK_EQ(hp.curAmount, 2);
-        }
-        else if (dist.distance == 100)  // enemy4
-        {
-            CHECK_EQ(hp.curAmount, 3);
-        }
-    }
+    UpdateAttackSystem(registry, 0.0f);
 }

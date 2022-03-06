@@ -72,6 +72,7 @@ int main()
             }
         }
 
+        Game::Simulate(registry, deltaTime);
         Game::Update(registry, deltaTime);
         Game::Render(registry);
 

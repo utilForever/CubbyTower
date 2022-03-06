@@ -7,6 +7,7 @@
 #ifndef CUBBYTOWER_CONSTANTS_HPP
 #define CUBBYTOWER_CONSTANTS_HPP
 
+#include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/TexCoord.hpp>
 
 #include <string>
@@ -22,6 +23,11 @@ constexpr static int MAP_HEIGHT = 16;
 
 constexpr static int MAX_VERTICES = 100000;
 constexpr static float TEXT_ADVANCE = 12.0f / ZOOM;
+
+constexpr static Color TOWER_LEVEL1_COLOR = { 0.15f, 1.0f, 0.15f, 1.0f };
+constexpr static Color TOWER_LEVEL2_COLOR = { 1.0f, 1.0f, 0.0f, 1.0f };
+
+constexpr static float TOWER_SIZE = 0.4f;
 
 constexpr static int FIRST_CHAR = '!';
 constexpr static int LAST_CHAR = '~';

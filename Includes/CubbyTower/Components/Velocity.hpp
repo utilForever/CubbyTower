@@ -4,21 +4,21 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_POSITION_HPP
-#define CUBBYTOWER_POSITION_HPP
+#ifndef CUBBYTOWER_VELOCITY_HPP
+#define CUBBYTOWER_VELOCITY_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Position struct.
+//! \brief Velocity struct.
 //!
-//! This struct stores the position of the entity.
+//! This struct stores the Velocity of the entity, especially of a projectile.
 //!
-struct Position
+struct Velocity
 {
     float x;
     float y;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_POSITION_HPP
+#endif  // CUBBYTOWER_VELOCITY_HPP

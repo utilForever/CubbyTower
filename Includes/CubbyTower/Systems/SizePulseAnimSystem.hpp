@@ -4,18 +4,17 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ATTACK_SYSTEM_HPP
-#define CUBBYTOWER_ATTACK_SYSTEM_HPP
+#ifndef CUBBYTOWER_SIZE_PULSE_ANIM_SYSTEM_HPP
+#define CUBBYTOWER_SIZE_PULSE_ANIM_SYSTEM_HPP
 
 #include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-//! This function called every frame and handles all attacks in game.
+//! Update size pulse animations.
 //! \param registry A registry that handles entities.
-//! \param deltaTime The time passed from last attack is updated.
-void UpdateAttackSystem(entt::registry& registry, float deltaTime);
-
+//! \param deltaTime The delta time relation to hardware responsiveness.
+void UpdateSizePulseAnimSystem(entt::registry& registry, float deltaTime);
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ATTACK_SYSTEM_HPP
+#endif  // CUBBYTOWER_SIZE_PULSE_ANIM_SYSTEM_HPP

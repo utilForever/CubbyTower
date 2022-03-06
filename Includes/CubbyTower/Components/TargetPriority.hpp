@@ -12,7 +12,6 @@
 #include <optional>
 #include <vector>
 
-
 namespace CubbyTower
 {
 //!
