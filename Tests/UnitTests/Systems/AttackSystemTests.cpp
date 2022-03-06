@@ -42,7 +42,7 @@ TEST_CASE("[AttackSystem] - Attack")
     auto enemy1 = registry.create();
 
     registry.emplace<Tag::Enemy>(enemy1);
-    registry.emplace<Health>(enemy1, 1);
+    registry.emplace<Health>(enemy1, 3);
     registry.emplace<TypeMask>(enemy1, 0b010);  // Type: ground
     registry.emplace<Position>(enemy1, 0.0f, 0.0f);
     registry.emplace<Distance>(enemy1, 300.0f);
@@ -101,7 +101,7 @@ TEST_CASE("[AttackSystem] - Attack")
         }
         else if (dist.distance == 300)
         {
-            CHECK_EQ(hp.curAmount, 1);
+            CHECK_EQ(hp.curAmount, 3);
         }
         else if (dist.distance == 100)
         {
