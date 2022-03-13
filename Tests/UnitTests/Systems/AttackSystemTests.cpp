@@ -15,7 +15,6 @@
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Name.hpp>
 #include <CubbyTower/Components/Position.hpp>
-#include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Components/Velocity.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
@@ -42,7 +41,6 @@ TEST_CASE("[AttackSystem] - Attack")
 
     registry.emplace<Tag::Enemy>(enemy1);
     registry.emplace<Health>(enemy1, 3);
-    registry.emplace<TypeMask>(enemy1, 0b010);  // Type: ground
     registry.emplace<Position>(enemy1, 0.0f, 0.0f);
     registry.emplace<Distance>(enemy1, 300.0f);
     registry.emplace<Destroyable>(
@@ -53,7 +51,6 @@ TEST_CASE("[AttackSystem] - Attack")
     auto enemy2 = registry.create();
     registry.emplace<Tag::Enemy>(enemy2);
     registry.emplace<Health>(enemy2, 3);
-    registry.emplace<TypeMask>(enemy2, 0b010);  // Type: ground
     registry.emplace<Position>(enemy2, 0.0f, 0.0f);
     registry.emplace<Distance>(enemy2, 250.0f);  // go further than enemy1
     registry.emplace<Destroyable>(
@@ -64,7 +61,6 @@ TEST_CASE("[AttackSystem] - Attack")
     auto enemy3 = registry.create();
     registry.emplace<Tag::Enemy>(enemy3);
     registry.emplace<Health>(enemy3, 3);
-    registry.emplace<TypeMask>(enemy3, 0b011);  // Type: ground & stealth
     registry.emplace<Position>(enemy3, 0.0f, 0.0f);
     registry.emplace<Distance>(enemy3, 350.0f);
     registry.emplace<Destroyable>(

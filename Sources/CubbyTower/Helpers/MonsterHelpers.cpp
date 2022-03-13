@@ -9,7 +9,6 @@
 #include <CubbyTower/Components/Distance.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
-#include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
 
 
@@ -20,7 +19,6 @@ void CreateMonster(entt::registry& registry, int health, int typeMask,
 {
     auto entity = registry.create();
     registry.emplace<Tag::Enemy>(entity);
-    registry.emplace<TypeMask>(entity, typeMask);
     registry.emplace<Health>(entity, health);
     registry.emplace<Position>(entity, 0.0f, 0.0f);
     registry.emplace<Distance>(entity, 0.0f);

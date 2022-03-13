@@ -11,7 +11,6 @@
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/TargetPriority.hpp>
-#include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/ProjectileHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 
