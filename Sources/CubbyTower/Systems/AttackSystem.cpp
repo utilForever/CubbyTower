@@ -10,7 +10,6 @@
 #include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
-#include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/TargetPriority.hpp>
 #include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/ProjectileHelpers.hpp>
@@ -37,14 +36,6 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
                 attackRange * attackRange)
             {
                 continue;
-            }
-
-            const int targetMask = registry.get<TargetMask>(tower).targetMask;
-            const int typeMask = registry.get<TypeMask>(enemy).typeMask;
-
-            if ((targetMask & typeMask) == typeMask)
-            {
-                attackable.push_back(enemy);
             }
         }
 
