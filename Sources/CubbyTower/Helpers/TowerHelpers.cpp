@@ -75,6 +75,12 @@ void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
     registry.remove<Upgradable>(entity);
 }
 
+void ShootArrowLv1(entt::registry& registry, entt::entity target,
+                   entt::entity from)
+{
+    // Do nothing
+}
+
 std::optional<entt::entity> FirstEnemyTargeter(
     entt::registry& registry, std::vector<entt::entity> attackable)
 {

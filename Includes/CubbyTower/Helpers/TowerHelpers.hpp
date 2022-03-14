@@ -34,6 +34,13 @@ void BuyArrowTower(entt::registry& registry, const Position& position);
 //! \param entity A arrow tower entity to upgrade.
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity);
 
+// Shoots a arrow for arrow tower level 1.
+//! \param registry A registry that handles entities.
+//! \param target A target entity to shoot.
+//! \param from A tower entity that shoots arrows.
+void ShootArrowLv1(entt::registry& registry, entt::entity target,
+                   entt::entity from);
+
 //! Return the first enemy
 //! \param registry A registry that handles entities.
 //! \param attackable A collection of attackable entities.
