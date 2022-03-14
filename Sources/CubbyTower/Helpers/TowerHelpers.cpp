@@ -18,6 +18,7 @@
 #include <CubbyTower/Components/Size.hpp>
 #include <CubbyTower/Components/SizePulseAnim.hpp>
 #include <CubbyTower/Components/TargetPriority.hpp>
+#include <CubbyTower/Components/Targeter.hpp>
 #include <CubbyTower/Components/TextRenderer.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
@@ -60,6 +61,8 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
                                    0.5f);
     registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
     registry.emplace<Name>(entity, "Arrow Tower Lv 1 - \"U\" upgrade $200");
+    registry.emplace<Targeter>(entity, TargetMask{ GROUND | AIR },
+                               210.0f / 60.0f, 1.0f, ShootArrowLv1);
     registry.emplace<Upgradable>(entity, ARROW_TOWER_LV2_PRICE,
                                  UpgradeArrowTowerLv2);
     registry.emplace<Hoverable>(entity);
