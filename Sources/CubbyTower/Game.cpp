@@ -29,6 +29,7 @@
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/PlaceSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
+#include <CubbyTower/Systems/ProjectileSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
@@ -122,6 +123,7 @@ void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateAttackSystem(registry, deltaTime);
+    UpdateProjectileSystem(registry, deltaTime);
     UpdateCollisionSystem(registry);
 }
 
