@@ -19,7 +19,7 @@ void CreateMonster(
     entt::registry& registry, int health, int typeMask,
     std::function<void(entt::registry&, entt::entity)> OnDestroy);
 
-//! Creates a monster.
+//! Destroys a monster.
 //! \param registry A registry that handles entities.
 //! \param entity The monster that will be destroyed.
 void DestroyMonster(entt::registry& registry, entt::entity entity);
