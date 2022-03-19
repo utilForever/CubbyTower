@@ -5,11 +5,7 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/Inputs.hpp>
-#include <CubbyTower/Components/UIContext.hpp>
-#include <CubbyTower/Components/Upgradable.hpp>
-#include <CubbyTower/Helpers/GoldHelpers.hpp>
-#include <CubbyTower/Systems/UpgradeSystem.hpp>
+#include <CubbyTower/Systems/CollisionSystem.hpp>
 
 namespace CubbyTower
 {
