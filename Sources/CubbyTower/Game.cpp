@@ -21,6 +21,7 @@
 #include <CubbyTower/Systems/ButtonStateSystem.hpp>
 #include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
 #include <CubbyTower/Systems/ClickSystem.hpp>
+#include <CubbyTower/Systems/CollisionSystem.hpp>
 #include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
 #include <CubbyTower/Systems/HoverSystem.hpp>
@@ -28,6 +29,7 @@
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
 #include <CubbyTower/Systems/PlaceSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
+#include <CubbyTower/Systems/ProjectileSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
@@ -121,6 +123,8 @@ void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateAttackSystem(registry, deltaTime);
+    UpdateProjectileSystem(registry, deltaTime);
+    UpdateCollisionSystem(registry);
 }
 
 void Update(entt::registry& registry, float deltaTime)
