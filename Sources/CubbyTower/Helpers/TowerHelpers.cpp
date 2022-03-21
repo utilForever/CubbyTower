@@ -66,7 +66,6 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
                                  UpgradeArrowTowerLv2);
     registry.emplace<Hoverable>(entity);
     registry.emplace<TargetPriority>(entity, 2, FirstEnemyTargeter);
-    registry.emplace<Damage>(entity, 1);
 }
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
