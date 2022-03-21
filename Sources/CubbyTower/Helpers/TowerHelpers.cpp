@@ -75,6 +75,8 @@ void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
 {
     registry.replace<Color>(entity, TOWER_LEVEL2_COLOR);
     registry.replace<Name>(entity, "Arrow Tower Lv 2");
+    registry.replace<Targeter>(entity, TargetMask{ GROUND | AIR },
+                               210.0f / 60.0f + 1.0f, 0.5f, ShootArrowLv2);
     registry.remove<Upgradable>(entity);
 }
 
