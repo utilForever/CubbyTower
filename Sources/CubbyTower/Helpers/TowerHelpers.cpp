@@ -6,7 +6,6 @@
 
 #include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/AttackRange.hpp>
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Distance.hpp>
@@ -68,7 +67,6 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
     registry.emplace<Hoverable>(entity);
     registry.emplace<TargetPriority>(entity, 2, FirstEnemyTargeter);
     registry.emplace<Damage>(entity, 1);
-    registry.emplace<AttackRange>(entity, 100.0);
 }
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)

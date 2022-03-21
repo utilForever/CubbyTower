@@ -5,7 +5,6 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/AttackRange.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Health.hpp>
@@ -27,15 +26,13 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
         {
             const auto towerPos = registry.get<Position>(tower);
             const auto enemyPos = registry.get<Position>(enemy);
-            const auto attackRange =
-                registry.get<AttackRange>(tower).attackRange;
 
-            if ((towerPos.x - enemyPos.x) * (towerPos.x - enemyPos.x) +
-                    (towerPos.y - enemyPos.y) * (towerPos.y - enemyPos.y) >
-                attackRange * attackRange)
-            {
-                continue;
-            }
+            //if ((towerPos.x - enemyPos.x) * (towerPos.x - enemyPos.x) +
+            //        (towerPos.y - enemyPos.y) * (towerPos.y - enemyPos.y) >
+            //    attackRange * attackRange)
+            //{
+            //    continue;
+            //}
         }
 
         const auto& priority = registry.get<TargetPriority>(tower);

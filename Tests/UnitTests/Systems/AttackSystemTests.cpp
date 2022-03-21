@@ -7,7 +7,6 @@
 #include <doctest.h>
 
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/AttackRange.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Distance.hpp>
