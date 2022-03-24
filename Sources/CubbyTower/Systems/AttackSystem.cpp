@@ -36,14 +36,14 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
         }
 
         const auto& priority = registry.get<TargetPriority>(tower);
-        auto enemy = priority.Targeter(registry, attackable);
+        auto enemy = priority.Targeter(registry);
 
-        if (enemy == std::nullopt)
+        if (enemy == entt::null)
         {
             continue;
         }
 
-        CreateProjectile(registry, tower, *enemy);
+        CreateProjectile(registry, tower, enemy);
     }
 }
 }  // namespace CubbyTower
