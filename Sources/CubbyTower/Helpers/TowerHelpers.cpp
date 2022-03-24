@@ -9,6 +9,7 @@
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Distance.hpp>
+#include <CubbyTower/Components/FindTarget.hpp>
 #include <CubbyTower/Components/Hoverable.hpp>
 #include <CubbyTower/Components/Name.hpp>
 #include <CubbyTower/Components/Placer.hpp>
@@ -64,6 +65,7 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
                                  UpgradeArrowTowerLv2);
     registry.emplace<Hoverable>(entity);
     registry.emplace<TargetPriority>(entity, 2, FindFirstTarget);
+    registry.emplace<FindTarget>(entity, FindFirstTarget);
 }
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
