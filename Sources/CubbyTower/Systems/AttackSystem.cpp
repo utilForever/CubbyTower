@@ -9,7 +9,6 @@
 #include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
-#include <CubbyTower/Components/TargetPriority.hpp>
 #include <CubbyTower/Helpers/ProjectileHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 
@@ -35,15 +34,15 @@ void UpdateAttackSystem(entt::registry& registry, float deltaTime)
             //}
         }
 
-        const auto& priority = registry.get<TargetPriority>(tower);
-        auto enemy = priority.Targeter(registry);
+        //const auto& priority = registry.get<TargetPriority>(tower);
+        //auto enemy = priority.Targeter(registry);
 
-        if (enemy == entt::null)
-        {
-            continue;
-        }
+        //if (enemy == entt::null)
+        //{
+        //    continue;
+        //}
 
-        CreateProjectile(registry, tower, enemy);
+        //CreateProjectile(registry, tower, enemy);
     }
 }
 }  // namespace CubbyTower

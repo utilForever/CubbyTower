@@ -17,7 +17,6 @@
 #include <CubbyTower/Components/ShapeRenderer.hpp>
 #include <CubbyTower/Components/Size.hpp>
 #include <CubbyTower/Components/SizePulseAnim.hpp>
-#include <CubbyTower/Components/TargetPriority.hpp>
 #include <CubbyTower/Components/Targeter.hpp>
 #include <CubbyTower/Components/TextRenderer.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
@@ -64,7 +63,6 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
     registry.emplace<Upgradable>(entity, ARROW_TOWER_LV2_PRICE,
                                  UpgradeArrowTowerLv2);
     registry.emplace<Hoverable>(entity);
-    registry.emplace<TargetPriority>(entity, 2, FindFirstTarget);
     registry.emplace<FindTarget>(entity, FindFirstTarget);
 }
 
