@@ -48,11 +48,10 @@ void ShootArrowLv1(entt::registry& registry, entt::entity target,
 void ShootArrowLv2(entt::registry& registry, entt::entity target,
                    entt::entity from);
 
-//! Return the first enemy
+//! Finds a first target within a range.
 //! \param registry A registry that handles entities.
-//! \param attackable A collection of attackable entities.
-std::optional<entt::entity> FirstEnemyTargeter(
-    entt::registry& registry, std::vector<entt::entity> attackable);
+//! \return a first target if it is within a range, entt::null otherwise.
+entt::entity FindFirstTarget(entt::registry& registry);
 }  // namespace Tower
 }  // namespace CubbyTower
 

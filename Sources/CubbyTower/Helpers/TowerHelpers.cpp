@@ -24,8 +24,6 @@
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 
-#include <optional>
-
 namespace CubbyTower::Tower
 {
 void CreatePlacer(
@@ -65,7 +63,7 @@ void BuyArrowTower(entt::registry& registry, const Position& position)
     registry.emplace<Upgradable>(entity, ARROW_TOWER_LV2_PRICE,
                                  UpgradeArrowTowerLv2);
     registry.emplace<Hoverable>(entity);
-    registry.emplace<TargetPriority>(entity, 2, FirstEnemyTargeter);
+    registry.emplace<TargetPriority>(entity, 2, FindFirstTarget);
 }
 
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
@@ -89,27 +87,27 @@ void ShootArrowLv2(entt::registry& registry, entt::entity target,
     // Do nothing
 }
 
-std::optional<entt::entity> FirstEnemyTargeter(
-    entt::registry& registry, std::vector<entt::entity> attackable)
+entt::entity FindFirstTarget(entt::registry& registry)
 {
-    if (attackable.empty())
-    {
-        return std::nullopt;
-    }
+    return entt::null;
+    // if (attackable.empty())
+    //{
+    //    return std::nullopt;
+    //}
 
-    entt::entity target = attackable[0];
-    for (int i = 1; i < static_cast<int>(attackable.size()); ++i)
-    {
-        double pre = registry.get<Distance>(target).distance;
-        double cur = registry.get<Distance>(attackable[i]).distance;
+    // entt::entity target = attackable[0];
+    // for (int i = 1; i < static_cast<int>(attackable.size()); ++i)
+    //{
+    //    double pre = registry.get<Distance>(target).distance;
+    //    double cur = registry.get<Distance>(attackable[i]).distance;
 
-        if (pre < cur)
-        {
-            target = attackable[i];
-        }
-    }
+    //    if (pre < cur)
+    //    {
+    //        target = attackable[i];
+    //    }
+    //}
 
-    return target;
+    // return target;
 }
 
 }  // namespace CubbyTower::Tower
