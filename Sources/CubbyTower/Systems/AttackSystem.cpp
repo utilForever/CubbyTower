@@ -16,33 +16,33 @@ namespace CubbyTower
 {
 void UpdateAttackSystem(entt::registry& registry, float deltaTime)
 {
-    for (auto tower : registry.view<Tag::Tower>())
-    {
-        std::vector<entt::entity> attackable;
-        // TODO: Add cooldown check
+    //for (auto tower : registry.view<Tag::Tower>())
+    //{
+    //    std::vector<entt::entity> attackable;
+    //    // TODO: Add cooldown check
 
-        for (auto enemy : registry.view<Tag::Enemy>())
-        {
-            const auto towerPos = registry.get<Position>(tower);
-            const auto enemyPos = registry.get<Position>(enemy);
+    //    for (auto enemy : registry.view<Tag::Enemy>())
+    //    {
+    //        const auto towerPos = registry.get<Position>(tower);
+    //        const auto enemyPos = registry.get<Position>(enemy);
 
-            //if ((towerPos.x - enemyPos.x) * (towerPos.x - enemyPos.x) +
-            //        (towerPos.y - enemyPos.y) * (towerPos.y - enemyPos.y) >
-            //    attackRange * attackRange)
-            //{
-            //    continue;
-            //}
-        }
+    //        if ((towerPos.x - enemyPos.x) * (towerPos.x - enemyPos.x) +
+    //                (towerPos.y - enemyPos.y) * (towerPos.y - enemyPos.y) >
+    //            attackRange * attackRange)
+    //        {
+    //            continue;
+    //        }
+    //    }
 
-        //const auto& priority = registry.get<TargetPriority>(tower);
-        //auto enemy = priority.Targeter(registry);
+    //    const auto& priority = registry.get<TargetPriority>(tower);
+    //    auto enemy = priority.Targeter(registry);
 
-        //if (enemy == entt::null)
-        //{
-        //    continue;
-        //}
+    //    if (enemy == entt::null)
+    //    {
+    //        continue;
+    //    }
 
-        //CreateProjectile(registry, tower, enemy);
-    }
+    //    CreateProjectile(registry, tower, enemy);
+    //}
 }
 }  // namespace CubbyTower
