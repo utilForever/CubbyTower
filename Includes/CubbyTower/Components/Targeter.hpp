@@ -25,6 +25,10 @@ struct Targeter
     TargetMask targetMask;
     float range;
     float cooldown;
+    //! Callback for shooting projectile such as arrow and bullet.
+    //! First parameter is a registry that handles entities.
+    //! Second parameter is a target entity to shoot.
+    //! Third parameter is a tower entity that shoots arrows.
     std::function<void(entt::registry&, entt::entity, entt::entity)> Shoot;
 };
 }  // namespace CubbyTower
