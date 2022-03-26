@@ -18,7 +18,7 @@ namespace CubbyTower
 //!
 //! \brief Targeter struct.
 //!
-//! This struct stores the information for seeking a target.
+//! This struct stores the information for seeking and attacking a target.
 //!
 struct Targeter
 {
