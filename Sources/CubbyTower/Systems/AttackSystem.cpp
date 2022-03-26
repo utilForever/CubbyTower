@@ -5,14 +5,10 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/AttackRange.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Destroyable.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
-#include <CubbyTower/Components/TargetMask.hpp>
-#include <CubbyTower/Components/TargetPriority.hpp>
-#include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/ProjectileHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 
@@ -20,43 +16,33 @@ namespace CubbyTower
 {
 void UpdateAttackSystem(entt::registry& registry, float deltaTime)
 {
-    for (auto tower : registry.view<Tag::Tower>())
-    {
-        std::vector<entt::entity> attackable;
-        // TODO: Add cooldown check
+    //for (auto tower : registry.view<Tag::Tower>())
+    //{
+    //    std::vector<entt::entity> attackable;
+    //    // TODO: Add cooldown check
 
-        for (auto enemy : registry.view<Tag::Enemy>())
-        {
-            const auto towerPos = registry.get<Position>(tower);
-            const auto enemyPos = registry.get<Position>(enemy);
-            const auto attackRange =
-                registry.get<AttackRange>(tower).attackRange;
+    //    for (auto enemy : registry.view<Tag::Enemy>())
+    //    {
+    //        const auto towerPos = registry.get<Position>(tower);
+    //        const auto enemyPos = registry.get<Position>(enemy);
 
-            if ((towerPos.x - enemyPos.x) * (towerPos.x - enemyPos.x) +
-                    (towerPos.y - enemyPos.y) * (towerPos.y - enemyPos.y) >
-                attackRange * attackRange)
-            {
-                continue;
-            }
+    //        if ((towerPos.x - enemyPos.x) * (towerPos.x - enemyPos.x) +
+    //                (towerPos.y - enemyPos.y) * (towerPos.y - enemyPos.y) >
+    //            attackRange * attackRange)
+    //        {
+    //            continue;
+    //        }
+    //    }
 
-            const int targetMask = registry.get<TargetMask>(tower).targetMask;
-            const int typeMask = registry.get<TypeMask>(enemy).typeMask;
+    //    const auto& priority = registry.get<TargetPriority>(tower);
+    //    auto enemy = priority.Targeter(registry);
 
-            if ((targetMask & typeMask) == typeMask)
-            {
-                attackable.push_back(enemy);
-            }
-        }
+    //    if (enemy == entt::null)
+    //    {
+    //        continue;
+    //    }
 
-        const auto& priority = registry.get<TargetPriority>(tower);
-        auto enemy = priority.Targeter(registry, attackable);
-
-        if (enemy == std::nullopt)
-        {
-            continue;
-        }
-
-        CreateProjectile(registry, tower, *enemy);
-    }
+    //    CreateProjectile(registry, tower, enemy);
+    //}
 }
 }  // namespace CubbyTower

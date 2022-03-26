@@ -4,20 +4,22 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ATTACK_RANGE_HPP
-#define CUBBYTOWER_ATTACK_RANGE_HPP
+#ifndef CUBBYTOWER_TARGET_HPP
+#define CUBBYTOWER_TARGET_HPP
+
+#include <CubbyTower/Commons/Enums.hpp>
 
 namespace CubbyTower
 {
 //!
-//! \brief AttackRange struct.
+//! \brief Target struct.
 //!
-//! This struct stores the attack range of the tower.
+//! This struct defines the entity as a target.
 //!
-struct AttackRange
+struct Target
 {
-    double attackRange;
+    TargetMask mask;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ATTACK_RANGE_HPP
+#endif  // CUBBYTOWER_TARGET_HPP

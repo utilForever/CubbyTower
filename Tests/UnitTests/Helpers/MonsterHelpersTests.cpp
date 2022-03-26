@@ -9,7 +9,6 @@
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Distance.hpp>
 #include <CubbyTower/Components/Health.hpp>
-#include <CubbyTower/Components/TypeMask.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
 
 #include <entt/entt.hpp>
@@ -37,11 +36,10 @@ TEST_CASE("[MonsterHelpers] - Make several monsters")
     }
 
     {
-        auto view = registry.view<Tag::Enemy, Health, TypeMask, Distance>();
-        for (auto [enemy, health, type, dist] : view.each())
+        auto view = registry.view<Tag::Enemy, Health, Distance>();
+        for (auto [enemy, health, dist] : view.each())
         {
             CHECK_EQ(health.curAmount, 10);
-            CHECK_EQ(type.typeMask, 0b010);
             CHECK_EQ(dist.distance, 0.0);
         }
     }

@@ -8,7 +8,6 @@
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/Size.hpp>
-#include <CubbyTower/Components/TargetMask.hpp>
 #include <CubbyTower/Components/Velocity.hpp>
 #include <CubbyTower/Helpers/ProjectileHelpers.hpp>
 
@@ -23,7 +22,6 @@ void CreateProjectile(entt::registry& registry, entt::entity tower,
 
     auto entity = registry.create();
     registry.emplace<Tag::Projectile>(entity);
-    registry.emplace<TargetMask>(entity, registry.get<TargetMask>(tower));
     registry.emplace<Damage>(entity, registry.get<Damage>(tower));
     // TODO: Add lifetime by attack range / speed
     registry.emplace<Size>(entity, 1.0f,

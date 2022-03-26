@@ -4,22 +4,24 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TARGET_MASK_HPP
-#define CUBBYTOWER_TARGET_MASK_HPP
+#ifndef CUBBYTOWER_FIND_TARGET_HPP
+#define CUBBYTOWER_FIND_TARGET_HPP
+
+#include <entt/entt.hpp>
+
+#include <functional>
 
 namespace CubbyTower
 {
 //!
-//! \brief TargetMask struct.
+//! \brief FindTarget struct.
 //!
-//! This struct stores whether the tower/bullet can attack the target.
-//! 1 bit means attakable
-//! 1<<2 : Air, 1<<1 : ground, 1 : stealth
+//! This struct tells the entity is seeking a target.
 //!
-struct TargetMask
+struct FindTarget
 {
-    int targetMask;
+    std::function<entt::entity(entt::registry&)> OnFind;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TARGET_MASK_HPP
+#endif  // CUBBYTOWER_FIND_TARGET_HPP

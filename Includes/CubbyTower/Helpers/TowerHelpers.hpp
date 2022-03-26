@@ -34,11 +34,24 @@ void BuyArrowTower(entt::registry& registry, const Position& position);
 //! \param entity A arrow tower entity to upgrade.
 void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity);
 
-//! Return the first enemy
+// Shoots a arrow for arrow tower level 1.
 //! \param registry A registry that handles entities.
-//! \param attackable A collection of attackable entities.
-std::optional<entt::entity> FirstEnemyTargeter(
-    entt::registry& registry, std::vector<entt::entity> attackable);
+//! \param target A target entity to shoot.
+//! \param from A tower entity that shoots arrows.
+void ShootArrowLv1(entt::registry& registry, entt::entity target,
+                   entt::entity from);
+
+// Shoots a arrow for arrow tower level 2.
+//! \param registry A registry that handles entities.
+//! \param target A target entity to shoot.
+//! \param from A tower entity that shoots arrows.
+void ShootArrowLv2(entt::registry& registry, entt::entity target,
+                   entt::entity from);
+
+//! Finds a first target within a range.
+//! \param registry A registry that handles entities.
+//! \return a first target if it is within a range, entt::null otherwise.
+entt::entity FindFirstTarget(entt::registry& registry);
 }  // namespace Tower
 }  // namespace CubbyTower
 

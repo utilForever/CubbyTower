@@ -4,21 +4,17 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_TYPE_MASK_HPP
-#define CUBBYTOWER_TYPE_MASK_HPP
+#ifndef CUBBYTOWER_ENUMS_HPP
+#define CUBBYTOWER_ENUMS_HPP
 
 namespace CubbyTower
 {
-//!
-//! \brief TypeMask struct.
-//!
-//! This struct stores whether the entity's type is air/ground/stealth.
-//! 1<<2 : Air, 1<<1 : ground, 1 : stealth
-//!
-struct TypeMask
+//! \brief An enumerator for identifying target's type.
+enum TargetMask : uint8_t
 {
-    int typeMask;
+    GROUND = 1 << 0,
+    AIR = 1 << 1,
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_TYPE_MASK_HPP
+#endif  // CUBBYTOWER_ENUMS_HPP
