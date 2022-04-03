@@ -11,11 +11,6 @@
 
 namespace CubbyTower
 {
-//! Destroys a monster.
-//! \param registry A registry that handles entities.
-//! \param entity The monster that will be destroyed.
-void DestroyMonster(entt::registry& registry, entt::entity entity);
-
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_MONSTER_HELPERS_HPP

@@ -8,8 +8,4 @@
 
 namespace CubbyTower
 {
-void DestroyMonster(entt::registry& registry, entt::entity entity)
-{
-    registry.destroy(entity);
-}
 }  // namespace CubbyTower
