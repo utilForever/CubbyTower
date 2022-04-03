@@ -4,27 +4,10 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#include <CubbyTower/Commons/Tags.hpp>
-#include <CubbyTower/Components/Destroyable.hpp>
-#include <CubbyTower/Components/Distance.hpp>
-#include <CubbyTower/Components/Health.hpp>
-#include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
-
 
 namespace CubbyTower
 {
-void CreateMonster(entt::registry& registry, int health, int typeMask,
-                   std::function<void(entt::registry&, entt::entity)> OnDestroy)
-{
-    auto entity = registry.create();
-    registry.emplace<Tag::Enemy>(entity);
-    registry.emplace<Health>(entity, health);
-    registry.emplace<Position>(entity, 0.0f, 0.0f);
-    registry.emplace<Distance>(entity, 0.0f);
-    registry.emplace<Destroyable>(entity, OnDestroy);
-}
-
 void DestroyMonster(entt::registry& registry, entt::entity entity)
 {
     registry.destroy(entity);
