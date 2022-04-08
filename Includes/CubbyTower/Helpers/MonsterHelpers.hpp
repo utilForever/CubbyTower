@@ -11,6 +11,12 @@
 
 namespace CubbyTower
 {
+struct Position;
+
+//! Creates a normal balloon.
+//! \param registry A registry that handles entities.
+//! \param position The position to place a normal balloon.
+void CreateNormalBalloon(entt::registry& registry, const Position& position);
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_MONSTER_HELPERS_HPP
