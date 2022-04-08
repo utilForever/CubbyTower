@@ -7,6 +7,8 @@
 #ifndef CUBBYTOWER_ENUMS_HPP
 #define CUBBYTOWER_ENUMS_HPP
 
+#include <cstdint>
+
 namespace CubbyTower
 {
 //! \brief An enumerator for identifying target's type.
