@@ -6,9 +6,8 @@
 
 #include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Commons/TowerData.hpp>
 #include <CubbyTower/Components/Color.hpp>
-#include <CubbyTower/Components/Damage.hpp>
-#include <CubbyTower/Components/Distance.hpp>
 #include <CubbyTower/Components/FindTarget.hpp>
 #include <CubbyTower/Components/Hoverable.hpp>
 #include <CubbyTower/Components/Name.hpp>
