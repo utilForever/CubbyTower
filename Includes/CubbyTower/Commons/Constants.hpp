@@ -20,9 +20,6 @@ constexpr static int WIDTH = 800;
 constexpr static int HEIGHT = 600;
 constexpr static float ZOOM = 32;
 
-constexpr static int MAP_WIDTH = 16;
-constexpr static int MAP_HEIGHT = 16;
-
 constexpr static int MAX_VERTICES = 100000;
 constexpr static float TEXT_ADVANCE = 12.0f / ZOOM;
 
