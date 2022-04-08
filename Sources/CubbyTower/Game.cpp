@@ -5,7 +5,7 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Constants.hpp>
-#include <CubbyTower/Commons/Data.hpp>
+#include <CubbyTower/Commons/MapData.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/HUD.hpp>
