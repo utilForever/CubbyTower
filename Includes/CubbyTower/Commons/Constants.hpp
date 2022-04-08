@@ -14,6 +14,8 @@
 
 namespace CubbyTower
 {
+constexpr static float PI = 3.14159265358979323846264338327950288f;
+
 constexpr static int WIDTH = 800;
 constexpr static int HEIGHT = 600;
 constexpr static float ZOOM = 32;
