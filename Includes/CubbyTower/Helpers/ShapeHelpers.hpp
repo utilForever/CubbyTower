@@ -27,6 +27,17 @@ namespace Shape
 //! \return The number of vertices.
 int DrawBox(VertexPC* vertices, const Position& position, float width,
             float height, const Color& color);
+
+//! Draws an circle shape. Note that this function doesn't render on the screen,
+//! but generates vertices in vertices and returns the number of vertices added.
+//! \param vertices A pointer indicates a list of vertices.
+//! \param position The relative position of the shape.
+//! \param width The width of the shape.
+//! \param height The height of the shape.
+//! \param color The color of the shape.
+//! \return The number of vertices.
+int DrawCircle(VertexPC* vertices, const Position& position, float width,
+               float height, const Color& color);
 }  // namespace Shape
 }  // namespace CubbyTower
 
