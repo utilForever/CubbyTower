@@ -8,6 +8,7 @@
 #define CUBBYTOWER_WAVE_DATA_HPP
 
 #include <CubbyTower/Components/Position.hpp>
+#include <CubbyTower/Components/WaveInfo.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
 
 namespace CubbyTower
@@ -61,6 +62,11 @@ const static WaveFactory WAVE_2_FACTORIES[] = { Monster::CreateNormalBalloon,
                                                 Monster::CreateNormalBalloon,
                                                 Monster::CreateNormalBalloon,
                                                 nullptr };
+
+const static WaveInfo WAVES[] = {
+    { 13, WAVE_1_TIMES, WAVE_1_FACTORIES },
+    { 19, WAVE_2_TIMES, WAVE_2_FACTORIES },
+};
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_WAVE_DATA_HPP
