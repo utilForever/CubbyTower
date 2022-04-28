@@ -16,6 +16,7 @@ namespace Tag
 using namespace entt::literals;
 
 using Resources = entt::tag<"resources"_hs>;
+using WaveManager = entt::tag<"wavemanager"_hs>;
 using Player = entt::tag<"player"_hs>;
 using Inputs = entt::tag<"inputs"_hs>;
 using Tooltip = entt::tag<"tooltip"_hs>;
