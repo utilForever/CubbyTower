@@ -7,10 +7,34 @@
 #ifndef CUBBYTOWER_WAVE_DATA_HPP
 #define CUBBYTOWER_WAVE_DATA_HPP
 
+#include <CubbyTower/Components/Position.hpp>
+#include <CubbyTower/Helpers/MonsterHelpers.hpp>
+
 namespace CubbyTower
 {
+using WaveFactory = std::function<void(entt::registry&, const Position&)>;
+
 //! The number of waves.
 constexpr static int WAVE_COUNT = 2;
+
+constexpr static float WAVE_1_TIMES[] = { 0.00f,  2.00f,  4.00f,  6.00f,
+                                          8.00f,  10.00f, 12.00f, 14.00f,
+                                          16.00f, 17.00f, 18.00f, 19.00f,
+                                          19.00f };
+
+const static WaveFactory WAVE_1_FACTORIES[] = { Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                nullptr };
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_WAVE_DATA_HPP
