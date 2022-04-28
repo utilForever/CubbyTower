@@ -14,6 +14,7 @@
 #include <CubbyTower/Components/Name.hpp>
 #include <CubbyTower/Components/ShapeRenderer.hpp>
 #include <CubbyTower/Components/Size.hpp>
+#include <CubbyTower/Components/Speed.hpp>
 #include <CubbyTower/Components/Target.hpp>
 #include <CubbyTower/Components/Traveler.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
@@ -24,6 +25,7 @@ namespace CubbyTower
 void CreateNormalBalloon(entt::registry& registry, const Position& position)
 {
     constexpr float size = 0.15f;
+    constexpr float speed = 45.0f / 60.0f;
 
     auto entity = registry.create();
     registry.emplace<Tag::Monster>(entity);
@@ -39,5 +41,6 @@ void CreateNormalBalloon(entt::registry& registry, const Position& position)
     registry.emplace<Gold>(entity, 10);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
+    registry.emplace<Speed>(entity, speed, speed);
 }
 }  // namespace CubbyTower
