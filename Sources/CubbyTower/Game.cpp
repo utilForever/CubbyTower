@@ -18,6 +18,7 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Helpers/WaveHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/ButtonStateSystem.hpp>
 #include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
@@ -70,6 +71,11 @@ void Initialize(entt::registry& registry)
         staticLinesRenderer.vertCount =
             (GLsizei)(sizeof(MAP_VERTS) / (sizeof(float) * 6));
         registry.emplace<StaticLinesRenderer>(entity, staticLinesRenderer);
+    }
+
+    // Wave
+    {
+        Wave::CreateWaveManager(registry);
     }
 
     // Player
