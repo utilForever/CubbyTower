@@ -17,6 +17,8 @@ using WaveFactory = std::function<void(entt::registry&, const Position&)>;
 
 //! The number of waves.
 constexpr static int WAVE_COUNT = 2;
+//! The start position of the wave.
+constexpr static Position WAVE_START_POSITION = { 0.5f, 4.5f };
 
 constexpr static float WAVE_1_TIMES[] = { 0.00f,  2.00f,  4.00f,  6.00f,
                                           8.00f,  10.00f, 12.00f, 14.00f,
