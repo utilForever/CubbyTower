@@ -17,6 +17,10 @@ namespace Wave
 //! \param registry A registry that handles entities.
 //! \return The created wave manager entity.
 entt::entity CreateWaveManager(entt::registry& registry);
+
+//! Start a wave according to the current wave index.
+//! \param registry A registry that handles entities.
+void StartWave(entt::registry& registry);
 }  // namespace Wave
 }  // namespace CubbyTower
 
