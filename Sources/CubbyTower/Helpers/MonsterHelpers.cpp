@@ -20,7 +20,7 @@
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 
-namespace CubbyTower
+namespace CubbyTower::Monster
 {
 void CreateNormalBalloon(entt::registry& registry, const Position& position)
 {
