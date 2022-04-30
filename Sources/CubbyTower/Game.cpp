@@ -38,6 +38,7 @@
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
 #include <CubbyTower/Systems/TooltipSystem.hpp>
+#include <CubbyTower/Systems/TravelSystem.hpp>
 #include <CubbyTower/Systems/UpgradeSystem.hpp>
 
 namespace CubbyTower::Game
@@ -131,6 +132,7 @@ void Initialize(entt::registry& registry)
 void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSpawnSystem(registry, deltaTime);
+    UpdateTravelSystem(registry, deltaTime);
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateAttackSystem(registry, deltaTime);
     UpdateProjectileSystem(registry, deltaTime);
