@@ -34,6 +34,7 @@
 #include <CubbyTower/Systems/ProjectileSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
+#include <CubbyTower/Systems/SpawnSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
 #include <CubbyTower/Systems/TooltipSystem.hpp>
@@ -129,6 +130,7 @@ void Initialize(entt::registry& registry)
 
 void Simulate(entt::registry& registry, float deltaTime)
 {
+    UpdateSpawnSystem(registry, deltaTime);
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateAttackSystem(registry, deltaTime);
     UpdateProjectileSystem(registry, deltaTime);
@@ -137,7 +139,6 @@ void Simulate(entt::registry& registry, float deltaTime)
 
 void Update(entt::registry& registry, float deltaTime)
 {
-    (void)deltaTime;
     UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
     UpdateCashButtonTogglerSystem(registry);
