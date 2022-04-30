@@ -76,6 +76,7 @@ void Initialize(entt::registry& registry)
     // Wave
     {
         Wave::CreateWaveManager(registry);
+        Wave::StartWave(registry);
     }
 
     // Player
