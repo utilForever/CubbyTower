@@ -8,6 +8,8 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 
+#include <cmath>
+
 namespace CubbyTower::Shape
 {
 int DrawBox(VertexPC* vertices, const Position& position, float width,
