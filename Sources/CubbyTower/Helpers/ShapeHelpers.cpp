@@ -55,17 +55,16 @@ int DrawCircle(VertexPC* vertices, const Position& position, float width,
 
     while (curStep < PI * 2)
     {
-        vertices[vertCount].position.x =
-            position.x + std::cosf(curStep) * width;
+        vertices[vertCount].position.x = position.x + std::cos(curStep) * width;
         vertices[vertCount].position.y =
-            position.y + std::sinf(curStep) * height;
+            position.y + std::sin(curStep) * height;
         vertices[vertCount].color = color;
 
         ++vertCount;
         vertices[vertCount].position.x =
-            position.x + std::cosf(curStep + perStep) * width;
+            position.x + std::cos(curStep + perStep) * width;
         vertices[vertCount].position.y =
-            position.y + std::sinf(curStep + perStep) * height;
+            position.y + std::sin(curStep + perStep) * height;
         vertices[vertCount].color = color;
 
         curStep += perStep;
