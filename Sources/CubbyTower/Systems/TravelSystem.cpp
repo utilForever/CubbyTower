@@ -9,6 +9,8 @@
 #include <CubbyTower/Components/Traveler.hpp>
 #include <CubbyTower/Systems/TravelSystem.hpp>
 
+#include <cmath>
+
 namespace CubbyTower
 {
 void UpdateTravelSystem(entt::registry& registry, float deltaTime)
@@ -22,7 +24,7 @@ void UpdateTravelSystem(entt::registry& registry, float deltaTime)
             Position nextPos = traveler.waypoints[nextIdx];
             float dx = nextPos.x - curPos.x;
             float dy = nextPos.y - curPos.y;
-            float dist = std::sqrtf(dx * dx + dy * dy);
+            float dist = std::sqrt(dx * dx + dy * dy);
             float newDist = dist - speed.curSpeed * deltaTime;
 
             while (newDist <= 0.0f)
@@ -39,7 +41,7 @@ void UpdateTravelSystem(entt::registry& registry, float deltaTime)
                 nextPos = traveler.waypoints[nextIdx];
                 dx = nextPos.x - curPos.x;
                 dy = nextPos.y - curPos.y;
-                dist = std::sqrtf(dx * dx + dy * dy);
+                dist = std::sqrt(dx * dx + dy * dy);
                 newDist += dist;
             }
 
