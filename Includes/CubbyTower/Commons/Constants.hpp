@@ -14,12 +14,11 @@
 
 namespace CubbyTower
 {
+constexpr static float PI = 3.14159265358979323846264338327950288f;
+
 constexpr static int WIDTH = 800;
 constexpr static int HEIGHT = 600;
 constexpr static float ZOOM = 32;
-
-constexpr static int MAP_WIDTH = 16;
-constexpr static int MAP_HEIGHT = 16;
 
 constexpr static int MAX_VERTICES = 100000;
 constexpr static float TEXT_ADVANCE = 12.0f / ZOOM;
@@ -262,12 +261,6 @@ const std::string PTC_FRAG =
          vec4 diffuse = texture2D(Texture, Frag_TexCoord);  \
          gl_FragColor = diffuse * Frag_Color;               \
      }";
-
-//! The price of arrow tower at level 1.
-constexpr static int ARROW_TOWER_LV1_PRICE = 100;
-
-//! The price of arrow tower at level 2.
-constexpr static int ARROW_TOWER_LV2_PRICE = 200;
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_CONSTANTS_HPP

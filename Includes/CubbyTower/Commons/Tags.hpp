@@ -16,13 +16,14 @@ namespace Tag
 using namespace entt::literals;
 
 using Resources = entt::tag<"resources"_hs>;
+using WaveManager = entt::tag<"wavemanager"_hs>;
 using Player = entt::tag<"player"_hs>;
 using Inputs = entt::tag<"inputs"_hs>;
 using Tooltip = entt::tag<"tooltip"_hs>;
 using UIContext = entt::tag<"uicontext"_hs>;
 using HUD = entt::tag<"hud"_hs>;
 using Tower = entt::tag<"tower"_hs>;
-using Enemy = entt::tag<"enemy"_hs>;
+using Monster = entt::tag<"monster"_hs>;
 using Projectile = entt::tag<"projectile"_hs>;
 }  // namespace Tag
 }  // namespace CubbyTower

@@ -4,19 +4,16 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ENUMS_HPP
-#define CUBBYTOWER_ENUMS_HPP
-
-#include <cstdint>
+#ifndef CUBBYTOWER_TOWER_DATA_HPP
+#define CUBBYTOWER_TOWER_DATA_HPP
 
 namespace CubbyTower
 {
-//! \brief An enumerator for identifying target's type.
-enum TargetMask : uint8_t
-{
-    GROUND = 1 << 0,
-    AIR = 1 << 1,
-};
+//! The price of arrow tower at level 1.
+constexpr static int ARROW_TOWER_LV1_PRICE = 100;
+
+//! The price of arrow tower at level 2.
+constexpr static int ARROW_TOWER_LV2_PRICE = 200;
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ENUMS_HPP
+#endif  // CUBBYTOWER_TOWER_DATA_HPP

@@ -4,19 +4,20 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_ENUMS_HPP
-#define CUBBYTOWER_ENUMS_HPP
-
-#include <cstdint>
+#ifndef CUBBYTOWER_END_WAVE_CHECKER_HPP
+#define CUBBYTOWER_END_WAVE_CHECKER_HPP
 
 namespace CubbyTower
 {
-//! \brief An enumerator for identifying target's type.
-enum TargetMask : uint8_t
+//!
+//! \brief EndWaveChecker struct.
+//!
+//! This struct checks if the wave is completed, and take actions on it.
+//!
+struct EndWaveChecker
 {
-    GROUND = 1 << 0,
-    AIR = 1 << 1,
+    bool isWaveEnd = false;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_ENUMS_HPP
+#endif  // CUBBYTOWER_END_WAVE_CHECKER_HPP

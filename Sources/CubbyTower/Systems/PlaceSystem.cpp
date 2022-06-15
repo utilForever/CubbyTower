@@ -4,13 +4,12 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
+#include <CubbyTower/Commons/MapData.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/Placer.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Systems/PlaceSystem.hpp>
-
-#include "CubbyTower/Commons/Constants.hpp"
 
 namespace CubbyTower
 {

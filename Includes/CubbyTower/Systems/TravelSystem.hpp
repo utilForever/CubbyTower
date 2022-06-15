@@ -4,22 +4,17 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_MONSTER_HELPERS_HPP
-#define CUBBYTOWER_MONSTER_HELPERS_HPP
+#ifndef CUBBYTOWER_TRAVEL_SYSTEM_HPP
+#define CUBBYTOWER_TRAVEL_SYSTEM_HPP
 
 #include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-struct Position;
-
-namespace Monster
-{
-//! Creates a normal balloon.
+//! Travel entities along a path.
 //! \param registry A registry that handles entities.
-//! \param position The position to place a normal balloon.
-void CreateNormalBalloon(entt::registry& registry, const Position& position);
-}  // namespace Monster
+//! \param deltaTime The delta time relation to hardware responsiveness.
+void UpdateTravelSystem(entt::registry& registry, float deltaTime);
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_MONSTER_HELPERS_HPP
+#endif  // CUBBYTOWER_TRAVEL_SYSTEM_HPP

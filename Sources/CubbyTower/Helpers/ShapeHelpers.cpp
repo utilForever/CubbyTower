@@ -4,8 +4,11 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
+#include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
+
+#include <cmath>
 
 namespace CubbyTower::Shape
 {
@@ -41,5 +44,33 @@ int DrawBox(VertexPC* vertices, const Position& position, float width,
     vertices[7].color = color;
 
     return 8;
+}
+
+int DrawCircle(VertexPC* vertices, const Position& position, float width,
+               float height, const Color& color)
+{
+    constexpr float perStep = PI * 2 / 12.0f;
+    float curStep = 0.0f;
+    int vertCount = 0;
+
+    while (curStep < PI * 2)
+    {
+        vertices[vertCount].position.x = position.x + std::cos(curStep) * width;
+        vertices[vertCount].position.y =
+            position.y + std::sin(curStep) * height;
+        vertices[vertCount].color = color;
+
+        ++vertCount;
+        vertices[vertCount].position.x =
+            position.x + std::cos(curStep + perStep) * width;
+        vertices[vertCount].position.y =
+            position.y + std::sin(curStep + perStep) * height;
+        vertices[vertCount].color = color;
+
+        curStep += perStep;
+        ++vertCount;
+    }
+
+    return vertCount;
 }
 }  // namespace CubbyTower::Shape

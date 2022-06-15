@@ -5,8 +5,9 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Constants.hpp>
-#include <CubbyTower/Commons/Data.hpp>
+#include <CubbyTower/Commons/MapData.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Commons/TowerData.hpp>
 #include <CubbyTower/Components/Gold.hpp>
 #include <CubbyTower/Components/HUD.hpp>
 #include <CubbyTower/Components/Inputs.hpp>
@@ -17,6 +18,7 @@
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
+#include <CubbyTower/Helpers/WaveHelpers.hpp>
 #include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/ButtonStateSystem.hpp>
 #include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
@@ -32,9 +34,11 @@
 #include <CubbyTower/Systems/ProjectileSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
+#include <CubbyTower/Systems/SpawnSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
 #include <CubbyTower/Systems/TooltipSystem.hpp>
+#include <CubbyTower/Systems/TravelSystem.hpp>
 #include <CubbyTower/Systems/UpgradeSystem.hpp>
 
 namespace CubbyTower::Game
@@ -69,6 +73,12 @@ void Initialize(entt::registry& registry)
         staticLinesRenderer.vertCount =
             (GLsizei)(sizeof(MAP_VERTS) / (sizeof(float) * 6));
         registry.emplace<StaticLinesRenderer>(entity, staticLinesRenderer);
+    }
+
+    // Wave
+    {
+        Wave::CreateWaveManager(registry);
+        Wave::StartWave(registry);
     }
 
     // Player
@@ -121,6 +131,8 @@ void Initialize(entt::registry& registry)
 
 void Simulate(entt::registry& registry, float deltaTime)
 {
+    UpdateSpawnSystem(registry, deltaTime);
+    UpdateTravelSystem(registry, deltaTime);
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateAttackSystem(registry, deltaTime);
     UpdateProjectileSystem(registry, deltaTime);
@@ -129,7 +141,6 @@ void Simulate(entt::registry& registry, float deltaTime)
 
 void Update(entt::registry& registry, float deltaTime)
 {
-    (void)deltaTime;
     UpdateInputSystem(registry);
     UpdateHUDSystem(registry);
     UpdateCashButtonTogglerSystem(registry);
