@@ -19,7 +19,6 @@
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Helpers/WaveHelpers.hpp>
-#include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/ButtonStateSystem.hpp>
 #include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
 #include <CubbyTower/Systems/ClickSystem.hpp>
@@ -133,7 +132,6 @@ void Simulate(entt::registry& registry, float deltaTime)
     UpdateSpawnSystem(registry, deltaTime);
     UpdateTravelSystem(registry, deltaTime);
     UpdateSizePulseAnimSystem(registry, deltaTime);
-    UpdateAttackSystem(registry, deltaTime);
     UpdateCollisionSystem(registry);
 }
 
