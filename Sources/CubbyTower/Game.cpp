@@ -35,6 +35,7 @@
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/SpawnSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
+#include <CubbyTower/Systems/TargetingSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
 #include <CubbyTower/Systems/TooltipSystem.hpp>
 #include <CubbyTower/Systems/TravelSystem.hpp>
@@ -133,6 +134,7 @@ void Simulate(entt::registry& registry, float deltaTime)
     UpdateSpawnSystem(registry, deltaTime);
     UpdateTravelSystem(registry, deltaTime);
     UpdateMonsterTargetScoreSystem(registry);
+    UpdateTargetingSystem(registry);
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateCollisionSystem(registry);
 }
