@@ -28,6 +28,7 @@
 #include <CubbyTower/Systems/HoverSystem.hpp>
 #include <CubbyTower/Systems/InputSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
+#include <CubbyTower/Systems/MonsterTargetScoreSystem.hpp>
 #include <CubbyTower/Systems/PlaceSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
@@ -131,6 +132,7 @@ void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSpawnSystem(registry, deltaTime);
     UpdateTravelSystem(registry, deltaTime);
+    UpdateMonsterTargetScoreSystem(registry);
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateCollisionSystem(registry);
 }
