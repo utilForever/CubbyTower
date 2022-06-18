@@ -16,6 +16,7 @@
 #include <CubbyTower/Components/Size.hpp>
 #include <CubbyTower/Components/Speed.hpp>
 #include <CubbyTower/Components/Target.hpp>
+#include <CubbyTower/Components/TargetScore.hpp>
 #include <CubbyTower/Components/Traveler.hpp>
 #include <CubbyTower/Helpers/MonsterHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
@@ -41,6 +42,7 @@ void CreateNormalBalloon(entt::registry& registry, const Position& position)
     registry.emplace<Gold>(entity, 10);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
+    registry.emplace<TargetScore>(entity, 0.0f);
     registry.emplace<Speed>(entity, speed, speed);
 }
-}  // namespace CubbyTower
+}  // namespace CubbyTower::Monster
