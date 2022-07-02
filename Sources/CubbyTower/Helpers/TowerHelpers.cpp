@@ -21,6 +21,7 @@
 #include <CubbyTower/Components/Upgradable.hpp>
 #include <CubbyTower/Helpers/GoldHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
+#include <CubbyTower/Helpers/ShootingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 
 namespace CubbyTower::Tower
@@ -77,7 +78,8 @@ void UpgradeArrowTowerLv2(entt::registry& registry, entt::entity entity)
 void ShootArrowLv1(entt::registry& registry, entt::entity target,
                    entt::entity from)
 {
-    // Do nothing
+    Shooting::CreateArrow(registry, registry.get<Position>(from),
+                          registry.get<Position>(target));
 }
 
 void ShootArrowLv2(entt::registry& registry, entt::entity target,
