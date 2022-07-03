@@ -13,8 +13,8 @@ namespace CubbyTower
 void UpdatePositionAnimSystem(entt::registry& registry, float deltaTime)
 {
     registry.view<PositionAnim, Position>().each(
-        [&deltaTime]([[maybe_unused]] auto entity, PositionAnim& positionAnim,
-                     Position& position) {
+        [&registry, deltaTime]([[maybe_unused]] auto entity,
+                               PositionAnim& positionAnim, Position& position) {
             const float anim = positionAnim.anim + deltaTime;
             const float ratio =
                 std::min(anim, positionAnim.duration) / positionAnim.duration;
@@ -24,6 +24,11 @@ void UpdatePositionAnimSystem(entt::registry& registry, float deltaTime)
             position.y = positionAnim.from.y +
                          (positionAnim.to.y - positionAnim.from.y) * ratio;
             positionAnim.anim = anim;
+
+            if (anim >= positionAnim.duration)
+            {
+                positionAnim.OnAnim(registry, entity);
+            }
         });
 }
 }  // namespace CubbyTower
