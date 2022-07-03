@@ -9,6 +9,10 @@
 
 #include <CubbyTower/Components/Position.hpp>
 
+#include <entt/entt.hpp>
+
+#include <functional>
+
 namespace CubbyTower
 {
 //!
@@ -23,6 +27,8 @@ struct PositionAnim
 
     float anim;
     float duration;
+
+    std::function<void(entt::registry&, entt::entity)> OnAnim;
 };
 }  // namespace CubbyTower
 
