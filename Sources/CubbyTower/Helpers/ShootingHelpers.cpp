@@ -41,7 +41,8 @@ void CreateArrow(entt::registry& registry, const Position& from,
 
     auto entity = registry.create();
     registry.emplace<Position>(entity, from);
-    registry.emplace<PositionAnim>(entity, from, to, 0.0f, len / 10.0f);
+    registry.emplace<PositionAnim>(entity, from, to, 0.0f, len / 10.0f,
+                                   OnCollideArrow);
     registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
     registry.emplace<Size>(entity, 0.15f, 0.15f);
     registry.emplace<Color>(entity, Color{ 0.0f, 1.0f, 1.0f, 1.0f });
