@@ -5,6 +5,7 @@
 // property of any third parties.
 
 #include <CubbyTower/Components/Color.hpp>
+#include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/DeathTimer.hpp>
 #include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
@@ -47,6 +48,7 @@ void CreateArrow(entt::registry& registry, const Position& from,
     registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
     registry.emplace<Size>(entity, 0.15f, 0.15f);
     registry.emplace<Color>(entity, Color{ 0.0f, 1.0f, 1.0f, 1.0f });
+    registry.emplace<Damage>(entity, damage);
 }
 
 void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
