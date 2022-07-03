@@ -5,15 +5,33 @@
 // property of any third parties.
 
 #include <CubbyTower/Components/Color.hpp>
+#include <CubbyTower/Components/DeathTimer.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/PositionAnim.hpp>
 #include <CubbyTower/Components/ShapeRenderer.hpp>
 #include <CubbyTower/Components/Size.hpp>
+#include <CubbyTower/Components/SizePulseAnim.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/ShootingHelpers.hpp>
 
 namespace CubbyTower::Shooting
 {
+static void OnCollideArrow(entt::registry& registry, entt::entity entity)
+{
+    auto impactPoint = registry.get<Position>(entity);
+    auto color = registry.get<Color>(entity);
+
+    registry.destroy(entity);
+
+    auto fxEntity = registry.create();
+    registry.emplace<Position>(fxEntity, impactPoint);
+    registry.emplace<DeathTimer>(fxEntity, 0.4f);
+    registry.emplace<Size>(fxEntity, 0.5f);
+    registry.emplace<ShapeRenderer>(fxEntity, Shape::DrawCircle);
+    registry.emplace<SizePulseAnim>(fxEntity, 0.0f, 25.0f, 0.15f, 0.5f);
+    registry.emplace<Color>(fxEntity, color);
+}
+
 void CreateArrow(entt::registry& registry, const Position& from,
                  const Position& to)
 {
