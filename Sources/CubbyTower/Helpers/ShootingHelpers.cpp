@@ -6,6 +6,7 @@
 
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/DeathTimer.hpp>
+#include <CubbyTower/Components/Health.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/PositionAnim.hpp>
 #include <CubbyTower/Components/ShapeRenderer.hpp>
@@ -46,5 +47,21 @@ void CreateArrow(entt::registry& registry, const Position& from,
     registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
     registry.emplace<Size>(entity, 0.15f, 0.15f);
     registry.emplace<Color>(entity, Color{ 0.0f, 1.0f, 1.0f, 1.0f });
+}
+
+void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
+{
+    if (!registry.all_of<Health>(target))
+    {
+        return;
+    }
+
+    auto& health = registry.get<Health>(target);
+    health.curAmount -= damage;
+
+    if (health.curAmount <= 0)
+    {
+        // TODO: Kill a target
+    }
 }
 }  // namespace CubbyTower::Shooting

@@ -22,6 +22,12 @@ namespace Shooting
 //! \param to The end position of the arrow for target.
 void CreateArrow(entt::registry& registry, const Position& from,
                  const Position& to);
+
+//! Gives a damage to a target.
+//! \param registry A registry that handles entities.
+//! \param target A target that takes a damage.
+//! \param damage The amount of damage to take.
+void GiveDamage(entt::registry& registry, entt::entity& target, int damage);
 }  // namespace Shooting
 }  // namespace CubbyTower
 
