@@ -23,6 +23,7 @@
 #include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
 #include <CubbyTower/Systems/ClickSystem.hpp>
 #include <CubbyTower/Systems/CollisionSystem.hpp>
+#include <CubbyTower/Systems/DeathTimerSystem.hpp>
 #include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
 #include <CubbyTower/Systems/HoverSystem.hpp>
@@ -136,6 +137,7 @@ void Simulate(entt::registry& registry, float deltaTime)
     UpdateTravelSystem(registry, deltaTime);
     UpdateMonsterTargetScoreSystem(registry);
     UpdateTargetingSystem(registry);
+    UpdateDeathTimerSystem(registry, deltaTime);
     UpdatePositionAnimSystem(registry, deltaTime);
     UpdateSizePulseAnimSystem(registry, deltaTime);
     UpdateCollisionSystem(registry);
