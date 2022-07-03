@@ -17,8 +17,7 @@ namespace CubbyTower
 //!
 struct Cooldown
 {
-    float totalTime;
-    float leftTime;
+    float delay;
 };
 }  // namespace CubbyTower
 
