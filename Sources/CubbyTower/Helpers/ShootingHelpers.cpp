@@ -22,8 +22,11 @@ static void OnCollideArrow(entt::registry& registry, entt::entity entity)
 {
     auto impactPoint = registry.get<Position>(entity);
     auto color = registry.get<Color>(entity);
+    auto damage = registry.get<Damage>(entity);
 
     registry.destroy(entity);
+
+    GiveDamage(registry, entity, damage.damage);
 
     auto fxEntity = registry.create();
     registry.emplace<Position>(fxEntity, impactPoint);
