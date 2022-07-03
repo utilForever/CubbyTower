@@ -34,7 +34,7 @@ static void OnCollideArrow(entt::registry& registry, entt::entity entity)
 }
 
 void CreateArrow(entt::registry& registry, const Position& from,
-                 const Position& to)
+                 const Position& to, int damage)
 {
     const float dx = to.x - from.x;
     const float dy = to.y - from.y;

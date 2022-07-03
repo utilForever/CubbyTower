@@ -79,7 +79,7 @@ void ShootArrowLv1(entt::registry& registry, entt::entity target,
                    entt::entity from)
 {
     Shooting::CreateArrow(registry, registry.get<Position>(from),
-                          registry.get<Position>(target));
+                          registry.get<Position>(target), 10);
 }
 
 void ShootArrowLv2(entt::registry& registry, entt::entity target,

@@ -20,8 +20,9 @@ namespace Shooting
 //! \param registry A registry that handles entities.
 //! \param from The start position of the arrow for the arrow tower.
 //! \param to The end position of the arrow for target.
+//! \param damage The amount of damage to give.
 void CreateArrow(entt::registry& registry, const Position& from,
-                 const Position& to);
+                 const Position& to, int damage);
 
 //! Gives a damage to a target.
 //! \param registry A registry that handles entities.
