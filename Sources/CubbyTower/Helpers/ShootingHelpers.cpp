@@ -26,7 +26,19 @@ static void OnCollideArrow(entt::registry& registry, entt::entity entity)
 
     registry.destroy(entity);
 
-    GiveDamage(registry, entity, damage.damage);
+    registry.view<Health, Position>().each(
+        [&registry, impactPoint, damage](entt::entity entity,
+                                         [[maybe_unused]] const Health& health,
+                                         const Position& position) {
+            auto dx = position.x - impactPoint.x;
+            auto dy = position.y - impactPoint.y;
+            auto dist = dx * dx + dy * dy;
+
+            if (dist < 0.5f)
+            {
+                GiveDamage(registry, entity, damage.damage);
+            }
+        });
 
     auto fxEntity = registry.create();
     registry.emplace<Position>(fxEntity, impactPoint);
