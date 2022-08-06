@@ -19,7 +19,7 @@
 #include <CubbyTower/Components/Targeter.hpp>
 #include <CubbyTower/Components/TextRenderer.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
-#include <CubbyTower/Helpers/GoldHelpers.hpp>
+#include <CubbyTower/Helpers/BankHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/ShootingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
@@ -43,8 +43,8 @@ void CreatePlacer(
 void BuyArrowTower(entt::registry& registry, const Position& position)
 {
     // Check the player can buy arrow tower
-    if (!Withdraw(registry, registry.view<Tag::Player>()[0],
-                  ARROW_TOWER_LV1_PRICE))
+    if (!Bank::Withdraw(registry, registry.view<Tag::Player>()[0],
+                        ARROW_TOWER_LV1_PRICE))
     {
         return;
     }

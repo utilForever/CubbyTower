@@ -14,7 +14,7 @@
 #include <CubbyTower/Components/ShapeRenderer.hpp>
 #include <CubbyTower/Components/Size.hpp>
 #include <CubbyTower/Components/SizePulseAnim.hpp>
-#include <CubbyTower/Helpers/GoldHelpers.hpp>
+#include <CubbyTower/Helpers/BankHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/ShootingHelpers.hpp>
 
@@ -86,7 +86,7 @@ void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
 
 void Kill(entt::registry& registry, entt::entity& target)
 {
-    Transfer(registry, target, registry.view<Tag::Player>()[0]);
+    Bank::Transfer(registry, target, registry.view<Tag::Player>()[0]);
 
     registry.destroy(target);
 }

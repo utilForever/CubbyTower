@@ -8,7 +8,7 @@
 #include <CubbyTower/Components/Inputs.hpp>
 #include <CubbyTower/Components/UIContext.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
-#include <CubbyTower/Helpers/GoldHelpers.hpp>
+#include <CubbyTower/Helpers/BankHelpers.hpp>
 #include <CubbyTower/Systems/UpgradeSystem.hpp>
 
 namespace CubbyTower
@@ -26,8 +26,8 @@ void UpdateUpgradeSystem(entt::registry& registry)
         {
             if (const auto& upgradable =
                     registry.get<Upgradable>(uiContext.hover);
-                Withdraw(registry, registry.view<Tag::Player>()[0],
-                         upgradable.cost))
+                Bank::Withdraw(registry, registry.view<Tag::Player>()[0],
+                               upgradable.cost))
             {
                 upgradable.Upgrade(registry, uiContext.hover);
                 inputs.upgradeKeyState = InputState::DOWN;

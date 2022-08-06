@@ -4,12 +4,12 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_GOLD_HELPERS_HPP
-#define CUBBYTOWER_GOLD_HELPERS_HPP
+#ifndef CUBBYTOWER_BANK_HELPERS_HPP
+#define CUBBYTOWER_BANK_HELPERS_HPP
 
 #include <entt/entt.hpp>
 
-namespace CubbyTower
+namespace CubbyTower::Bank
 {
 //! Withdraws \p amount from \p from's Gold component if enough gold in it, then
 //! return true. Returns false otherwise and leave \p from's Gold untouched.
@@ -23,6 +23,6 @@ bool Withdraw(entt::registry& registry, entt::entity from, int amount);
 //! \param from The monster entity.
 //! \param to The player entity.
 void Transfer(entt::registry& registry, entt::entity from, entt::entity to);
-}  // namespace CubbyTower
+}  // namespace CubbyTower::Bank
 
-#endif  // CUBBYTOWER_GOLD_HELPERS_HPP
+#endif  // CUBBYTOWER_BANK_HELPERS_HPP
