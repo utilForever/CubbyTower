@@ -26,6 +26,7 @@
 #include <CubbyTower/Systems/CooldownSystem.hpp>
 #include <CubbyTower/Systems/DeathTimerSystem.hpp>
 #include <CubbyTower/Systems/EndWaveCheckSystem.hpp>
+#include <CubbyTower/Systems/EndWaveDelaySystem.hpp>
 #include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
 #include <CubbyTower/Systems/HoverSystem.hpp>
@@ -137,6 +138,7 @@ void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSpawnSystem(registry, deltaTime);
     UpdateEndWaveCheckSystem(registry);
+    UpdateEndWaveDelaySystem(registry, deltaTime);
     UpdateTravelSystem(registry, deltaTime);
     UpdateMonsterTargetScoreSystem(registry);
     UpdateCooldownSystem(registry, deltaTime);
