@@ -17,6 +17,12 @@ namespace CubbyTower
 //! \param from The player entity.
 //! \param amount The price to buy something.
 bool Withdraw(entt::registry& registry, entt::entity from, int amount);
+
+//! Transfer all the money from \p from to \p to.
+//! \param registry A registry that handles entities.
+//! \param from The monster entity.
+//! \param to The player entity.
+void Transfer(entt::registry& registry, entt::entity from, entt::entity to);
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_GOLD_HELPERS_HPP

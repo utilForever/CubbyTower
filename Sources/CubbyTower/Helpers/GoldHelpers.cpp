@@ -24,4 +24,23 @@ bool Withdraw(entt::registry& registry, entt::entity from, int amount)
 
     return false;
 }
+
+void Transfer(entt::registry& registry, entt::entity from, entt::entity to)
+{
+    if (from == to)
+    {
+        return;
+    }
+
+    if (!registry.all_of<Gold>(from) || !registry.all_of<Gold>(to))
+    {
+        return;
+    }
+
+    auto& fromGold = registry.get<Gold>(from);
+    auto& toGold = registry.get<Gold>(to);
+
+    toGold.amount += fromGold.amount;
+    fromGold.amount = 0;
+}
 }  // namespace CubbyTower
