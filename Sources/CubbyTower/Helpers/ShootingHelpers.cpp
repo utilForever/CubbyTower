@@ -78,7 +78,12 @@ void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
 
     if (health.curAmount <= 0)
     {
-        // TODO: Kill a target
+        Kill(registry, target);
     }
+}
+
+void Kill(entt::registry& registry, entt::entity& target)
+{
+    registry.destroy(target);
 }
 }  // namespace CubbyTower::Shooting

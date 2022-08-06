@@ -29,6 +29,11 @@ void CreateArrow(entt::registry& registry, const Position& from,
 //! \param target A target that takes a damage.
 //! \param damage The amount of damage to take.
 void GiveDamage(entt::registry& registry, entt::entity& target, int damage);
+
+// Kills a target.
+//! \param registry A registry that handles entities.
+//! \param target A target to kill.
+void Kill(entt::registry& registry, entt::entity& target);
 }  // namespace Shooting
 }  // namespace CubbyTower
 
