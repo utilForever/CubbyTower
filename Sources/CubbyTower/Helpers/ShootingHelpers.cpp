@@ -18,6 +18,8 @@
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/ShootingHelpers.hpp>
 
+#include <cmath>
+
 namespace CubbyTower::Shooting
 {
 static void OnCollideArrow(entt::registry& registry, entt::entity entity)
@@ -56,7 +58,7 @@ void CreateArrow(entt::registry& registry, const Position& from,
 {
     const float dx = to.x - from.x;
     const float dy = to.y - from.y;
-    const float len = std::sqrtf(dx * dx + dy * dy);
+    const float len = std::sqrt(dx * dx + dy * dy);
 
     auto entity = registry.create();
     registry.emplace<Position>(entity, from);
