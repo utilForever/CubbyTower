@@ -4,17 +4,17 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_PROJECTILE_SYSTEM_HPP
-#define CUBBYTOWER_PROJECTILE_SYSTEM_HPP
+#ifndef CUBBYTOWER_COLLDOWN_SYSTEM_HPP
+#define CUBBYTOWER_COLLDOWN_SYSTEM_HPP
 
 #include <entt/entt.hpp>
 
 namespace CubbyTower
 {
-//! Updates projectile system.
+//! Update shooters (tower only for now) cooldown, then change back to shooting.
 //! \param registry A registry that handles entities.
-//! \param deltaTime The time passed from last projectile is updated.
-void UpdateProjectileSystem(entt::registry& registry, float deltaTime);
+//! \param deltaTime The delta time relation to hardware responsiveness.
+void UpdateCooldownSystem(entt::registry& registry, float deltaTime);
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_PROJECTILE_SYSTEM_HPP
+#endif  // CUBBYTOWER_COLLDOWN_SYSTEM_HPP

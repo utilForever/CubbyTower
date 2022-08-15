@@ -7,7 +7,7 @@
 #include <doctest.h>
 
 #include <CubbyTower/Components/Gold.hpp>
-#include <CubbyTower/Helpers/GoldHelpers.hpp>
+#include <CubbyTower/Helpers/BankHelpers.hpp>
 
 #include <entt/entt.hpp>
 
@@ -18,9 +18,9 @@ TEST_CASE("[GoldHelpers] - Withdraw")
     entt::registry registry;
     auto entity = registry.create();
 
-    CHECK_FALSE(Withdraw(registry, entity, 100));
+    CHECK_FALSE(Bank::Withdraw(registry, entity, 100));
 
     registry.emplace<Gold>(entity, 100);
-    CHECK(Withdraw(registry, entity, 50));
-    CHECK_FALSE(Withdraw(registry, entity, 100));
+    CHECK(Bank::Withdraw(registry, entity, 50));
+    CHECK_FALSE(Bank::Withdraw(registry, entity, 100));
 }

@@ -4,21 +4,20 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_COOLDOWN_HPP
-#define CUBBYTOWER_COOLDOWN_HPP
+#ifndef CUBBYTOWER_DEATH_TIMER_HPP
+#define CUBBYTOWER_DEATH_TIMER_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Cooldown struct.
+//! \brief DeathTimer struct.
 //!
-//! This struct stores the data for cooldowns for attack cooldowns or ability
-//! cooldowns. This is used by the tower, or abilities (might be added later).
+//! This struct stores the delay that kills the owner once it has passed.
 //!
-struct Cooldown
+struct DeathTimer
 {
     float delay;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_COOLDOWN_HPP
+#endif  // CUBBYTOWER_DEATH_TIMER_HPP

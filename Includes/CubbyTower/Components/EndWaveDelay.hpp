@@ -4,21 +4,20 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_COOLDOWN_HPP
-#define CUBBYTOWER_COOLDOWN_HPP
+#ifndef CUBBYTOWER_END_WAVE_DELAY_HPP
+#define CUBBYTOWER_END_WAVE_DELAY_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Cooldown struct.
+//! \brief EndWaveDelay struct.
 //!
-//! This struct stores the data for cooldowns for attack cooldowns or ability
-//! cooldowns. This is used by the tower, or abilities (might be added later).
+//! This struct stores delay before ending the wave.
 //!
-struct Cooldown
+struct EndWaveDelay
 {
-    float delay;
+    float delay = 0.0f;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_COOLDOWN_HPP
+#endif  // CUBBYTOWER_END_WAVE_DELAY_HPP

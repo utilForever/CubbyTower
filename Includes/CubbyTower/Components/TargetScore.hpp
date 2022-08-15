@@ -4,21 +4,21 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_COOLDOWN_HPP
-#define CUBBYTOWER_COOLDOWN_HPP
+#ifndef CUBBYTOWER_TARGET_SCORE_HPP
+#define CUBBYTOWER_TARGET_SCORE_HPP
 
 namespace CubbyTower
 {
 //!
-//! \brief Cooldown struct.
+//! \brief TargetScore struct.
 //!
-//! This struct stores the data for cooldowns for attack cooldowns or ability
-//! cooldowns. This is used by the tower, or abilities (might be added later).
+//! This struct stores the score of the target.
+//! Targeter will target entities with an higher target score first.
 //!
-struct Cooldown
+struct TargetScore
 {
-    float delay;
+    float score;
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_COOLDOWN_HPP
+#endif  // CUBBYTOWER_TARGET_SCORE_HPP

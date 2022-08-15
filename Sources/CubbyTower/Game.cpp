@@ -19,23 +19,28 @@
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
 #include <CubbyTower/Helpers/WaveHelpers.hpp>
-#include <CubbyTower/Systems/AttackSystem.hpp>
 #include <CubbyTower/Systems/ButtonStateSystem.hpp>
 #include <CubbyTower/Systems/CashButtonToggleSystem.hpp>
 #include <CubbyTower/Systems/ClickSystem.hpp>
 #include <CubbyTower/Systems/CollisionSystem.hpp>
+#include <CubbyTower/Systems/CooldownSystem.hpp>
+#include <CubbyTower/Systems/DeathTimerSystem.hpp>
+#include <CubbyTower/Systems/EndWaveCheckSystem.hpp>
+#include <CubbyTower/Systems/EndWaveDelaySystem.hpp>
 #include <CubbyTower/Systems/HUDSystem.hpp>
 #include <CubbyTower/Systems/HealthBarRenderSystem.hpp>
 #include <CubbyTower/Systems/HoverSystem.hpp>
 #include <CubbyTower/Systems/InputSystem.hpp>
 #include <CubbyTower/Systems/LineRenderSystem.hpp>
+#include <CubbyTower/Systems/MonsterTargetScoreSystem.hpp>
 #include <CubbyTower/Systems/PlaceSystem.hpp>
 #include <CubbyTower/Systems/PointRenderSystem.hpp>
-#include <CubbyTower/Systems/ProjectileSystem.hpp>
+#include <CubbyTower/Systems/PositionAnimSystem.hpp>
 #include <CubbyTower/Systems/ShapeRenderSystem.hpp>
 #include <CubbyTower/Systems/SizePulseAnimSystem.hpp>
 #include <CubbyTower/Systems/SpawnSystem.hpp>
 #include <CubbyTower/Systems/StaticLinesRenderSystem.hpp>
+#include <CubbyTower/Systems/TargetingSystem.hpp>
 #include <CubbyTower/Systems/TextRenderSystem.hpp>
 #include <CubbyTower/Systems/TooltipSystem.hpp>
 #include <CubbyTower/Systems/TravelSystem.hpp>
@@ -132,10 +137,15 @@ void Initialize(entt::registry& registry)
 void Simulate(entt::registry& registry, float deltaTime)
 {
     UpdateSpawnSystem(registry, deltaTime);
+    UpdateEndWaveCheckSystem(registry);
+    UpdateEndWaveDelaySystem(registry, deltaTime);
     UpdateTravelSystem(registry, deltaTime);
+    UpdateMonsterTargetScoreSystem(registry);
+    UpdateCooldownSystem(registry, deltaTime);
+    UpdateTargetingSystem(registry);
+    UpdateDeathTimerSystem(registry, deltaTime);
+    UpdatePositionAnimSystem(registry, deltaTime);
     UpdateSizePulseAnimSystem(registry, deltaTime);
-    UpdateAttackSystem(registry, deltaTime);
-    UpdateProjectileSystem(registry, deltaTime);
     UpdateCollisionSystem(registry);
 }
 

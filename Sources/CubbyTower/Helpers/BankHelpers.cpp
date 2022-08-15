@@ -5,9 +5,9 @@
 // property of any third parties.
 
 #include <CubbyTower/Components/Gold.hpp>
-#include <CubbyTower/Helpers/GoldHelpers.hpp>
+#include <CubbyTower/Helpers/BankHelpers.hpp>
 
-namespace CubbyTower
+namespace CubbyTower::Bank
 {
 bool Withdraw(entt::registry& registry, entt::entity from, int amount)
 {
@@ -24,4 +24,23 @@ bool Withdraw(entt::registry& registry, entt::entity from, int amount)
 
     return false;
 }
-}  // namespace CubbyTower
+
+void Transfer(entt::registry& registry, entt::entity from, entt::entity to)
+{
+    if (from == to)
+    {
+        return;
+    }
+
+    if (!registry.all_of<Gold>(from) || !registry.all_of<Gold>(to))
+    {
+        return;
+    }
+
+    auto& fromGold = registry.get<Gold>(from);
+    auto& toGold = registry.get<Gold>(to);
+
+    toGold.amount += fromGold.amount;
+    fromGold.amount = 0;
+}
+}  // namespace CubbyTower::Bank
