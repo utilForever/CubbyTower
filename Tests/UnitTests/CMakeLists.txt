@@ -9,7 +9,6 @@ else()
 endif()
 
 # Define dependencies
-set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 set(SFML_LIBRARY_DEPENDENCIES sfml-audio sfml-graphics sfml-network sfml-system sfml-window)
 if (CMAKE_SYSTEM_NAME MATCHES "Windows")
     set(SFML_EXTLIBS_PATH ${CMAKE_SOURCE_DIR}/Libraries/SFML/extlibs/libs-msvc/${ARCHITECTURE})
