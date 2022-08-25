@@ -1,16 +1,20 @@
 # Target name
 set(target CubbyTower)
 
-# Define
-set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
-
-link_directories(${SFML_LIBRARIES_PATH})
-set(SFML_LIBRARY_DEPENDENCIES sfml-audio sfml-graphics sfml-network sfml-system sfml-window)
+# Set architecture
+if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
+    set(ARCHITECTURE x86)
+else()
+    set(ARCHITECTURE x64)
+endif()
 
 # Includes
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+# Links
+link_directories(${SFML_EXTLIBS_PATH})
 
 # Sources
 file(GLOB header_dir
