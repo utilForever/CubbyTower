@@ -23,6 +23,9 @@ endif()
 # Includes
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
+# Links
+link_directories(${SFML_EXTLIBS_PATH})
+
 # Sources
 file(GLOB_RECURSE sources
     ${CMAKE_CURRENT_SOURCE_DIR}/../../Sources/CubbyTower/Helpers/*.cpp
