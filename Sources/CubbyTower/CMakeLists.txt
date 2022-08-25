@@ -76,3 +76,11 @@ target_link_libraries(${target}
 
     INTERFACE
 )
+
+# Copy OpenAL dll file
+if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    add_custom_command(TARGET CubbyTower POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_SOURCE_DIR}/Libraries/SFML/extlibs/bin/${ARCHITECTURE}"
+            $<TARGET_FILE_DIR:CubbyTower>)
+endif()
