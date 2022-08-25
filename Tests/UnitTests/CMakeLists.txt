@@ -60,8 +60,15 @@ target_compile_definitions(${target}
 # Link libraries
 target_link_libraries(${target}
     PRIVATE
-    ${DEFAULT_LINKER_OPTIONS}
-    doctest
+    ${SFML_LIBRARY_DEPENDENCIES}
+    ${SFML_OPENAL_DEPENDENCIES}
     gl3w
     OpenGL::GL
-    ${CMAKE_DL_LIBS})
+    ${CMAKE_DL_LIBS}
+
+    PUBLIC
+    ${DEFAULT_LINKER_OPTIONS}
+	${DEFAULT_LIBRARIES}
+
+    INTERFACE
+)
