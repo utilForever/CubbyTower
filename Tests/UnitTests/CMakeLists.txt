@@ -1,6 +1,13 @@
 # Target name
 set(target UnitTests)
 
+# Set architecture
+if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
+    set(ARCHITECTURE x86)
+else()
+    set(ARCHITECTURE x64)
+endif()
+
 # Includes
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
