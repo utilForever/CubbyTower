@@ -8,6 +8,18 @@ else()
     set(ARCHITECTURE x64)
 endif()
 
+# Define dependencies
+set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
+set(SFML_LIBRARY_DEPENDENCIES sfml-audio sfml-graphics sfml-network sfml-system sfml-window)
+if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    set(SFML_EXTLIBS_PATH ${CMAKE_SOURCE_DIR}/Libraries/SFML/extlibs/libs-msvc/${ARCHITECTURE})
+    set(SFML_OPENAL_DEPENDENCIES openal32)
+elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    set(SFML_OPENAL_DEPENDENCIES openal)
+elseif (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+    set(SFML_OPENAL_DEPENDENCIES ${OPENAL_LIBRARY})
+endif()
+
 # Includes
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
