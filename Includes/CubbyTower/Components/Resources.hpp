@@ -7,6 +7,8 @@
 #ifndef CUBBYTOWER_RESOURCES_HPP
 #define CUBBYTOWER_RESOURCES_HPP
 
+#include <CubbyTower/Components/Sound.hpp>
+
 #include <GL/gl3w.hpp>
 
 namespace CubbyTower
@@ -27,6 +29,8 @@ struct Resources
     GLuint vertexBuffer;
     VertexPC* pcVertices;
     VertexPTC* ptcVertices;
+
+    Sound arrowSound;
 };
 }  // namespace CubbyTower
 
