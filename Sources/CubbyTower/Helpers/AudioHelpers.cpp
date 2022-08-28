@@ -6,10 +6,19 @@
 
 #include <CubbyTower/Helpers/AudioHelpers.hpp>
 
+#include <cassert>
+
 namespace CubbyTower::Audio
 {
 Sound LoadSound(const char* fileName)
 {
-    return Sound{};
+    Sound sound;
+
+    if (!sound.buffer.loadFromFile(fileName))
+    {
+        assert(false);
+    }
+
+    return sound;
 }
 }  // namespace CubbyTower::Audio
