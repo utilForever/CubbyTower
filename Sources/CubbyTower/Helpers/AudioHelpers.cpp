@@ -6,6 +6,8 @@
 
 #include <CubbyTower/Helpers/AudioHelpers.hpp>
 
+#include <SFML/Audio/Sound.hpp>
+
 #include <cassert>
 
 namespace CubbyTower::Audio
@@ -20,5 +22,13 @@ Sound LoadSound(const char* fileName)
     }
 
     return sound;
+}
+
+void PlaySound(const Sound& sound)
+{
+    sf::Sound sfmlSound;
+
+    sfmlSound.setBuffer(sound.buffer);
+    sfmlSound.play();
 }
 }  // namespace CubbyTower::Audio
