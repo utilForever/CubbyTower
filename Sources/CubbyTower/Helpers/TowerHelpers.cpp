@@ -82,10 +82,7 @@ void ShootArrowLv1(entt::registry& registry, entt::entity target,
 {
     Shooting::CreateArrow(registry, registry.get<Position>(from),
                           registry.get<Position>(target), 10);
-
-    const auto& resources =
-        registry.get<Resources>(registry.view<Resources>()[0]);
-    Audio::PlaySound(resources.arrowSound);
+    Audio::PlaySound("arrow");
 }
 
 void ShootArrowLv2(entt::registry& registry, entt::entity target,
