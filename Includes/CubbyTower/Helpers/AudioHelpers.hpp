@@ -13,6 +13,8 @@
 
 namespace CubbyTower::Audio
 {
+static std::map<std::string, Sound> sounds;
+
 //! Loads a sound from specific file.
 //! \param fileName The name of file to load.
 Sound LoadSound(const char* fileName);
