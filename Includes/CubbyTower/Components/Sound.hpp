@@ -7,6 +7,7 @@
 #ifndef CUBBYTOWER_SOUND_HPP
 #define CUBBYTOWER_SOUND_HPP
 
+#include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
 
 namespace CubbyTower
@@ -19,6 +20,7 @@ namespace CubbyTower
 struct Sound
 {
     sf::SoundBuffer buffer;
+    sf::Sound sound;
 };
 }  // namespace CubbyTower
 
