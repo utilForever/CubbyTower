@@ -67,8 +67,12 @@ void Initialize(entt::registry& registry)
         resources.vertexBuffer = Rendering::CreateVertexBuffer();
         resources.pcVertices = new VertexPC[MAX_VERTICES];
         resources.ptcVertices = new VertexPTC[MAX_VERTICES];
-        resources.arrowSound = Audio::LoadSound(RESOURCES_DIR "/gun.wav");
         registry.emplace<Resources>(entity, resources);
+    }
+
+    // Load audios
+    {
+        Audio::LoadSound("arrow", RESOURCES_DIR "/gun.wav");
     }
 
     // Create map entity
