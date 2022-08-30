@@ -24,11 +24,12 @@ void LoadSound(const char* name, const char* path)
     sounds.insert_or_assign(name, sound);
 }
 
-void PlaySound(const Sound& sound)
+void PlaySound(const char* name)
 {
-    sf::Sound sfmlSound;
-
-    sfmlSound.setBuffer(sound.buffer);
-    sfmlSound.play();
+    if (sounds.find(name) != sounds.end())
+    {
+        sounds[name].sound.setBuffer(sounds[name].buffer);
+        sounds[name].sound.play();
+    }
 }
 }  // namespace CubbyTower::Audio

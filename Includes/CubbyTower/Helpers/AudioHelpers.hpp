@@ -21,9 +21,8 @@ static std::map<std::string, Sound> sounds;
 void LoadSound(const char* name, const char* path);
 
 //! Plays a sound.
-//! \param registry A registry that handles entities.
-//! \param sound A sound component to play.
-void PlaySound(const Sound& sound);
+//! \param name The name of sound to play.
+void PlaySound(const char* name);
 }  // namespace CubbyTower::Audio
 
 #endif  // CUBBYTOWER_AUDIO_HELPERS_HPP
