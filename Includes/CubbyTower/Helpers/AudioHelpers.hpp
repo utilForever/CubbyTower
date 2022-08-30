@@ -16,8 +16,9 @@ namespace CubbyTower::Audio
 static std::map<std::string, Sound> sounds;
 
 //! Loads a sound from specific file.
-//! \param fileName The name of file to load.
-Sound LoadSound(const char* fileName);
+//! \param name The name of the sound.
+//! \param path The path of file to load.
+void LoadSound(const char* name, const char* path);
 
 //! Plays a sound.
 //! \param registry A registry that handles entities.

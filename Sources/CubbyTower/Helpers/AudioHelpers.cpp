@@ -12,16 +12,16 @@
 
 namespace CubbyTower::Audio
 {
-Sound LoadSound(const char* fileName)
+void LoadSound(const char* name, const char* path)
 {
     Sound sound;
 
-    if (!sound.buffer.loadFromFile(fileName))
+    if (!sound.buffer.loadFromFile(path))
     {
         assert(false);
     }
 
-    return sound;
+    sounds.insert_or_assign(name, sound);
 }
 
 void PlaySound(const Sound& sound)
