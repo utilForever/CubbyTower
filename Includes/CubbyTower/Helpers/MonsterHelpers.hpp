@@ -19,6 +19,11 @@ namespace Monster
 //! \param registry A registry that handles entities.
 //! \param position The position to place a normal balloon.
 void CreateNormalBalloon(entt::registry& registry, const Position& position);
+
+//! Creates a normal balloon level 2.
+//! \param registry A registry that handles entities.
+//! \param position The position to place a normal balloon.
+void CreateNormalBalloonLv2(entt::registry& registry, const Position& position);
 }  // namespace Monster
 }  // namespace CubbyTower
 

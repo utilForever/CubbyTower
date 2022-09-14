@@ -45,4 +45,27 @@ void CreateNormalBalloon(entt::registry& registry, const Position& position)
     registry.emplace<TargetScore>(entity, 0.0f);
     registry.emplace<Speed>(entity, speed, speed);
 }
+
+void CreateNormalBalloonLv2(entt::registry& registry, const Position& position)
+{
+    constexpr float size = 0.15f;
+    constexpr float speed = 45.0f / 60.0f;
+
+    auto entity = registry.create();
+    registry.emplace<Tag::Monster>(entity);
+    registry.emplace<Position>(entity, position);
+    registry.emplace<Size>(entity, size, size);
+    registry.emplace<Color>(entity, Color{ 54.0f / 255.0f, 242.0f / 255.0f,
+                                           251.0f / 255.0f, 1.0f });
+    registry.emplace<ShapeRenderer>(entity, Shape::DrawCircle);
+    registry.emplace<Traveler>(entity, 0, GROUND_WAYPOINT_COUNT,
+                               static_cast<const Position*>(GROUND_WAYPOINTS));
+    registry.emplace<Name>(entity, "Normal Balloon");
+    registry.emplace<Health>(entity, 50, 50);
+    registry.emplace<Gold>(entity, 20);
+    registry.emplace<Target>(entity, TargetMask{ GROUND });
+    registry.emplace<Hoverable>(entity);
+    registry.emplace<TargetScore>(entity, 0.0f);
+    registry.emplace<Speed>(entity, speed, speed);
+}
 }  // namespace CubbyTower::Monster
