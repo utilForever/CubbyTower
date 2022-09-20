@@ -15,6 +15,7 @@
 #include <CubbyTower/Components/StaticLinesRenderer.hpp>
 #include <CubbyTower/Components/UIContext.hpp>
 #include <CubbyTower/Game.hpp>
+#include <CubbyTower/Helpers/AudioHelpers.hpp>
 #include <CubbyTower/Helpers/RenderingHelpers.hpp>
 #include <CubbyTower/Helpers/TowerHelpers.hpp>
 #include <CubbyTower/Helpers/UIHelpers.hpp>
@@ -67,6 +68,11 @@ void Initialize(entt::registry& registry)
         resources.pcVertices = new VertexPC[MAX_VERTICES];
         resources.ptcVertices = new VertexPTC[MAX_VERTICES];
         registry.emplace<Resources>(entity, resources);
+    }
+
+    // Load audios
+    {
+        Audio::LoadSound("arrow", RESOURCES_DIR "/gun.wav");
     }
 
     // Create map entity

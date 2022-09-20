@@ -13,12 +13,14 @@
 #include <CubbyTower/Components/Name.hpp>
 #include <CubbyTower/Components/Placer.hpp>
 #include <CubbyTower/Components/Position.hpp>
+#include <CubbyTower/Components/Resources.hpp>
 #include <CubbyTower/Components/ShapeRenderer.hpp>
 #include <CubbyTower/Components/Size.hpp>
 #include <CubbyTower/Components/SizePulseAnim.hpp>
 #include <CubbyTower/Components/Targeter.hpp>
 #include <CubbyTower/Components/TextRenderer.hpp>
 #include <CubbyTower/Components/Upgradable.hpp>
+#include <CubbyTower/Helpers/AudioHelpers.hpp>
 #include <CubbyTower/Helpers/BankHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/ShootingHelpers.hpp>
@@ -80,6 +82,7 @@ void ShootArrowLv1(entt::registry& registry, entt::entity target,
 {
     Shooting::CreateArrow(registry, registry.get<Position>(from),
                           registry.get<Position>(target), 10);
+    Audio::PlaySound("arrow");
 }
 
 void ShootArrowLv2(entt::registry& registry, entt::entity target,

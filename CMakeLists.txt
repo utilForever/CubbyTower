@@ -38,6 +38,7 @@ endif()
 
 # Overrides
 set(CMAKE_MACOSX_RPATH ON)
+set(CMAKE_OSX_ARCHITECTURES "x86_64")
 
 # Set resources
 get_filename_component(RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Resources ABSOLUTE)
