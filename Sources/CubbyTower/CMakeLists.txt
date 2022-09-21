@@ -1,16 +1,32 @@
 # Target name
 set(target CubbyTower)
 
-# Define
-set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
+# Set architecture
+if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
+    set(ARCHITECTURE x86)
+else()
+    set(ARCHITECTURE x64)
+endif()
 
-link_directories(${SFML_LIBRARIES_PATH})
+# Define dependencies
+set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 set(SFML_LIBRARY_DEPENDENCIES sfml-audio sfml-graphics sfml-network sfml-system sfml-window)
+if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    set(SFML_EXTLIBS_PATH ${CMAKE_SOURCE_DIR}/Libraries/SFML/extlibs/libs-msvc/${ARCHITECTURE})
+    set(SFML_OPENAL_DEPENDENCIES openal32)
+elseif (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    set(SFML_OPENAL_DEPENDENCIES openal)
+elseif (CMAKE_SYSTEM_NAME MATCHES "Darwin")
+    set(SFML_OPENAL_DEPENDENCIES ${OPENAL_LIBRARY})
+endif()
 
 # Includes
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
+
+# Links
+link_directories(${SFML_EXTLIBS_PATH})
 
 # Sources
 file(GLOB header_dir
@@ -60,3 +76,11 @@ target_link_libraries(${target}
 
     INTERFACE
 )
+
+# Copy OpenAL dll file
+if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+    add_custom_command(TARGET CubbyTower POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_SOURCE_DIR}/Libraries/SFML/extlibs/bin/${ARCHITECTURE}"
+            $<TARGET_FILE_DIR:CubbyTower>)
+endif()
