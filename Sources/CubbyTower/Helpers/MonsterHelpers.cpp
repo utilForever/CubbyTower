@@ -84,7 +84,7 @@ void CreateNormalBalloonLv3(entt::registry& registry, const Position& position)
     registry.emplace<Traveler>(entity, 0, GROUND_WAYPOINT_COUNT,
                                static_cast<const Position*>(GROUND_WAYPOINTS));
     registry.emplace<Name>(entity, "Normal Balloon Level 3");
-    registry.emplace<Health>(entity, 70, 70);
+    registry.emplace<Health>(entity, 90, 90);
     registry.emplace<Gold>(entity, 40);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
@@ -95,7 +95,7 @@ void CreateNormalBalloonLv3(entt::registry& registry, const Position& position)
 void CreatePigeonBalloon(entt::registry& registry, const Position& position)
 {
     constexpr float size = 0.13f;
-    constexpr float speed = 90.0f / 60.0f;
+    constexpr float speed = 150.0f / 60.0f;
 
     auto entity = registry.create();
     registry.emplace<Tag::Monster>(entity);
@@ -107,7 +107,7 @@ void CreatePigeonBalloon(entt::registry& registry, const Position& position)
     registry.emplace<Traveler>(entity, 0, GROUND_WAYPOINT_COUNT,
                                static_cast<const Position*>(GROUND_WAYPOINTS));
     registry.emplace<Name>(entity, "Pigeon Balloon");
-    registry.emplace<Health>(entity, 20, 20);
+    registry.emplace<Health>(entity, 40, 40);
     registry.emplace<Gold>(entity, 40);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
