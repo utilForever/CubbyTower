@@ -69,9 +69,38 @@ const static WaveFactory WAVE_2_FACTORIES[] = { Monster::CreateNormalBalloon,
                                                 Monster::CreateNormalBalloonLv2,
                                                 nullptr };
 
+constexpr static float WAVE_3_TIMES[] = { 0.00f,  1.50f,  2.50f,  3.50f,
+                                          5.00f,  6.50f,  7.50f,  8.50f,
+                                          10.00f, 10.50f, 12.00f, 13.00f,
+                                          14.00f, 15.00f, 15.50f, 17.00f,
+                                          18.00f, 19.00f, 19.00f };
+
+const static WaveFactory WAVE_3_FACTORIES[] = { Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv2,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv2,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv2,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv2,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv3,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv2,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv2,
+                                                Monster::CreateNormalBalloon,
+                                                Monster::CreateNormalBalloonLv2,
+                                                Monster::CreateNormalBalloon,
+                                                nullptr };
+
+
 const static WaveInfo WAVES[] = {
     { 13, WAVE_1_TIMES, WAVE_1_FACTORIES },
     { 19, WAVE_2_TIMES, WAVE_2_FACTORIES },
+    { 20, WAVE_3_TIMES, WAVE_3_FACTORIES },
 };
 }  // namespace CubbyTower
 
