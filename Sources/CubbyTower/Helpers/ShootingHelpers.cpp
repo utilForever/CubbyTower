@@ -22,7 +22,6 @@
 #include <CubbyTower/Helpers/ShootingHelpers.hpp>
 
 #include <cmath>
-#include <iostream>
 
 namespace CubbyTower::Shooting
 {

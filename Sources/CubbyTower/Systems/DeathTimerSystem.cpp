@@ -4,7 +4,6 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#include <CubbyTower/Components/Name.hpp>
 #include <CubbyTower/Components/DeathTimer.hpp>
 #include <CubbyTower/Systems/DeathTimerSystem.hpp>
 

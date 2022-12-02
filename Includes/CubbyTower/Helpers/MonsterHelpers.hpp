@@ -26,8 +26,7 @@ void CreateNormalBalloon(entt::registry& registry, const Position& position);
 //! \param initialWayPointIndex The initial way point index of a balloon.
 void CreateCustomNormalBalloon(entt::registry& registry,
                                const Position& position,
-                               int& initialWayPointIndex,
-                               int level);
+                               int& initialWayPointIndex, int level);
 
 //! Creates a normal balloon level 2.
 //! \param registry A registry that handles entities.
@@ -40,10 +39,12 @@ void CreateNormalBalloonLv2(entt::registry& registry, const Position& position);
 void CreateNormalBalloonLv3(entt::registry& registry, const Position& position);
 
 //! Creates a pigeon balloon.
-//! Instead of having low health, it moves very fast and makes enemies it
-//! encounters fast. \param registry A registry that handles entities. \param
-//! position The position to place a normal balloon.
+//! Instead of having low health,
+//! it moves very fast and makes enemies it encounters fast.
+//! \param registry A registry that handles entities.
+//! \param position The position to place a normal balloon.
 void CreatePigeonBalloon(entt::registry& registry, const Position& position);
+
 //! Creates a Massive Ornary Air Blimp (MOAB) balloon.
 //! \param registry A registry that handles entities.
 //! \param position The position to place a normal balloon.
