@@ -9,12 +9,15 @@
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/DeathTimer.hpp>
 #include <CubbyTower/Components/Health.hpp>
+#include <CubbyTower/Components/Name.hpp>
 #include <CubbyTower/Components/Position.hpp>
 #include <CubbyTower/Components/PositionAnim.hpp>
 #include <CubbyTower/Components/ShapeRenderer.hpp>
 #include <CubbyTower/Components/Size.hpp>
 #include <CubbyTower/Components/SizePulseAnim.hpp>
+#include <CubbyTower/Components/Traveler.hpp>
 #include <CubbyTower/Helpers/BankHelpers.hpp>
+#include <CubbyTower/Helpers/MonsterHelpers.hpp>
 #include <CubbyTower/Helpers/ShapeHelpers.hpp>
 #include <CubbyTower/Helpers/ShootingHelpers.hpp>
 
@@ -90,6 +93,21 @@ void Kill(entt::registry& registry, entt::entity& target)
 {
     Bank::Transfer(registry, target, registry.view<Tag::Player>()[0]);
 
+    auto& name = registry.get<Name>(target);
+    if (name.name == "MOAB")
+    {
+        auto& position = registry.get<Position>(target);
+        auto& traveler = registry.get<Traveler>(target);
+        Monster::CreateCustomNormalBalloon(registry, position, traveler.nextWaypointIndex, 3);
+        Monster::CreateCustomNormalBalloon(registry,
+                                        { position.x - 0.5f, position.y }, traveler.nextWaypointIndex, 2);
+        Monster::CreateCustomNormalBalloon(registry,
+                                        { position.x, position.y - 0.5f }, traveler.nextWaypointIndex, 2);
+        Monster::CreateCustomNormalBalloon(registry,
+                                        { position.x + 0.5f, position.y }, traveler.nextWaypointIndex, 2);
+        Monster::CreateCustomNormalBalloon(registry,
+                                        { position.x, position.y + 0.5f }, traveler.nextWaypointIndex, 2);
+    }
     registry.destroy(target);
 }
 }  // namespace CubbyTower::Shooting
