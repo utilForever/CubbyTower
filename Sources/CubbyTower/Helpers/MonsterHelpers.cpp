@@ -25,7 +25,7 @@
 
 namespace CubbyTower::Monster
 {
-struct Balloon_info
+struct BalloonInfo
 {
     constexpr static float NORMAL_BALLOON_SIZE[] = { 0.15f, 0.16f, 0.17f };
     constexpr static Color NORMAL_BALLOON_COLOR[] = {
@@ -39,21 +39,21 @@ struct Balloon_info
 
 void CreateNormalBalloon(entt::registry& registry, const Position& position)
 {
-    constexpr float size = Balloon_info::NORMAL_BALLOON_SIZE[0];
+    constexpr float size = BalloonInfo::NORMAL_BALLOON_SIZE[0];
     constexpr float speed = 45.0f / 60.0f;
 
     auto entity = registry.create();
     registry.emplace<Tag::Monster>(entity);
     registry.emplace<Position>(entity, position);
     registry.emplace<Size>(entity, size, size);
-    registry.emplace<Color>(entity, Balloon_info::NORMAL_BALLOON_COLOR[0]);
+    registry.emplace<Color>(entity, BalloonInfo::NORMAL_BALLOON_COLOR[0]);
     registry.emplace<ShapeRenderer>(entity, Shape::DrawCircle);
     registry.emplace<Traveler>(entity, 0, GROUND_WAYPOINT_COUNT,
                                static_cast<const Position*>(GROUND_WAYPOINTS));
     registry.emplace<Name>(entity, "Normal Balloon Level 1");
-    registry.emplace<Health>(entity, Balloon_info::NORMAL_BALLOON_HEALTH[0],
-                             Balloon_info::NORMAL_BALLOON_HEALTH[0]);
-    registry.emplace<Gold>(entity, Balloon_info::NORMAL_BALLOON_GOLD[0]);
+    registry.emplace<Health>(entity, BalloonInfo::NORMAL_BALLOON_HEALTH[0],
+                             BalloonInfo::NORMAL_BALLOON_HEALTH[0]);
+    registry.emplace<Gold>(entity, BalloonInfo::NORMAL_BALLOON_GOLD[0]);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
     registry.emplace<TargetScore>(entity, 0.0f);
@@ -64,23 +64,23 @@ void CreateCustomNormalBalloon(entt::registry& registry,
                                const Position& position,
                                int& initialWayPointIndex, int level = 1)
 {
-    float size = Balloon_info::NORMAL_BALLOON_SIZE[level - 1];
+    float size = BalloonInfo::NORMAL_BALLOON_SIZE[level - 1];
     constexpr float speed = 45.0f / 60.0f;
 
     auto entity = registry.create();
     registry.emplace<Tag::Monster>(entity);
     registry.emplace<Position>(entity, position);
     registry.emplace<Size>(entity, size, size);
-    registry.emplace<Color>(entity, Balloon_info::NORMAL_BALLOON_COLOR[level - 1]);
+    registry.emplace<Color>(entity, BalloonInfo::NORMAL_BALLOON_COLOR[level - 1]);
     registry.emplace<ShapeRenderer>(entity, Shape::DrawCircle);
     registry.emplace<Traveler>(entity, initialWayPointIndex,
                                GROUND_WAYPOINT_COUNT,
                                static_cast<const Position*>(GROUND_WAYPOINTS));
     registry.emplace<Name>(entity,
                            "Normal Balloon Level " + std::to_string(level));
-    registry.emplace<Health>(entity, Balloon_info::NORMAL_BALLOON_HEALTH[level - 1],
-                             Balloon_info::NORMAL_BALLOON_HEALTH[level - 1]);
-    registry.emplace<Gold>(entity, Balloon_info::NORMAL_BALLOON_GOLD[level - 1]);
+    registry.emplace<Health>(entity, BalloonInfo::NORMAL_BALLOON_HEALTH[level - 1],
+                             BalloonInfo::NORMAL_BALLOON_HEALTH[level - 1]);
+    registry.emplace<Gold>(entity, BalloonInfo::NORMAL_BALLOON_GOLD[level - 1]);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
     registry.emplace<TargetScore>(entity, 0.0f);
@@ -89,21 +89,21 @@ void CreateCustomNormalBalloon(entt::registry& registry,
 
 void CreateNormalBalloonLv2(entt::registry& registry, const Position& position)
 {
-    constexpr float size = Balloon_info::NORMAL_BALLOON_SIZE[1];
+    constexpr float size = BalloonInfo::NORMAL_BALLOON_SIZE[1];
     constexpr float speed = 45.0f / 60.0f;
 
     auto entity = registry.create();
     registry.emplace<Tag::Monster>(entity);
     registry.emplace<Position>(entity, position);
     registry.emplace<Size>(entity, size, size);
-    registry.emplace<Color>(entity, Balloon_info::NORMAL_BALLOON_COLOR[1]);
+    registry.emplace<Color>(entity, BalloonInfo::NORMAL_BALLOON_COLOR[1]);
     registry.emplace<ShapeRenderer>(entity, Shape::DrawCircle);
     registry.emplace<Traveler>(entity, 0, GROUND_WAYPOINT_COUNT,
                                static_cast<const Position*>(GROUND_WAYPOINTS));
     registry.emplace<Name>(entity, "Normal Balloon Level 2");
-    registry.emplace<Health>(entity, Balloon_info::NORMAL_BALLOON_HEALTH[1],
-                             Balloon_info::NORMAL_BALLOON_HEALTH[1]);
-    registry.emplace<Gold>(entity, Balloon_info::NORMAL_BALLOON_GOLD[1]);
+    registry.emplace<Health>(entity, BalloonInfo::NORMAL_BALLOON_HEALTH[1],
+                             BalloonInfo::NORMAL_BALLOON_HEALTH[1]);
+    registry.emplace<Gold>(entity, BalloonInfo::NORMAL_BALLOON_GOLD[1]);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
     registry.emplace<TargetScore>(entity, 0.0f);
@@ -112,21 +112,21 @@ void CreateNormalBalloonLv2(entt::registry& registry, const Position& position)
 
 void CreateNormalBalloonLv3(entt::registry& registry, const Position& position)
 {
-    constexpr float size = Balloon_info::NORMAL_BALLOON_SIZE[2];
+    constexpr float size = BalloonInfo::NORMAL_BALLOON_SIZE[2];
     constexpr float speed = 45.0f / 60.0f;
 
     auto entity = registry.create();
     registry.emplace<Tag::Monster>(entity);
     registry.emplace<Position>(entity, position);
     registry.emplace<Size>(entity, size, size);
-    registry.emplace<Color>(entity, Balloon_info::NORMAL_BALLOON_COLOR[2]);
+    registry.emplace<Color>(entity, BalloonInfo::NORMAL_BALLOON_COLOR[2]);
     registry.emplace<ShapeRenderer>(entity, Shape::DrawCircle);
     registry.emplace<Traveler>(entity, 0, GROUND_WAYPOINT_COUNT,
                                static_cast<const Position*>(GROUND_WAYPOINTS));
     registry.emplace<Name>(entity, "Normal Balloon Level 3");
-    registry.emplace<Health>(entity, Balloon_info::NORMAL_BALLOON_HEALTH[2],
-                             Balloon_info::NORMAL_BALLOON_HEALTH[2]);
-    registry.emplace<Gold>(entity, Balloon_info::NORMAL_BALLOON_GOLD[2]);
+    registry.emplace<Health>(entity, BalloonInfo::NORMAL_BALLOON_HEALTH[2],
+                             BalloonInfo::NORMAL_BALLOON_HEALTH[2]);
+    registry.emplace<Gold>(entity, BalloonInfo::NORMAL_BALLOON_GOLD[2]);
     registry.emplace<Target>(entity, TargetMask{ GROUND });
     registry.emplace<Hoverable>(entity);
     registry.emplace<TargetScore>(entity, 0.0f);
