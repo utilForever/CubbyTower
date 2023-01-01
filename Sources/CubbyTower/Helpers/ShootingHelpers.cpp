@@ -72,7 +72,6 @@ static void OnCollideCollatz(entt::registry& registry, entt::entity entity)
 
             if (dist < 0.5f)
             {
-                auto health = registry.get<Health>(entity);
                 int damage = collatzDamage.maxDamage;
                 if (health.curAmount % 2 == 0)
                 {
