@@ -113,6 +113,23 @@ void CreateArrow(entt::registry& registry, const Position& from,
     registry.emplace<Damage>(entity, damage);
 }
 
+void CreateCollatz(entt::registry& registry, const Position& from,
+                   const Position& to, CollatzDamage collatzDamage)
+{
+    const float dx = to.x - from.x;
+    const float dy = to.y - from.y;
+    const float len = std::sqrt(dx * dx + dy * dy);
+
+    auto entity = registry.create();
+    registry.emplace<Position>(entity, from);
+    registry.emplace<PositionAnim>(entity, from, to, 0.0f, len / 10.0f,
+                                   OnCollideCollatz);
+    registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
+    registry.emplace<Size>(entity, 0.15f, 0.15f);
+    registry.emplace<Color>(entity, Color{ 0.0f, 1.0f, 1.0f, 1.0f });
+    registry.emplace<CollatzDamage>(entity, collatzDamage);
+}
+
 void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
 {
     if (!registry.all_of<Health>(target))
