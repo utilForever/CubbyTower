@@ -5,6 +5,7 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Components/CollatzDamage.hpp>
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/DeathTimer.hpp>
@@ -53,6 +54,48 @@ static void OnCollideArrow(entt::registry& registry, entt::entity entity)
     registry.emplace<Color>(fxEntity, color);
 }
 
+static void OnCollideCollatz(entt::registry& registry, entt::entity entity)
+{
+    auto impactPoint = registry.get<Position>(entity);
+    auto color = registry.get<Color>(entity);
+    auto collatzDamage = registry.get<CollatzDamage>(entity);
+
+    registry.destroy(entity);
+
+    registry.view<Health, Position>().each(
+        [&registry, impactPoint, collatzDamage](
+            entt::entity entity, [[maybe_unused]] const Health& health,
+            const Position& position) {
+            auto dx = position.x - impactPoint.x;
+            auto dy = position.y - impactPoint.y;
+            auto dist = dx * dx + dy * dy;
+
+            if (dist < 0.5f)
+            {
+                auto health = registry.get<Health>(entity);
+                int damage = collatzDamage.maxDamage;
+                if (health.curAmount % 2 == 0)
+                {
+                    if (damage > health.curAmount / 2)
+                        damage = health.curAmount / 2;
+                }
+                else
+                {
+                    damage = -(health.curAmount * 2 + 1);
+                }
+                GiveDamage(registry, entity, damage);
+            }
+        });
+
+    auto fxEntity = registry.create();
+    registry.emplace<Position>(fxEntity, impactPoint);
+    registry.emplace<DeathTimer>(fxEntity, 0.4f);
+    registry.emplace<Size>(fxEntity, 0.5f);
+    registry.emplace<ShapeRenderer>(fxEntity, Shape::DrawCircle);
+    registry.emplace<SizePulseAnim>(fxEntity, 0.0f, 25.0f, 0.15f, 0.5f);
+    registry.emplace<Color>(fxEntity, color);
+}
+
 void CreateArrow(entt::registry& registry, const Position& from,
                  const Position& to, int damage)
 {
@@ -79,6 +122,8 @@ void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
 
     auto& health = registry.get<Health>(target);
     health.curAmount -= damage;
+    if (health.curAmount > health.maxAmount)
+        health.curAmount = health.maxAmount;
 
     if (health.curAmount <= 0)
     {
