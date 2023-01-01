@@ -14,6 +14,9 @@ constexpr static int ARROW_TOWER_LV1_PRICE = 100;
 
 //! The price of arrow tower at level 2.
 constexpr static int ARROW_TOWER_LV2_PRICE = 200;
+
+//! The price of collatz tower.
+constexpr static int COLLATZ_TOWER_PRICE = 500;
 }  // namespace CubbyTower
 
 #endif  // CUBBYTOWER_TOWER_DATA_HPP
