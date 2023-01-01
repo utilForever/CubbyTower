@@ -7,6 +7,7 @@
 #include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Commons/TowerData.hpp>
+#include <CubbyTower/Components/CollatzDamage.hpp>
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/FindTarget.hpp>
 #include <CubbyTower/Components/Hoverable.hpp>
@@ -89,6 +90,15 @@ void ShootArrowLv2(entt::registry& registry, entt::entity target,
                    entt::entity from)
 {
     // Do nothing
+}
+
+void ShootCollatz(entt::registry& registry, entt::entity target,
+                  entt::entity from)
+{
+    Shooting::CreateCollatz(registry, registry.get<Position>(from),
+                            registry.get<Position>(target),
+                            CollatzDamage{ 100 });
+    Audio::PlaySound("arrow");
 }
 
 entt::entity FindFirstTarget(entt::registry& registry)
