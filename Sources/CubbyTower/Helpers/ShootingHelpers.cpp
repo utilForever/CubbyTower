@@ -73,15 +73,16 @@ static void OnCollideCollatz(entt::registry& registry, entt::entity entity)
             if (dist < 0.5f)
             {
                 int damage = collatzDamage.maxDamage;
+                
                 if (health.curAmount % 2 == 0)
                 {
-                    if (damage > health.curAmount / 2)
-                        damage = health.curAmount / 2;
+                    damage = std::min(damage, health.curAmount / 2);
                 }
                 else
                 {
                     damage = -(health.curAmount * 2 + 1);
                 }
+                
                 GiveDamage(registry, entity, damage);
             }
         });
@@ -138,8 +139,7 @@ void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
 
     auto& health = registry.get<Health>(target);
     health.curAmount -= damage;
-    if (health.curAmount > health.maxAmount)
-        health.curAmount = health.maxAmount;
+    health.curAmount = std::min(health.curAmount, health.maxAmount);
 
     if (health.curAmount <= 0)
     {

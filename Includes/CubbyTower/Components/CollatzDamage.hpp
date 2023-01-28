@@ -4,8 +4,8 @@
 // personal capacity and are not conveying any rights to any intellectual
 // property of any third parties.
 
-#ifndef CUBBYTOWER_COLLATZDAMAGE_HPP
-#define CUBBYTOWER_COLLATZDAMAGE_HPP
+#ifndef CUBBYTOWER_COLLATZ_DAMAGE_HPP
+#define CUBBYTOWER_COLLATZ_DAMAGE_HPP
 
 namespace CubbyTower
 {
@@ -20,4 +20,4 @@ struct CollatzDamage
 };
 }  // namespace CubbyTower
 
-#endif  // CUBBYTOWER_DAMAGE_HPP
+#endif  // CUBBYTOWER_COLLATZ_DAMAGE_HPP
