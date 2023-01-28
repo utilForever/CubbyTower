@@ -137,6 +137,12 @@ void Initialize(entt::registry& registry)
             [](entt::registry& registry, entt::entity button) {
                 Tower::CreatePlacer(registry, Tower::BuyArrowTower);
             });
+
+        UI::CreateTowerButton(
+            registry, "Collatz Tower", { -1, 15.5f }, COLLATZ_TOWER_PRICE,
+            [](entt::registry& registry, entt::entity button) {
+                Tower::CreatePlacer(registry, Tower::BuyCollatzTower);
+            });
     }
 }
 

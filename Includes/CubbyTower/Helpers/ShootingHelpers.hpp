@@ -24,6 +24,14 @@ namespace Shooting
 void CreateArrow(entt::registry& registry, const Position& from,
                  const Position& to, int damage);
 
+//! Creates an Collatz entity to shoot a target.
+//! \param registry A registry that handles entities.
+//! \param from The start position of the collatz for the collatz tower.
+//! \param to The end position of the collatz for target.
+//! \param collatzDamage The amount of collatz damage to give.
+void CreateCollatz(entt::registry& registry, const Position& from,
+                   const Position& to, CollatzDamage collatzDamage);
+
 //! Gives a damage to a target.
 //! \param registry A registry that handles entities.
 //! \param target A target that takes a damage.

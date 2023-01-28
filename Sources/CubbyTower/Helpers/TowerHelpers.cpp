@@ -7,6 +7,7 @@
 #include <CubbyTower/Commons/Constants.hpp>
 #include <CubbyTower/Commons/Tags.hpp>
 #include <CubbyTower/Commons/TowerData.hpp>
+#include <CubbyTower/Components/CollatzDamage.hpp>
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/FindTarget.hpp>
 #include <CubbyTower/Components/Hoverable.hpp>
@@ -89,6 +90,39 @@ void ShootArrowLv2(entt::registry& registry, entt::entity target,
                    entt::entity from)
 {
     // Do nothing
+}
+
+void BuyCollatzTower(entt::registry& registry, const Position& position)
+{
+    // Check the player can buy arrow tower
+    if (!Bank::Withdraw(registry, registry.view<Tag::Player>()[0],
+                        COLLATZ_TOWER_PRICE))
+    {
+        return;
+    }
+
+    auto entity = registry.create();
+    registry.emplace<Tag::Tower>(entity);
+    registry.emplace<Position>(entity, position);
+    registry.emplace<Size>(entity, TOWER_SIZE, TOWER_SIZE);
+    registry.emplace<Color>(entity, TOWER_LEVEL1_COLOR);
+    registry.emplace<TextRenderer>(entity, "C", Color{ 0.0f, 0.0f, 0.0f, 0.0f },
+                                   0.5f);
+    registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
+    registry.emplace<Name>(entity, "Collatz Tower(WIP)");
+    registry.emplace<Targeter>(entity, TargetMask{ GROUND | AIR },
+                               210.0f / 60.0f, 1.0f, ShootCollatz);
+    registry.emplace<Hoverable>(entity);
+    registry.emplace<FindTarget>(entity, FindFirstTarget);
+}
+
+void ShootCollatz(entt::registry& registry, entt::entity target,
+                  entt::entity from)
+{
+    Shooting::CreateCollatz(registry, registry.get<Position>(from),
+                            registry.get<Position>(target),
+                            CollatzDamage{ 100 });
+    Audio::PlaySound("arrow");
 }
 
 entt::entity FindFirstTarget(entt::registry& registry)

@@ -48,6 +48,18 @@ void ShootArrowLv1(entt::registry& registry, entt::entity target,
 void ShootArrowLv2(entt::registry& registry, entt::entity target,
                    entt::entity from);
 
+//! Buys a collatz tower.
+//! \param registry A registry that handles entities.
+//! \param position The position to place a collatz tower.
+void BuyCollatzTower(entt::registry& registry, const Position& position);
+
+// Shoots a collatz instance for collatz tower.
+//! \param registry A registry that handles entities.
+//! \param target A target entity to shoot.
+//! \param from A tower entity that shoots collatz instance.
+void ShootCollatz(entt::registry& registry, entt::entity target,
+                  entt::entity from);
+
 //! Finds a first target within a range.
 //! \param registry A registry that handles entities.
 //! \return a first target if it is within a range, entt::null otherwise.

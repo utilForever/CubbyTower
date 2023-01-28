@@ -5,6 +5,7 @@
 // property of any third parties.
 
 #include <CubbyTower/Commons/Tags.hpp>
+#include <CubbyTower/Components/CollatzDamage.hpp>
 #include <CubbyTower/Components/Color.hpp>
 #include <CubbyTower/Components/Damage.hpp>
 #include <CubbyTower/Components/DeathTimer.hpp>
@@ -56,6 +57,48 @@ static void OnCollideArrow(entt::registry& registry, entt::entity entity)
     registry.emplace<Color>(fxEntity, color);
 }
 
+static void OnCollideCollatz(entt::registry& registry, entt::entity entity)
+{
+    auto impactPoint = registry.get<Position>(entity);
+    auto color = registry.get<Color>(entity);
+    auto collatzDamage = registry.get<CollatzDamage>(entity);
+
+    registry.destroy(entity);
+
+    registry.view<Health, Position>().each(
+        [&registry, impactPoint, collatzDamage](
+            entt::entity entity, [[maybe_unused]] const Health& health,
+            const Position& position) {
+            auto dx = position.x - impactPoint.x;
+            auto dy = position.y - impactPoint.y;
+            auto dist = dx * dx + dy * dy;
+
+            if (dist < 0.5f)
+            {
+                int damage = collatzDamage.maxDamage;
+                
+                if (health.curAmount % 2 == 0)
+                {
+                    damage = std::min(damage, health.curAmount / 2);
+                }
+                else
+                {
+                    damage = -(health.curAmount * 2 + 1);
+                }
+                
+                GiveDamage(registry, entity, damage);
+            }
+        });
+
+    auto fxEntity = registry.create();
+    registry.emplace<Position>(fxEntity, impactPoint);
+    registry.emplace<DeathTimer>(fxEntity, 0.4f);
+    registry.emplace<Size>(fxEntity, 0.5f);
+    registry.emplace<ShapeRenderer>(fxEntity, Shape::DrawCircle);
+    registry.emplace<SizePulseAnim>(fxEntity, 0.0f, 25.0f, 0.15f, 0.5f);
+    registry.emplace<Color>(fxEntity, color);
+}
+
 void CreateArrow(entt::registry& registry, const Position& from,
                  const Position& to, int damage)
 {
@@ -73,6 +116,23 @@ void CreateArrow(entt::registry& registry, const Position& from,
     registry.emplace<Damage>(entity, damage);
 }
 
+void CreateCollatz(entt::registry& registry, const Position& from,
+                   const Position& to, CollatzDamage collatzDamage)
+{
+    const float dx = to.x - from.x;
+    const float dy = to.y - from.y;
+    const float len = std::sqrt(dx * dx + dy * dy);
+
+    auto entity = registry.create();
+    registry.emplace<Position>(entity, from);
+    registry.emplace<PositionAnim>(entity, from, to, 0.0f, len / 10.0f,
+                                   OnCollideCollatz);
+    registry.emplace<ShapeRenderer>(entity, Shape::DrawBox);
+    registry.emplace<Size>(entity, 0.15f, 0.15f);
+    registry.emplace<Color>(entity, Color{ 0.0f, 1.0f, 1.0f, 1.0f });
+    registry.emplace<CollatzDamage>(entity, collatzDamage);
+}
+
 void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
 {
     if (!registry.all_of<Health>(target))
@@ -82,6 +142,7 @@ void GiveDamage(entt::registry& registry, entt::entity& target, int damage)
 
     auto& health = registry.get<Health>(target);
     health.curAmount -= damage;
+    health.curAmount = std::min(health.curAmount, health.maxAmount);
 
     if (health.curAmount <= 0)
     {
